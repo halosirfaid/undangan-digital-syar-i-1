@@ -18,6 +18,138 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      /* =========================================
+   SECTION SALAM & AYAT
+========================================= */
+
+.salam-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(165, 139, 80, 0.08), transparent 35%),
+        #f7f3e8;
+    color: #414838;
+}
+
+/* Ornamen kecil */
+.salam-ornament {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.salam-ornament::before,
+.salam-ornament::after {
+    content: "";
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(151, 132, 77, 0.35);
+    transform: rotate(45deg);
+}
+
+.salam-ornament::after {
+    width: 28px;
+    height: 28px;
+    border-color: rgba(89, 99, 77, 0.25);
+}
+
+.salam-ornament span {
+    position: relative;
+    z-index: 2;
+    color: #a58b50;
+    font-size: 15px;
+}
+
+/* Salam */
+.salam-title {
+    font-family: 'Amiri', serif;
+    color: #59634d;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+/* Ayat */
+.salam-ayat {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 27px;
+    line-height: 2.1;
+    color: #3f4636;
+    text-align: center;
+}
+
+/* Terjemahan */
+.salam-terjemahan {
+    font-size: 11px;
+    line-height: 2;
+    color: #77745f;
+}
+
+/* Referensi ayat */
+.salam-referensi {
+    color: #a58b50;
+    letter-spacing: 0.18em;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+/* Garis */
+.salam-divider {
+    width: 90px;
+    height: 1px;
+    background: #a58b50;
+    margin: 25px auto;
+    opacity: 0.55;
+}
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-wrapper {
+    margin-top: 35px;
+}
+
+.countdown-item {
+    width: 62px;
+    height: 62px;
+    border: 1px solid rgba(151, 132, 77, 0.28);
+    background: rgba(255,255,255,0.45);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #59634d;
+}
+
+.countdown-item span {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.countdown-item p {
+    margin-top: 5px;
+    font-size: 7px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8b876f;
+}
+
+.countdown-item:last-child {
+    background: #59634d;
+    color: white;
+    border-color: #59634d;
+}
+
+.countdown-item:last-child p {
+    color: rgba(255,255,255,0.7);
+}
         /* Efek Zoom Pelan */
 @keyframes kenBurns {
     0% { transform: scale(1); }
@@ -461,34 +593,89 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
     <div id="konten-utama">
-        
-        <section id="salam" class="py-20 px-6 text-center bg-[#fffcf5]">
-    <div class="max-w-md mx-auto">
-        <h3 class="font-aesthetic text-4xl text-amber-700 mb-12 tracking-wide leading-relaxed">
-            Assalamu'alaikum Wr. Wb.
-        </h3>
-                <div class="arabic-container mb-6 px-4">
-<p class="text-2xl text-stone-800" style="font-family: 'Reem Kufi', sans-serif;" dir="rtl">
-        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْواجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
-    </p>
-</div>
+        <section id="salam" class="salam-section py-24 px-6 text-center">
 
-<p class="text-xs leading-relaxed text-stone-600 mb-8 italic">
-    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sungguh pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
-    
-    <span class="block mt-3 font-bold not-italic text-amber-700 text-[10px] tracking-widest">
-        (QS. AR-RUM: 21)
-    </span>
-</p>
+    <div class="max-w-md mx-auto reveal">
 
-                                <div id="countdown" class="flex justify-center gap-2 mb-10">
-                    <div class="bg-stone-800 text-white p-3 rounded-xl w-14"><span id="days" class="text-lg font-bold block">00</span><p class="text-[7px] uppercase">Hari</p></div>
-                    <div class="bg-stone-800 text-white p-3 rounded-xl w-14"><span id="hours" class="text-lg font-bold block">00</span><p class="text-[7px] uppercase">Jam</p></div>
-                    <div class="bg-stone-800 text-white p-3 rounded-xl w-14"><span id="minutes" class="text-lg font-bold block">00</span><p class="text-[7px] uppercase">Menit</p></div>
-                    <div class="bg-amber-700 text-white p-3 rounded-xl w-14 animate-pulse"><span id="seconds" class="text-lg font-bold block">00</span><p class="text-[7px] uppercase">Detik</p></div>
-                    
+        <!-- Ornamen -->
+        <div class="salam-ornament">
+            <span>✦</span>
+        </div>
+
+        <!-- Salam -->
+        <h2 class="salam-title mb-8">
+            Assalamu'alaikum<br>
+            Warahmatullahi Wabarakatuh
+        </h2>
+
+        <div class="salam-divider"></div>
+
+        <!-- Ayat -->
+        <div class="px-2 mb-8">
+
+            <p class="salam-ayat" dir="rtl">
+                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ
+                أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا
+                إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً
+                وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ
+                لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+            </p>
+
+        </div>
+
+        <!-- Terjemahan -->
+        <p class="salam-terjemahan italic mb-5">
+            "Dan di antara tanda-tanda (kebesaran)-Nya ialah
+            Dia menciptakan pasangan-pasangan untukmu dari
+            jenismu sendiri, agar kamu cenderung dan merasa
+            tenteram kepadanya, dan dijadikan-Nya di antaramu
+            rasa kasih dan sayang."
+        </p>
+
+        <p class="salam-referensi">
+            QS. AR-RUM : 21
+        </p>
+
+        <div class="salam-divider"></div>
+
+        <!-- Countdown -->
+        <div class="countdown-wrapper">
+
+            <p class="text-[9px] uppercase tracking-[0.3em] text-stone-400 mb-5">
+                Menuju Hari Bahagia
+            </p>
+
+            <div id="countdown"
+                 class="flex justify-center gap-2">
+
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <p>Hari</p>
                 </div>
+
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <p>Jam</p>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <p>Menit</p>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <p>Detik</p>
+                </div>
+
             </div>
+
+        </div>
+
+    </div>
+
+</section>
+        
         <section id="mempelai" class="py-20 px-6 text-center bg-[#fffcf5]">
     <div class="max-w-md mx-auto reveal">
         <h2 class="text-4xl font-aesthetic text-amber-700 mb-12">Mempelai</h2>
