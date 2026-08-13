@@ -121,15 +121,91 @@
     border: 1px solid rgba(151, 132, 77, 0.15);
     border-radius: 50%;
 }
+/* =========================================
+   ORNAMEN LINGKARAN COVER
+========================================= */
+
+.cover-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(151, 132, 77, 0.22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Lingkaran bagian dalam */
+.cover-circle::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(151, 132, 77, 0.15);
+    border-radius: 50%;
+}
+
+/* Ornamen putar */
+.cover-circle::after {
+    content: "✦  ✧  ✦  ✧";
+    position: absolute;
+    inset: 35px;
+    border: 1px dashed rgba(151, 132, 77, 0.16);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(151, 132, 77, 0.25);
+    font-size: 18px;
+    letter-spacing: 15px;
+
+    animation: rotateOrnament 35s linear infinite;
+}
+
+/* Rotasi sangat pelan */
+@keyframes rotateOrnament {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 .cover-circle.top {
     top: -150px;
     right: -120px;
+
+    animation: floatTop 8s ease-in-out infinite;
 }
 
 .cover-circle.bottom {
     bottom: -170px;
     left: -140px;
+
+    animation: floatBottom 10s ease-in-out infinite;
+}
+
+/* Gerakan naik turun sangat halus */
+@keyframes floatTop {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-5px, 8px);
+    }
+}
+
+@keyframes floatBottom {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(7px, -5px);
+    }
 }
 
 /* Pola geometris Islami sederhana */
@@ -163,10 +239,24 @@
     height: auto;
     display: block;
     object-fit: contain;
-    animation: pengantinFloat 5s ease-in-out infinite;
-    filter: drop-shadow(0 12px 15px rgba(60, 65, 48, 0.12));
+
+    animation: pengantinFloat 6s ease-in-out infinite;
+
+    filter: drop-shadow(
+        0 12px 15px
+        rgba(60, 65, 48, 0.12)
+    );
 }
 
+@keyframes pengantinFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
 @keyframes pengantinFloat {
     0%, 100% {
         transform: translateY(0);
