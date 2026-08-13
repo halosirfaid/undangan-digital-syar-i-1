@@ -145,143 +145,187 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </div>
 
- <!-- =========================
+<!-- =========================
      SAMPUL SYAR'I
 ========================= -->
 
 <div id="halaman-sampul"
-     class="fixed inset-0 z-[100] flex flex-col justify-center items-center text-white text-center px-6 overflow-hidden"
+     class="fixed inset-0 z-[100] flex flex-col justify-center items-center text-center text-white px-6 overflow-hidden"
      style="
-       background:
-       radial-gradient(circle at 50% 35%, rgba(212,175,55,0.12), transparent 35%),
-       linear-gradient(160deg, #063f35 0%, #052f29 55%, #03241f 100%);
+     background:
+     radial-gradient(circle at 50% 35%, rgba(212,175,55,.12), transparent 35%),
+     linear-gradient(160deg,#063f35 0%,#052f29 55%,#031f1b 100%);
      ">
 
     <!-- Ornamen geometris -->
-    <div class="absolute inset-0 opacity-[0.07] pointer-events-none"
+    <div class="absolute inset-0 opacity-[0.06] pointer-events-none"
          style="
          background-image:
-         linear-gradient(30deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
-         linear-gradient(150deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
-         linear-gradient(30deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
-         linear-gradient(150deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37);
-         background-size: 70px 120px;
-         background-position: 0 0, 0 0, 35px 60px, 35px 60px;
+         linear-gradient(30deg,#d4af37 12%,transparent 12.5%,transparent 87%,#d4af37 87.5%),
+         linear-gradient(150deg,#d4af37 12%,transparent 12.5%,transparent 87%,#d4af37 87.5%);
+         background-size:70px 120px;
          ">
     </div>
 
-    <!-- Cahaya lembut -->
-    <div class="absolute w-72 h-72 rounded-full blur-3xl opacity-10 bg-amber-300 pointer-events-none"></div>
-
-    <!-- Bismillah -->
-    <div class="relative z-10 mb-3">
-        <p style="
-            font-family:'Amiri', serif;
-            font-size:30px;
-            color:#e6c96a;
-            direction:rtl;
-            line-height:1.5;
-        ">
-            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-        </p>
+    <!-- Cahaya -->
+    <div class="absolute w-80 h-80 rounded-full
+                bg-amber-300/10 blur-3xl pointer-events-none">
     </div>
 
-    <!-- Label -->
-    <p class="relative z-10 text-[9px] tracking-[0.45em] uppercase text-amber-200/80 mb-3">
+
+    <!-- BISMILLAH -->
+    <div class="relative z-10 mb-3">
+
+        <p style="
+        font-family:'Amiri',serif;
+        font-size:29px;
+        color:#e7c968;
+        direction:rtl;
+        ">
+
+        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+
+        </p>
+
+    </div>
+
+
+    <!-- JUDUL -->
+    <p class="relative z-10
+              text-[9px]
+              tracking-[0.45em]
+              uppercase
+              text-amber-100/80">
+
         UNDANGAN PERNIKAHAN
+
     </p>
 
-    <!-- Garis -->
-    <div class="relative z-10 flex items-center justify-center gap-3 mb-8">
-        <div class="w-12 h-[1px] bg-amber-300/60"></div>
 
-        <span class="text-amber-300 text-xs">✦</span>
+    <!-- ORNAMEN -->
+    <div class="relative z-10 flex items-center gap-3 my-5">
 
-        <div class="w-12 h-[1px] bg-amber-300/60"></div>
+        <div class="w-12 h-px bg-amber-300/50"></div>
+
+        <span class="text-amber-300">✦</span>
+
+        <div class="w-12 h-px bg-amber-300/50"></div>
+
     </div>
 
 
     <!-- =========================
-         ILUSTRASI PASANGAN SYAR'I
+         ILUSTRASI PASANGAN
     ========================== -->
 
-    <div class="relative z-10 w-72 h-64 flex items-end justify-center mb-6">
+    <div class="relative z-10
+                w-72
+                h-64
+                flex
+                items-end
+                justify-center
+                mb-5">
 
-        <!-- Bayangan dasar -->
-        <div class="absolute bottom-2 w-60 h-8 rounded-full bg-black/20 blur-md"></div>
+        <!-- bayangan -->
+        <div class="absolute bottom-1
+                    w-56 h-7
+                    rounded-full
+                    bg-black/30
+                    blur-md">
+        </div>
 
 
         <!-- WANITA -->
-        <div class="absolute left-6 bottom-4 w-32 h-56">
+        <div class="absolute left-4 bottom-3
+                    w-32 h-56">
 
-            <!-- Khimar -->
-            <div class="absolute bottom-0 left-0 w-32 h-48"
-                 style="
-                 background:linear-gradient(145deg,#f3ead2,#d9cbaa);
-                 border-radius:70px 70px 35px 35px;
-                 box-shadow:0 12px 25px rgba(0,0,0,.18);
-                 ">
+            <!-- khimar belakang -->
+            <div class="absolute
+                        bottom-0 left-0
+                        w-32 h-48
+                        rounded-[70px_70px_30px_30px]
+                        bg-gradient-to-br
+                        from-[#f5eedc]
+                        to-[#cdbf9d]
+                        shadow-xl">
             </div>
 
-            <!-- Bukaan wajah -->
-            <div class="absolute top-7 left-31 w-14 h-16"
-                 style="
-                 left:39px;
-                 background:#b98768;
-                 border-radius:50% 50% 45% 45%;
-                 opacity:.95;
-                 ">
+            <!-- wajah -->
+            <div class="absolute
+                        top-8 left-[43px]
+                        w-[48px] h-[58px]
+                        rounded-[50%_50%_45%_45%]
+                        bg-[#b98363]">
             </div>
 
-            <!-- Lapisan depan khimar -->
-            <div class="absolute bottom-0 left-4 w-24 h-28"
-                 style="
-                 background:linear-gradient(180deg,#eee3c7,#d4c29b);
-                 border-radius:50% 50% 20px 20px;
-                 ">
+            <!-- lapisan khimar depan -->
+            <div class="absolute
+                        bottom-0 left-3
+                        w-26 h-32
+                        rounded-t-[60px]
+                        bg-gradient-to-b
+                        from-[#eee5d0]
+                        to-[#cfc09d]">
+            </div>
+
+            <!-- kain samping -->
+            <div class="absolute
+                        bottom-0 -left-1
+                        w-10 h-32
+                        bg-[#ddd0b0]
+                        rounded-l-full">
             </div>
 
         </div>
 
 
         <!-- PRIA -->
-        <div class="absolute right-6 bottom-4 w-32 h-56">
+        <div class="absolute right-4 bottom-3
+                    w-32 h-56">
 
-            <!-- Tubuh gamis -->
-            <div class="absolute bottom-0 left-3 w-28 h-44"
-                 style="
-                 background:linear-gradient(145deg,#f0ead9,#cfc6ad);
-                 border-radius:65px 65px 15px 15px;
-                 box-shadow:0 12px 25px rgba(0,0,0,.18);
-                 ">
+            <!-- tubuh gamis -->
+            <div class="absolute
+                        bottom-0 left-2
+                        w-28 h-44
+                        rounded-t-[65px]
+                        bg-gradient-to-br
+                        from-[#f5f0df]
+                        to-[#cfc7b1]
+                        shadow-xl">
             </div>
 
-            <!-- Kepala -->
-            <div class="absolute top-9 left-10 w-12 h-14"
-                 style="
-                 background:#9d6b51;
-                 border-radius:50%;
-                 ">
+            <!-- kepala -->
+            <div class="absolute
+                        top-10 left-[43px]
+                        w-[48px] h-[58px]
+                        rounded-[50%]
+                        bg-[#99664d]">
             </div>
 
-            <!-- Peci -->
-            <div class="absolute top-5 left-7 w-18 h-9"
-                 style="
-                 left:7px;
-                 width:70px;
-                 height:30px;
-                 background:#f5f0df;
-                 border-radius:50% 50% 30% 30%;
-                 box-shadow:0 4px 8px rgba(0,0,0,.15);
-                 ">
+            <!-- peci -->
+            <div class="absolute
+                        top-5 left-[28px]
+                        w-[76px] h-[30px]
+                        rounded-[50%_50%_30%_30%]
+                        bg-[#f8f3e4]
+                        shadow-md">
             </div>
 
-            <!-- Bahu/jubah -->
-            <div class="absolute bottom-0 left-0 w-32 h-28"
-                 style="
-                 background:linear-gradient(180deg,#ddd5c1,#c7bda5);
-                 clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);
-                 ">
+            <!-- bahu gamis -->
+            <div class="absolute
+                        bottom-0 left-0
+                        w-32 h-28
+                        bg-gradient-to-b
+                        from-[#ddd6c5]
+                        to-[#c2b9a3]"
+                        style="
+                        clip-path:polygon(
+                        18% 0,
+                        82% 0,
+                        100% 100%,
+                        0 100%
+                        );
+                        ">
             </div>
 
         </div>
@@ -289,55 +333,81 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 
-    <!-- Hiasan -->
-    <div class="relative z-10 text-amber-300 text-xl mb-3">
+    <!-- ORNAMEN BULAN -->
+    <div class="relative z-10
+                text-amber-300
+                text-xl
+                mb-3">
+
         ☾ ✦
+
     </div>
 
 
-    <!-- Nama -->
+    <!-- NAMA -->
     <h1 id="cover-nama"
-        class="relative z-10 text-4xl md:text-5xl mb-3"
+        class="relative z-10
+               text-4xl
+               mb-2"
         style="
         font-family:'Amiri',serif;
         color:#f1df9a;
-        letter-spacing:.03em;
         ">
+
     </h1>
 
 
-    <!-- Tanggal -->
+    <!-- TANGGAL -->
     <p id="cover-tanggal"
-       class="relative z-10 text-[10px] tracking-[0.35em] uppercase text-white/75 mb-7">
+       class="relative z-10
+              text-[10px]
+              tracking-[0.35em]
+              uppercase
+              text-white/70
+              mb-6">
+
     </p>
 
 
-    <!-- Tamu -->
-    <div class="relative z-10 w-full max-w-sm
-                bg-white/[0.08]
+    <!-- TAMU -->
+    <div class="relative z-10
+                w-full
+                max-w-sm
+                px-5 py-4
+                mb-6
+                rounded-2xl
+                bg-white/[0.07]
                 backdrop-blur-md
                 border border-amber-200/20
-                rounded-2xl
-                px-5 py-4 mb-6
                 shadow-xl">
 
-        <p class="text-[8px] tracking-[0.3em] uppercase text-amber-100/60 mb-2">
+        <p class="text-[8px]
+                  tracking-[0.3em]
+                  uppercase
+                  text-amber-100/60
+                  mb-2">
+
             Kepada Yth.
+
         </p>
 
         <h3 id="nama-tamu"
-            class="text-sm font-semibold tracking-[0.12em] text-white">
+            class="text-sm
+                   font-semibold
+                   tracking-[0.12em]">
+
             Tamu Undangan
+
         </h3>
 
     </div>
 
 
-    <!-- Tombol -->
+    <!-- TOMBOL -->
     <button onclick="bukaUndangan()"
             class="relative z-10
                    bg-amber-200
-                   text-[#07382f]
+                   text-[#06382f]
                    px-8 py-3
                    rounded-full
                    font-bold
@@ -355,22 +425,29 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </button>
 
 
-    <!-- ID tetap dipertahankan agar JavaScript lama tidak rusak -->
+    <!--
+        PENTING:
+        ID ini sengaja dipertahankan.
+        JavaScript lama masih membutuhkannya.
+    -->
+
     <img id="cover-foto"
          src=""
-         alt=""
-         style="display:none;">
+         style="display:none;"
+         alt="">
 
 </div>
+
 
 <div id="music-btn"
      class="music-control hidden spinning"
      onclick="toggleMusik()">
 
-    <i id="music-icon" class="fa-solid fa-music"></i>
+    <i id="music-icon"
+       class="fa-solid fa-music">
+    </i>
 
 </div>
-
     <div id="nav-menu" class="nav-bottom hidden">
         <a href="#salam" class="text-stone-600"><i class="fa-solid fa-heart text-lg"></i></a>
         <a href="#mempelai" class="text-stone-600"><i class="fa-solid fa-user-friends text-lg"></i></a>
@@ -957,9 +1034,8 @@ function isiDataUndangan() {
     document.getElementById("cover-tanggal").innerHTML =
         dataMempelai.akad.tanggal;
 
-  document.getElementById("halaman-sampul").style.backgroundImage =
-`linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('${dataMempelai.media.fotoCover}')`;
-
+document.getElementById("halaman-sampul").style.backgroundImage =
+`linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('${dataMempelai.media.fotoCover}')`; 
   document.getElementById("preloader-logo").textContent =
 dataMempelai.wanita.panggilan +
 " ♥ " +
