@@ -147,156 +147,44 @@
     pointer-events: none;
 }
 
-/* Ilustrasi pasangan */
-.syar-iilustrasi {
+/* =========================================
+   ILUSTRASI PENGANTIN
+========================================= */
+
+.cover-pengantin {
+    width: 280px;
+    margin: 5px auto 20px;
     position: relative;
-    width: 250px;
-    height: 260px;
-    margin: 0 auto 18px;
-}
-
-/* Bayangan */
-.syar-iilustrasi .ground {
-    position: absolute;
-    bottom: 5px;
-    left: 35px;
-    width: 180px;
-    height: 18px;
-    background: rgba(65, 72, 54, 0.10);
-    border-radius: 50%;
-    filter: blur(5px);
-}
-
-/* PRIA */
-.pengantin-pria {
-    position: absolute;
-    left: 35px;
-    bottom: 20px;
-    width: 82px;
-    height: 190px;
-}
-
-/* kepala pria */
-.pengantin-pria .kepala {
-    position: absolute;
-    top: 22px;
-    left: 21px;
-    width: 40px;
-    height: 48px;
-    background: #c89572;
-    border-radius: 45% 45% 48% 48%;
-}
-
-/* peci */
-.pengantin-pria .peci {
-    position: absolute;
-    top: 12px;
-    left: 18px;
-    width: 46px;
-    height: 22px;
-    background: #242b22;
-    border-radius: 7px 7px 4px 4px;
-    z-index: 3;
-}
-
-/* badan pria */
-.pengantin-pria .badan {
-    position: absolute;
-    top: 67px;
-    left: 10px;
-    width: 62px;
-    height: 105px;
-    background: #d8d0b8;
-    border-radius: 18px 18px 8px 8px;
-}
-
-/* kain/gamis pria */
-.pengantin-pria .kain {
-    position: absolute;
-    top: 112px;
-    left: 5px;
-    width: 72px;
-    height: 75px;
-    background: #c7bea2;
-    clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
-}
-
-/* WANITA */
-.pengantin-wanita {
-    position: absolute;
-    right: 30px;
-    bottom: 20px;
-    width: 105px;
-    height: 205px;
-}
-
-/* khimar wanita */
-.pengantin-wanita .khimar {
-    position: absolute;
-    top: 18px;
-    left: 7px;
-    width: 92px;
-    height: 155px;
-    background: #59634d;
-    border-radius: 48px 48px 20px 20px;
-    clip-path: polygon(
-        8% 15%,
-        50% 0%,
-        92% 15%,
-        100% 100%,
-        0% 100%
-    );
     z-index: 2;
 }
 
-/* wajah wanita */
-.pengantin-wanita .wajah {
-    position: absolute;
-    top: 32px;
-    left: 34px;
-    width: 37px;
-    height: 43px;
-    background: #c89572;
-    border-radius: 45%;
-    z-index: 3;
+.cover-pengantin-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    animation: pengantinFloat 5s ease-in-out infinite;
+    filter: drop-shadow(0 12px 15px rgba(60, 65, 48, 0.12));
 }
 
-/* badan wanita */
-.pengantin-wanita .badan {
-    position: absolute;
-    bottom: 0;
-    left: 13px;
-    width: 80px;
-    height: 100px;
-    background: #e0d8c3;
-    border-radius: 25px 25px 8px 8px;
-    z-index: 1;
-}
-
-/* garis sederhana pakaian */
-.pengantin-wanita .garis {
-    position: absolute;
-    bottom: 65px;
-    left: 35px;
-    width: 35px;
-    height: 1px;
-    background: rgba(70, 70, 50, 0.18);
-    z-index: 4;
-}
-
-/* animasi lembut */
-.syar-iilustrasi {
-    animation: ilustrasiFloat 5s ease-in-out infinite;
-}
-
-@keyframes ilustrasiFloat {
+@keyframes pengantinFloat {
     0%, 100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-5px);
     }
 }
+
+/* Untuk HP kecil */
+@media (max-width: 380px) {
+    .cover-pengantin {
+        width: 235px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+}      
 
 /* garis dekorasi */
 .cover-line {
@@ -412,29 +300,12 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <div class="cover-line"></div>
 
-        <!-- Ilustrasi pasangan -->
-        <div class="syar-iilustrasi">
-
-            <div class="ground"></div>
-
-            <!-- PRIA -->
-            <div class="pengantin-pria">
-                <div class="kepala"></div>
-                <div class="peci"></div>
-                <div class="badan"></div>
-                <div class="kain"></div>
-            </div>
-
-            <!-- WANITA -->
-            <div class="pengantin-wanita">
-                <div class="badan"></div>
-                <div class="khimar"></div>
-                <div class="wajah"></div>
-                <div class="garis"></div>
-            </div>
-
-        </div>
-
+       <div class="cover-pengantin">
+    <img
+        src="undangansyari.png"
+        alt="Ilustrasi Pengantin"
+        class="cover-pengantin-img">
+</div>
         <!-- Nama -->
         <p class="text-[10px] tracking-[0.35em] uppercase text-stone-500 mb-2">
             Pernikahan
