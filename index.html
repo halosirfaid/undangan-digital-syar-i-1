@@ -231,10 +231,19 @@
         radial-gradient(circle at 20% 20%, rgba(183, 160, 100, 0.12), transparent 30%),
         radial-gradient(circle at 80% 75%, rgba(183, 160, 100, 0.10), transparent 30%),
         #f7f3e8;
-    color: #3f4636;
-    overflow: hidden;
-}
 
+    color: #3f4636;
+
+    /* Bisa discroll kalau layar pendek */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Lebih aman untuk HP/tablet */
+    height: 100dvh;
+    min-height: 100dvh;
+
+    -webkit-overflow-scrolling: touch;
+}
 /* Ornamen lingkaran belakang */
 .cover-circle {
     position: absolute;
