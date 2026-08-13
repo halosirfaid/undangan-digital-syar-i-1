@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <script src="Data.js"></script> 
+  <script src="data.js"></script> 
 
 <meta property="og:title" content="Undangan Pernikahan Rara & Adi">
 <meta property="og:description" content="Rabu, 15 April 2026 - Kami mengundang Anda untuk berbagi kebahagiaan bersama kami.">
@@ -89,11 +89,250 @@
 }
         .font-aesthetic { font-family: 'Great Vibes', cursive; }
         body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
-        #halaman-sampul {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('1.jpg');
-            background-size: cover; background-position: center;
-        }
-        .img-arch { width: 160px; height: 220px; border-radius: 100px 100px 0 0; object-fit: cover; border: 4px solid white; }
+
+      /* =========================================
+   COVER SYAR'I
+========================================= */
+
+#halaman-sampul {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(183, 160, 100, 0.12), transparent 30%),
+        radial-gradient(circle at 80% 75%, rgba(183, 160, 100, 0.10), transparent 30%),
+        #f7f3e8;
+    color: #3f4636;
+    overflow: hidden;
+}
+
+/* Ornamen lingkaran belakang */
+.cover-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(151, 132, 77, 0.22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cover-circle::before,
+.cover-circle::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(151, 132, 77, 0.15);
+    border-radius: 50%;
+}
+
+.cover-circle.top {
+    top: -150px;
+    right: -120px;
+}
+
+.cover-circle.bottom {
+    bottom: -170px;
+    left: -140px;
+}
+
+/* Pola geometris Islami sederhana */
+.cover-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image:
+        linear-gradient(30deg, #5d644e 12%, transparent 12.5%, transparent 87%, #5d644e 87.5%, #5d644e),
+        linear-gradient(150deg, #5d644e 12%, transparent 12.5%, transparent 87%, #5d644e 87.5%, #5d644e),
+        linear-gradient(30deg, #5d644e 12%, transparent 12.5%, transparent 87%, #5d644e 87.5%, #5d644e),
+        linear-gradient(150deg, #5d644e 12%, transparent 12.5%, transparent 87%, #5d644e 87.5%, #5d644e);
+    background-position: 0 0, 0 0, 15px 26px, 15px 26px;
+    background-size: 30px 52px;
+    pointer-events: none;
+}
+
+/* Ilustrasi pasangan */
+.syar-iilustrasi {
+    position: relative;
+    width: 250px;
+    height: 260px;
+    margin: 0 auto 18px;
+}
+
+/* Bayangan */
+.syar-iilustrasi .ground {
+    position: absolute;
+    bottom: 5px;
+    left: 35px;
+    width: 180px;
+    height: 18px;
+    background: rgba(65, 72, 54, 0.10);
+    border-radius: 50%;
+    filter: blur(5px);
+}
+
+/* PRIA */
+.pengantin-pria {
+    position: absolute;
+    left: 35px;
+    bottom: 20px;
+    width: 82px;
+    height: 190px;
+}
+
+/* kepala pria */
+.pengantin-pria .kepala {
+    position: absolute;
+    top: 22px;
+    left: 21px;
+    width: 40px;
+    height: 48px;
+    background: #c89572;
+    border-radius: 45% 45% 48% 48%;
+}
+
+/* peci */
+.pengantin-pria .peci {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    width: 46px;
+    height: 22px;
+    background: #242b22;
+    border-radius: 7px 7px 4px 4px;
+    z-index: 3;
+}
+
+/* badan pria */
+.pengantin-pria .badan {
+    position: absolute;
+    top: 67px;
+    left: 10px;
+    width: 62px;
+    height: 105px;
+    background: #d8d0b8;
+    border-radius: 18px 18px 8px 8px;
+}
+
+/* kain/gamis pria */
+.pengantin-pria .kain {
+    position: absolute;
+    top: 112px;
+    left: 5px;
+    width: 72px;
+    height: 75px;
+    background: #c7bea2;
+    clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+
+/* WANITA */
+.pengantin-wanita {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    width: 105px;
+    height: 205px;
+}
+
+/* khimar wanita */
+.pengantin-wanita .khimar {
+    position: absolute;
+    top: 18px;
+    left: 7px;
+    width: 92px;
+    height: 155px;
+    background: #59634d;
+    border-radius: 48px 48px 20px 20px;
+    clip-path: polygon(
+        8% 15%,
+        50% 0%,
+        92% 15%,
+        100% 100%,
+        0% 100%
+    );
+    z-index: 2;
+}
+
+/* wajah wanita */
+.pengantin-wanita .wajah {
+    position: absolute;
+    top: 32px;
+    left: 34px;
+    width: 37px;
+    height: 43px;
+    background: #c89572;
+    border-radius: 45%;
+    z-index: 3;
+}
+
+/* badan wanita */
+.pengantin-wanita .badan {
+    position: absolute;
+    bottom: 0;
+    left: 13px;
+    width: 80px;
+    height: 100px;
+    background: #e0d8c3;
+    border-radius: 25px 25px 8px 8px;
+    z-index: 1;
+}
+
+/* garis sederhana pakaian */
+.pengantin-wanita .garis {
+    position: absolute;
+    bottom: 65px;
+    left: 35px;
+    width: 35px;
+    height: 1px;
+    background: rgba(70, 70, 50, 0.18);
+    z-index: 4;
+}
+
+/* animasi lembut */
+.syar-iilustrasi {
+    animation: ilustrasiFloat 5s ease-in-out infinite;
+}
+
+@keyframes ilustrasiFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* garis dekorasi */
+.cover-line {
+    width: 70px;
+    height: 1px;
+    background: #a58b50;
+    margin: 12px auto;
+}
+
+.cover-bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: #59634d;
+    margin-bottom: 12px;
+}
+
+.cover-nama {
+    font-family: 'Amiri', serif;
+    color: #4c553e;
+    letter-spacing: 0.04em;
+}
+
+.cover-date {
+    color: #77745f;
+}
+
+.cover-button {
+    background: #59634d;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 8px 25px rgba(60, 65, 48, 0.18);
+}
+
+.cover-button:active {
+    transform: scale(0.96);
+}
         .nav-bottom {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             display: flex; gap: 15px; background: rgba(255, 255, 255, 0.9);
@@ -150,304 +389,102 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 ========================= -->
 
 <div id="halaman-sampul"
-     class="fixed inset-0 z-[100] flex flex-col justify-center items-center text-center text-white px-6 overflow-hidden"
-     style="
-     background:
-     radial-gradient(circle at 50% 35%, rgba(212,175,55,.12), transparent 35%),
-     linear-gradient(160deg,#063f35 0%,#052f29 55%,#031f1b 100%);
-     ">
+     class="fixed inset-0 z-[100] flex flex-col justify-center items-center text-center px-6">
 
-    <!-- Ornamen geometris -->
-    <div class="absolute inset-0 opacity-[0.06] pointer-events-none"
-         style="
-         background-image:
-         linear-gradient(30deg,#d4af37 12%,transparent 12.5%,transparent 87%,#d4af37 87.5%),
-         linear-gradient(150deg,#d4af37 12%,transparent 12.5%,transparent 87%,#d4af37 87.5%);
-         background-size:70px 120px;
-         ">
-    </div>
+    <!-- Pola latar -->
+    <div class="cover-pattern"></div>
 
-    <!-- Cahaya -->
-    <div class="absolute w-80 h-80 rounded-full
-                bg-amber-300/10 blur-3xl pointer-events-none">
-    </div>
+    <!-- Ornamen lingkaran -->
+    <div class="cover-circle top"></div>
+    <div class="cover-circle bottom"></div>
 
+    <!-- Isi cover -->
+    <div class="relative z-10 w-full max-w-md">
 
-    <!-- BISMILLAH -->
-    <div class="relative z-10 mb-3">
+        <!-- Bismillah -->
+        <div class="cover-bismillah">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </div>
 
-        <p style="
-        font-family:'Amiri',serif;
-        font-size:29px;
-        color:#e7c968;
-        direction:rtl;
-        ">
+        <p class="text-[9px] tracking-[0.35em] uppercase text-stone-500">
+            Walimatul 'Urs
+        </p>
 
-        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        <div class="cover-line"></div>
 
+        <!-- Ilustrasi pasangan -->
+        <div class="syar-iilustrasi">
+
+            <div class="ground"></div>
+
+            <!-- PRIA -->
+            <div class="pengantin-pria">
+                <div class="kepala"></div>
+                <div class="peci"></div>
+                <div class="badan"></div>
+                <div class="kain"></div>
+            </div>
+
+            <!-- WANITA -->
+            <div class="pengantin-wanita">
+                <div class="badan"></div>
+                <div class="khimar"></div>
+                <div class="wajah"></div>
+                <div class="garis"></div>
+            </div>
+
+        </div>
+
+        <!-- Nama -->
+        <p class="text-[10px] tracking-[0.35em] uppercase text-stone-500 mb-2">
+            Pernikahan
+        </p>
+
+        <h1 id="cover-nama"
+           class="cover-nama text-4xl leading-tight">
+        </h1>
+
+        <div class="cover-line"></div>
+
+        <!-- Tanggal -->
+        <p id="cover-tanggal"
+           class="cover-date text-xs tracking-[0.2em] mb-7">
+        </p>
+
+        <!-- Tamu -->
+        <div class="mb-6">
+
+            <p class="text-[9px] uppercase tracking-[0.25em] text-stone-400 mb-2">
+                Kepada Yth.
+            </p>
+
+            <h3 id="nama-tamu"
+                class="text-sm font-semibold tracking-widest text-stone-700">
+                Tamu Undangan
+            </h3>
+
+        </div>
+
+        <!-- Tombol -->
+        <button onclick="bukaUndangan()"
+                class="cover-button px-8 py-3 rounded-full font-semibold tracking-[0.18em] text-[10px] flex items-center justify-center gap-2 mx-auto transition-all">
+
+            <i class="fa-solid fa-envelope-open-text"></i>
+
+            BUKA UNDANGAN
+
+        </button>
+
+        <p class="text-[8px] text-stone-400 mt-5 tracking-wider">
+            Mohon maaf apabila terdapat kesalahan penulisan nama
         </p>
 
     </div>
 
-
-    <!-- JUDUL -->
-    <p class="relative z-10
-              text-[9px]
-              tracking-[0.45em]
-              uppercase
-              text-amber-100/80">
-
-        UNDANGAN PERNIKAHAN
-
-    </p>
-
-
-    <!-- ORNAMEN -->
-    <div class="relative z-10 flex items-center gap-3 my-5">
-
-        <div class="w-12 h-px bg-amber-300/50"></div>
-
-        <span class="text-amber-300">✦</span>
-
-        <div class="w-12 h-px bg-amber-300/50"></div>
-
-    </div>
-
-
-    <!-- =========================
-         ILUSTRASI PASANGAN
-    ========================== -->
-
-    <div class="relative z-10
-                w-72
-                h-64
-                flex
-                items-end
-                justify-center
-                mb-5">
-
-        <!-- bayangan -->
-        <div class="absolute bottom-1
-                    w-56 h-7
-                    rounded-full
-                    bg-black/30
-                    blur-md">
-        </div>
-
-
-        <!-- WANITA -->
-        <div class="absolute left-4 bottom-3
-                    w-32 h-56">
-
-            <!-- khimar belakang -->
-            <div class="absolute
-                        bottom-0 left-0
-                        w-32 h-48
-                        rounded-[70px_70px_30px_30px]
-                        bg-gradient-to-br
-                        from-[#f5eedc]
-                        to-[#cdbf9d]
-                        shadow-xl">
-            </div>
-
-            <!-- wajah -->
-            <div class="absolute
-                        top-8 left-[43px]
-                        w-[48px] h-[58px]
-                        rounded-[50%_50%_45%_45%]
-                        bg-[#b98363]">
-            </div>
-
-            <!-- lapisan khimar depan -->
-            <div class="absolute
-                        bottom-0 left-3
-                        w-26 h-32
-                        rounded-t-[60px]
-                        bg-gradient-to-b
-                        from-[#eee5d0]
-                        to-[#cfc09d]">
-            </div>
-
-            <!-- kain samping -->
-            <div class="absolute
-                        bottom-0 -left-1
-                        w-10 h-32
-                        bg-[#ddd0b0]
-                        rounded-l-full">
-            </div>
-
-        </div>
-
-
-        <!-- PRIA -->
-        <div class="absolute right-4 bottom-3
-                    w-32 h-56">
-
-            <!-- tubuh gamis -->
-            <div class="absolute
-                        bottom-0 left-2
-                        w-28 h-44
-                        rounded-t-[65px]
-                        bg-gradient-to-br
-                        from-[#f5f0df]
-                        to-[#cfc7b1]
-                        shadow-xl">
-            </div>
-
-            <!-- kepala -->
-            <div class="absolute
-                        top-10 left-[43px]
-                        w-[48px] h-[58px]
-                        rounded-[50%]
-                        bg-[#99664d]">
-            </div>
-
-            <!-- peci -->
-            <div class="absolute
-                        top-5 left-[28px]
-                        w-[76px] h-[30px]
-                        rounded-[50%_50%_30%_30%]
-                        bg-[#f8f3e4]
-                        shadow-md">
-            </div>
-
-            <!-- bahu gamis -->
-            <div class="absolute
-                        bottom-0 left-0
-                        w-32 h-28
-                        bg-gradient-to-b
-                        from-[#ddd6c5]
-                        to-[#c2b9a3]"
-                        style="
-                        clip-path:polygon(
-                        18% 0,
-                        82% 0,
-                        100% 100%,
-                        0 100%
-                        );
-                        ">
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ORNAMEN BULAN -->
-    <div class="relative z-10
-                text-amber-300
-                text-xl
-                mb-3">
-
-        ☾ ✦
-
-    </div>
-
-
-    <!-- NAMA -->
-    <h1 id="cover-nama"
-        class="relative z-10
-               text-4xl
-               mb-2"
-        style="
-        font-family:'Amiri',serif;
-        color:#f1df9a;
-        ">
-
-    </h1>
-
-
-    <!-- TANGGAL -->
-    <p id="cover-tanggal"
-       class="relative z-10
-              text-[10px]
-              tracking-[0.35em]
-              uppercase
-              text-white/70
-              mb-6">
-
-    </p>
-
-
-    <!-- TAMU -->
-    <div class="relative z-10
-                w-full
-                max-w-sm
-                px-5 py-4
-                mb-6
-                rounded-2xl
-                bg-white/[0.07]
-                backdrop-blur-md
-                border border-amber-200/20
-                shadow-xl">
-
-        <p class="text-[8px]
-                  tracking-[0.3em]
-                  uppercase
-                  text-amber-100/60
-                  mb-2">
-
-            Kepada Yth.
-
-        </p>
-
-        <h3 id="nama-tamu"
-            class="text-sm
-                   font-semibold
-                   tracking-[0.12em]">
-
-            Tamu Undangan
-
-        </h3>
-
-    </div>
-
-
-    <!-- TOMBOL -->
-    <button onclick="bukaUndangan()"
-            class="relative z-10
-                   bg-amber-200
-                   text-[#06382f]
-                   px-8 py-3
-                   rounded-full
-                   font-bold
-                   tracking-[0.18em]
-                   text-[10px]
-                   flex items-center gap-2
-                   shadow-xl
-                   active:scale-95
-                   transition-all">
-
-        <i class="fa-solid fa-envelope-open"></i>
-
-        BUKA UNDANGAN
-
-    </button>
-
-
-    <!--
-        PENTING:
-        ID ini sengaja dipertahankan.
-        JavaScript lama masih membutuhkannya.
-    -->
-
-    <img id="cover-foto"
-         src=""
-         style="display:none;"
-         alt="">
-
 </div>
+  
+    <div id="music-btn" class="music-control hidden spinning" onclick="toggleMusik()"><i id="music-icon" class="fa-solid fa-music"></i></div>
 
-
-<div id="music-btn"
-     class="music-control hidden spinning"
-     onclick="toggleMusik()">
-
-    <i id="music-icon"
-       class="fa-solid fa-music">
-    </i>
-
-</div>
     <div id="nav-menu" class="nav-bottom hidden">
         <a href="#salam" class="text-stone-600"><i class="fa-solid fa-heart text-lg"></i></a>
         <a href="#mempelai" class="text-stone-600"><i class="fa-solid fa-user-friends text-lg"></i></a>
@@ -1019,27 +1056,23 @@ function isiDataUndangan() {
         " & " +
         dataMempelai.wanita.panggilan;
 
+//==========================
+// Cover
+//==========================
 
-    //==========================
-    // Cover
-    //==========================
-    document.getElementById("cover-foto").src =
-        dataMempelai.media.fotoCover;
+document.getElementById("cover-nama").innerHTML =
+    dataMempelai.wanita.panggilan +
+    " & " +
+    dataMempelai.pria.panggilan;
 
-    document.getElementById("cover-nama").innerHTML =
-        dataMempelai.wanita.panggilan +
-        " & " +
-        dataMempelai.pria.panggilan;
+document.getElementById("cover-tanggal").innerHTML =
+    dataMempelai.akad.tanggal;
 
-    document.getElementById("cover-tanggal").innerHTML =
-        dataMempelai.akad.tanggal;
-
-document.getElementById("halaman-sampul").style.backgroundImage =
-`linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('${dataMempelai.media.fotoCover}')`; 
-  document.getElementById("preloader-logo").textContent =
-dataMempelai.wanita.panggilan +
-" ♥ " +
-dataMempelai.pria.panggilan;
+document.getElementById("preloader-logo").textContent =
+    dataMempelai.wanita.panggilan +
+    " & " +
+    dataMempelai.pria.panggilan;
+    
   //==============================
 // Data Pria
 //==============================
