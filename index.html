@@ -18,6 +18,201 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      /* =========================================
+   ADAB MENGHADIRI WALIMAH
+========================================= */
+
+.adab-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(165, 139, 80, 0.08),
+            transparent 35%
+        ),
+        #f7f3e8;
+    color: #59634d;
+}
+
+/* Ornamen lingkaran */
+.adab-section::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: -160px;
+    top: 60px;
+    border: 1px solid rgba(165, 139, 80, 0.16);
+    border-radius: 50%;
+}
+
+.adab-section::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    left: -140px;
+    bottom: 40px;
+    border: 1px solid rgba(165, 139, 80, 0.13);
+    border-radius: 50%;
+}
+
+.adab-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.adab-label {
+    font-size: 8px;
+    letter-spacing: 0.3em;
+    color: #a58b50;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.adab-title {
+    font-family: 'Amiri', serif;
+    font-size: 38px;
+    color: #59634d;
+    line-height: 1.2;
+}
+
+.adab-opening {
+    max-width: 300px;
+    margin: 15px auto 35px;
+    font-size: 10px;
+    line-height: 2;
+    color: #77745f;
+}
+
+/* Ornamen pembuka */
+
+.adab-ornament {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 18px;
+    border: 1px solid rgba(165, 139, 80, 0.30);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a58b50;
+    font-size: 15px;
+    position: relative;
+}
+
+.adab-ornament::before {
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(165, 139, 80, 0.18);
+    transform: rotate(45deg);
+}
+
+/* Daftar adab */
+
+.adab-list {
+    max-width: 360px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.adab-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(165, 139, 80, 0.18);
+}
+
+.adab-item:first-child {
+    border-top: 1px solid rgba(165, 139, 80, 0.18);
+}
+
+.adab-number {
+    min-width: 42px;
+    height: 42px;
+    border: 1px solid rgba(165, 139, 80, 0.35);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Amiri', serif;
+    font-size: 14px;
+    color: #a58b50;
+
+    background: rgba(255,255,255,0.25);
+}
+
+.adab-content h3 {
+    font-family: 'Amiri', serif;
+    font-size: 21px;
+    color: #59634d;
+    margin-bottom: 4px;
+}
+
+.adab-content p {
+    font-size: 10px;
+    line-height: 1.9;
+    color: #77745f;
+}
+
+/* Penutup */
+
+.adab-ending {
+    text-align: center;
+    margin: 40px auto 0;
+}
+
+.adab-ending-line {
+    width: 60px;
+    height: 1px;
+    background: #a58b50;
+    margin: 0 auto 15px;
+    opacity: 0.5;
+}
+
+.adab-ending-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 23px;
+    color: #59634d;
+}
+
+.adab-ending-text {
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    color: #77745f;
+    margin-top: 5px;
+    line-height: 1.8;
+}
+
+.adab-ending-line:last-child {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 380px) {
+    .adab-title {
+        font-size: 34px;
+    }
+
+    .adab-item {
+        gap: 12px;
+    }
+
+    .adab-number {
+        min-width: 38px;
+        height: 38px;
+    }
+
+    .adab-content h3 {
+        font-size: 19px;
+    }
+}
      /* =========================================
    MAPS — SYAR'I MINIMAL
 ========================================= */
@@ -1699,7 +1894,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
         <a href="#story" class="text-stone-600"><i class="fa-solid fa-book-open text-lg"></i></a>
         <a href="#acara" class="text-stone-600"><i class="fa-solid fa-calendar-alt text-lg"></i></a>
         <a href="#lokasi" class="text-stone-600"><i class="fa-solid fa-map-location-dot"></i></a>
-        <a href="#galeri" class="text-stone-600"><i class="fa-solid fa-image text-lg"></i></a>
+        <a href="#adab" class="text-stone-600"><i class="fa-solid fa-book-open text-lg"></i></a>
         <a href="#kado" class="text-stone-600"><i class="fa-solid fa-gift text-lg"></i></a>
         <a href="#rsvp" class="text-stone-600"><i class="fa-solid fa-envelope text-lg"></i></a>
         <button onclick="toggleAutoScroll()" id="scroll-btn" class="text-stone-600">
@@ -2263,6 +2458,197 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>  
+      <!-- =========================================
+     ADAB MENGHADIRI WALIMAH
+========================================= -->
+
+<section id="adab"
+         class="adab-section py-24 px-6 text-center">
+
+    <div class="adab-inner max-w-md mx-auto reveal">
+
+        <!-- Ornamen -->
+
+        <div class="adab-ornament">
+            ✦
+        </div>
+
+        <!-- Judul -->
+
+        <p class="adab-label">
+            ADAB DALAM MENGHADIRI WALIMAH
+        </p>
+
+        <h2 class="adab-title">
+            Adab Menghadiri<br>
+            Walimah
+        </h2>
+
+        <p class="adab-opening">
+            Beberapa adab yang kami harapkan
+            dapat kita jaga bersama agar
+            pertemuan ini menjadi bagian
+            dari keberkahan.
+        </p>
+
+
+        <!-- DAFTAR ADAB -->
+
+        <div class="adab-list">
+
+
+            <!-- 01 -->
+
+            <div class="adab-item reveal">
+
+                <div class="adab-number">
+                    01
+                </div>
+
+                <div class="adab-content">
+
+                    <h3>
+                        Meluruskan Niat
+                    </h3>
+
+                    <p>
+                        Menghadiri walimah dengan niat
+                        memenuhi undangan, menjaga
+                        silaturahmi, dan turut mendoakan
+                        keberkahan bagi kedua mempelai.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="adab-item reveal">
+
+                <div class="adab-number">
+                    02
+                </div>
+
+                <div class="adab-content">
+
+                    <h3>
+                        Berpakaian dengan Sopan
+                    </h3>
+
+                    <p>
+                        Mengenakan pakaian yang bersih,
+                        rapi, dan sesuai dengan adab
+                        serta ketentuan syariat.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="adab-item reveal">
+
+                <div class="adab-number">
+                    03
+                </div>
+
+                <div class="adab-content">
+
+                    <h3>
+                        Menjaga Pandangan & Adab
+                    </h3>
+
+                    <p>
+                        Menjaga pandangan, ucapan,
+                        dan perilaku selama berada
+                        di tempat berlangsungnya acara.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="adab-item reveal">
+
+                <div class="adab-number">
+                    04
+                </div>
+
+                <div class="adab-content">
+
+                    <h3>
+                        Mendoakan Kedua Mempelai
+                    </h3>
+
+                    <p>
+                        Semoga Allah memberikan keberkahan,
+                        menyatukan keduanya dalam kebaikan,
+                        serta menjadikan rumah tangganya
+                        penuh sakinah, mawaddah, dan rahmah.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 05 -->
+
+            <div class="adab-item reveal">
+
+                <div class="adab-number">
+                    05
+                </div>
+
+                <div class="adab-content">
+
+                    <h3>
+                        Menjaga Ketertiban
+                    </h3>
+
+                    <p>
+                        Menjaga suasana walimah dengan
+                        tertib dan menghormati kenyamanan
+                        seluruh tamu yang hadir.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PENUTUP -->
+
+        <div class="adab-ending reveal">
+
+            <div class="adab-ending-line"></div>
+
+            <p class="adab-ending-arabic">
+                بَارَكَ اللَّهُ لَكُمَا
+            </p>
+
+            <p class="adab-ending-text">
+                Semoga langkah yang hadir menjadi doa,
+                dan pertemuan yang sederhana menjadi
+                keberkahan.
+            </p>
+
+            <div class="adab-ending-line"></div>
+
+        </div>
+
+    </div>
+
+</section>
     <section id="kado" class="py-20 px-6 text-center bg-[#fffcf5]">
     <h2 class="text-4xl font-aesthetic text-amber-700 mb-2">Kado Digital</h2>
     <p class="text-[10px] text-stone-500 mb-10 tracking-[0.2em] uppercase px-4">Tanda Kasih</p>
