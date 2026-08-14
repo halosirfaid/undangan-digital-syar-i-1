@@ -340,7 +340,16 @@
 
     margin-bottom: 25px;
 }
+.jumlah-ucapan {
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 28px;
 
+    font-family: 'Amiri', serif;
+    font-size: 14px;
+
+    color: #77745f;
+}
 
 /* container */
 
@@ -4102,6 +4111,9 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             <p class="doa-list-label">
                 DOA DARI KELUARGA & SAHABAT
             </p>
+            <p id="jumlah-ucapan" class="jumlah-ucapan">
+    0 orang telah menyampaikan doa
+</p>
 
             <div
                 id="daftar-ucapan"
@@ -4270,8 +4282,17 @@ function feedbackSalin(elemen, teksAsli) {
         fetch(scriptURL + "?tujuan=" + idUndangan)
         .then(res => res.json())
         .then(data => {
-            const wadah = document.getElementById('daftar-ucapan');
-            wadah.innerHTML = ""; 
+            .then(data => {
+
+    const wadah = document.getElementById('daftar-ucapan');
+
+    const jumlah = document.getElementById('jumlah-ucapan');
+
+    wadah.innerHTML = "";
+
+    // Menampilkan jumlah orang yang sudah mengirim ucapan
+    jumlah.innerText =
+        data.length + " orang telah menyampaikan doa";
             if (data.length === 0) {
                 wadah.innerHTML = "<p class='text-[10px] text-center text-stone-400'>Belum ada ucapan.</p>";
                 return;
