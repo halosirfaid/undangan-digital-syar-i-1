@@ -19,6 +19,135 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
       /* =========================================
+   PEMISAH ANTAR SECTION
+   GAYA ELEGAN ISLAMI
+========================================= */
+
+.section-divider {
+    position: relative;
+    height: 42px;
+
+    background: #f7f3e8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+/* Garis kiri dan kanan */
+.section-divider::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 50%;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(165,139,80,.18) 10%,
+        rgba(165,139,80,.45) 35%,
+        rgba(165,139,80,.45) 46%,
+        transparent 49%,
+        transparent 51%,
+        rgba(165,139,80,.45) 54%,
+        rgba(165,139,80,.45) 65%,
+        rgba(165,139,80,.18) 90%,
+        transparent 100%
+    );
+}
+
+/* Ornamen tengah */
+.section-divider::after {
+    content: "✦";
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f7f3e8;
+
+    border: 1px solid rgba(165,139,80,.35);
+
+    color: #a58b50;
+
+    font-size: 10px;
+
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 0 6px #f7f3e8;
+}
+
+/* Simbol di dalam dibuat tegak */
+.section-divider span {
+    position: relative;
+
+    z-index: 3;
+
+    color: #a58b50;
+
+    font-size: 9px;
+
+    transform: none;
+}
+
+
+/* =========================================
+   VARIASI LEMBUT
+========================================= */
+
+.section-divider.soft {
+    height: 55px;
+}
+
+.section-divider.soft::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(165,139,80,.28),
+        transparent
+    );
+}
+
+.section-divider.soft::after {
+    width: 24px;
+    height: 24px;
+    font-size: 8px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:380px) {
+
+    .section-divider {
+        height: 35px;
+    }
+
+    .section-divider::after {
+        width: 26px;
+        height: 26px;
+    }
+
+}
+      /* =========================================
    FOOTER / PENUTUP SIRFA.ID
 ========================================= */
 
@@ -3473,6 +3602,10 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>
 
+      <div class="section-divider">
+    <span>✦</span>
+</div>
+      
 <section id="mempelai"
          class="mempelai-section py-24 px-6 text-center">
 
@@ -3565,6 +3698,10 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>
+
+<div class="section-divider">
+    <span>✦</span>
+</div>
       
   <section id="perjalanan" class="perjalanan-section py-24 px-6">
 
@@ -3697,7 +3834,11 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>
-     
+
+<div class="section-divider">
+    <span>✦</span>
+</div>
+      
          <section id="acara"
          class="acara-section py-24 px-6 text-center">
 
@@ -3877,7 +4018,11 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>   
-       
+
+<div class="section-divider">
+    <span>✦</span>
+</div>
+      
         <section id="lokasi"
          class="maps-section py-24 px-6 text-center">
 
@@ -3945,7 +4090,9 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>  
-      
+      <div class="section-divider">
+    <span>✦</span>
+</div>
 <!-- =========================================
      BUKU ADAB WALIMAH
 ========================================= -->
@@ -4212,6 +4359,10 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>
+
+      <div class="section-divider">
+    <span>✦</span>
+</div>
     <!-- =========================
      HALAMAN TERAKHIR — TANDA KASIH
 ========================= -->
