@@ -18,26 +18,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      /* =========================================
-   AKAD & WALIMAH
+    /* =========================================
+   AKAD & WALIMAH — TIMELINE SYAR'I
 ========================================= */
 
 .acara-section {
     position: relative;
     overflow: hidden;
+
     background:
         radial-gradient(
-            circle at 50% 20%,
+            circle at 50% 15%,
             rgba(165, 139, 80, 0.08),
             transparent 38%
         ),
         #f7f3e8;
 }
 
+/* Pola geometris lembut */
+
 .acara-section::before {
     content: "";
     position: absolute;
     inset: 0;
+
     opacity: 0.025;
 
     background-image:
@@ -59,6 +63,7 @@
         );
 
     background-size: 30px 52px;
+
     pointer-events: none;
 }
 
@@ -67,200 +72,388 @@
     z-index: 1;
 }
 
+
+/* =========================================
+   JUDUL
+========================================= */
+
 .acara-label {
     font-size: 8px;
     letter-spacing: 0.3em;
     color: #a58b50;
+
     margin-bottom: 8px;
 }
 
 .acara-title {
     font-family: 'Amiri', serif;
-    font-size: 38px;
+
+    font-size: 39px;
+
     color: #59634d;
 }
 
 .acara-opening {
-    font-size: 11px;
-    line-height: 1.9;
+    max-width: 300px;
+
+    margin: 14px auto 35px;
+
+    font-size: 10px;
+    line-height: 2;
+
     color: #77745f;
-    max-width: 310px;
-    margin: 15px auto 30px;
 }
 
-/* Tanggal utama */
+
+/* =========================================
+   TANGGAL UTAMA
+========================================= */
 
 .acara-date {
     text-align: center;
-    margin-bottom: 30px;
+
+    margin-bottom: 42px;
 }
 
 .acara-date-day {
-    font-size: 9px;
-    letter-spacing: 0.3em;
+    font-size: 8px;
+
+    letter-spacing: 0.35em;
+
     color: #a58b50;
+
     text-transform: uppercase;
 }
 
 .acara-date-number {
     font-family: 'Amiri', serif;
-    font-size: 30px;
+
+    font-size: 34px;
+
     color: #3f4636;
-    margin: 5px 0;
+
+    margin: 3px 0;
 }
 
 .acara-date-line {
-    width: 70px;
+    width: 55px;
     height: 1px;
+
     background: #a58b50;
+
     margin: 10px auto;
+
     opacity: 0.5;
 }
 
-/* Kartu acara */
 
-.acara-card {
+/* =========================================
+   TIMELINE
+========================================= */
+
+.acara-timeline {
     position: relative;
-    background: rgba(255,255,255,0.55);
 
-    border: 1px solid rgba(165, 139, 80, 0.20);
-    border-radius: 24px;
+    max-width: 350px;
 
-    padding: 28px 22px;
-    margin-bottom: 18px;
+    margin: 0 auto;
 
-    box-shadow:
-        0 10px 30px rgba(60, 65, 48, 0.06);
-
-    overflow: hidden;
+    padding-bottom: 20px;
 }
 
-.acara-card::before {
+
+/* Garis tengah */
+
+.acara-timeline::before {
     content: "";
+
     position: absolute;
 
-    width: 110px;
-    height: 110px;
+    top: 0;
+    bottom: 0;
 
-    right: -55px;
-    top: -55px;
+    left: 50%;
 
-    border: 1px solid rgba(165, 139, 80, 0.15);
-    border-radius: 50%;
+    width: 1px;
 
-    box-shadow:
-        0 0 0 12px rgba(165,139,80,0.025),
-        0 0 0 24px rgba(165,139,80,0.02);
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(165,139,80,0.45) 8%,
+            rgba(165,139,80,0.45) 92%,
+            transparent
+        );
+
+    transform: translateX(-50%);
 }
 
-.acara-symbol {
-    width: 42px;
-    height: 42px;
 
-    border: 1px solid rgba(165, 139, 80, 0.35);
+/* =========================================
+   ITEM
+========================================= */
+
+.acara-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 44px 1fr;
+
+    align-items: center;
+
+    margin-bottom: 48px;
+}
+
+
+/* Titik tengah */
+
+.acara-dot {
+    grid-column: 2;
+
+    width: 38px;
+    height: 38px;
+
+    margin: auto;
+
     border-radius: 50%;
 
-    margin: 0 auto 15px;
+    border: 1px solid rgba(165,139,80,0.45);
+
+    background: #f7f3e8;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     color: #a58b50;
-    font-size: 14px;
-}
 
-.acara-card-title {
-    font-family: 'Amiri', serif;
-    font-size: 24px;
-    color: #59634d;
-    margin-bottom: 12px;
-}
-
-.acara-card-day {
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #a58b50;
-    font-weight: 600;
-}
-
-.acara-card-date {
-    font-size: 11px;
-    color: #77745f;
-    margin-top: 4px;
-}
-
-.acara-card-time {
     font-size: 12px;
+
+    position: relative;
+
+    z-index: 2;
+
+    box-shadow:
+        0 0 0 6px rgba(247,243,232,0.9);
+}
+
+
+/* =========================================
+   KONTEN
+========================================= */
+
+.acara-content {
+    padding: 0 14px;
+}
+
+.acara-item:nth-child(odd) .acara-content {
+    grid-column: 1;
+
+    text-align: right;
+}
+
+.acara-item:nth-child(even) .acara-content {
+    grid-column: 3;
+
+    text-align: left;
+}
+
+
+/* Label */
+
+.acara-content-label {
+    font-size: 8px;
+
+    letter-spacing: 0.25em;
+
+    color: #a58b50;
+
+    text-transform: uppercase;
+
+    margin-bottom: 5px;
+}
+
+
+/* Judul */
+
+.acara-content-title {
+    font-family: 'Amiri', serif;
+
+    font-size: 25px;
+
+    color: #59634d;
+
+    margin-bottom: 5px;
+}
+
+
+/* Hari */
+
+.acara-content-day {
+    font-size: 8px;
+
     font-weight: 600;
-    color: #3f4636;
-    margin-top: 12px;
-}
 
-.acara-card-place {
-    font-size: 10px;
-    line-height: 1.8;
+    letter-spacing: 0.15em;
+
     color: #77745f;
-    margin: 8px auto 18px;
-    max-width: 260px;
+
+    text-transform: uppercase;
 }
 
-/* Tombol */
+
+/* Tanggal */
+
+.acara-content-date {
+    font-family: 'Amiri', serif;
+
+    font-size: 16px;
+
+    color: #3f4636;
+
+    margin-top: 2px;
+}
+
+
+/* Jam */
+
+.acara-content-time {
+    font-size: 10px;
+
+    font-weight: 600;
+
+    color: #59634d;
+
+    margin-top: 8px;
+}
+
+
+/* Tempat */
+
+.acara-content-place {
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    color: #77745f;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   TOMBOL MAPS
+========================================= */
 
 .acara-map-button {
     display: inline-flex;
+
     align-items: center;
-    gap: 7px;
 
-    background: #59634d;
-    color: white;
+    gap: 6px;
 
-    padding: 9px 18px;
+    margin-top: 10px;
+
+    padding: 8px 14px;
+
     border-radius: 999px;
 
-    font-size: 8px;
+    background: #59634d;
+
+    color: white;
+
+    font-size: 7px;
+
     font-weight: 600;
+
     letter-spacing: 0.12em;
 
-    box-shadow: 0 7px 18px rgba(60,65,48,0.15);
+    box-shadow:
+        0 6px 15px rgba(60,65,48,0.12);
 
-    transition: transform 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .acara-map-button:active {
     transform: scale(0.95);
 }
 
-/* Kalender */
+
+/* =========================================
+   KALENDER
+========================================= */
+
+.kalender-area {
+    text-align: center;
+
+    margin-top: 5px;
+}
+
+.kalender-caption {
+    font-size: 8px;
+
+    letter-spacing: 0.2em;
+
+    color: #a58b50;
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+}
 
 .kalender-button {
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
+
+    padding: 11px 20px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(89,99,77,0.28);
 
     color: #59634d;
 
-    border: 1px solid rgba(89,99,77,0.25);
+    font-size: 8px;
 
-    padding: 11px 22px;
-    border-radius: 999px;
-
-    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 0.1em;
 
-    margin-top: 12px;
+    letter-spacing: 0.1em;
 }
 
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
 @media (max-width: 380px) {
+
     .acara-title {
         font-size: 34px;
     }
 
-    .acara-card {
-        padding: 24px 18px;
+    .acara-timeline {
+        max-width: 330px;
     }
+
+    .acara-content {
+        padding: 0 9px;
+    }
+
+    .acara-content-title {
+        font-size: 22px;
+    }
+
+    .acara-content-place {
+        font-size: 8px;
+    }
+
 }
       /* =========================================
    SEBUAH PERJALANAN
@@ -1639,10 +1832,13 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>
-      <section id="acara"
+     
+         <section id="acara"
          class="acara-section py-24 px-6 text-center">
 
     <div class="max-w-md mx-auto reveal">
+
+        <!-- JUDUL -->
 
         <p class="acara-label">
             DENGAN MEMOHON RIDHA ALLAH
@@ -1659,7 +1855,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
         </p>
 
 
-        <!-- TANGGAL RESEPSI -->
+        <!-- TANGGAL UTAMA -->
 
         <div class="acara-date">
 
@@ -1680,93 +1876,124 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
         </div>
 
 
-        <!-- AKAD -->
+        <!-- =================================
+             TIMELINE
+        ================================= -->
 
-        <div class="acara-card reveal">
+        <div class="acara-timeline">
 
-            <div class="acara-symbol">
-                ✦
+
+            <!-- AKAD -->
+
+            <div class="acara-item reveal">
+
+                <div class="acara-content">
+
+                    <p class="acara-content-label">
+                        Pernikahan
+                    </p>
+
+                    <h3 class="acara-content-title">
+                        Akad Nikah
+                    </h3>
+
+                    <p id="akad-hari"
+                       class="acara-content-day">
+                    </p>
+
+                    <p id="akad-tanggal"
+                       class="acara-content-date">
+                    </p>
+
+                    <p id="akad-jam"
+                       class="acara-content-time">
+                    </p>
+
+                    <p id="akad-tempat"
+                       class="acara-content-place">
+                    </p>
+
+                    <a id="akad-maps"
+                       href="#"
+                       target="_blank"
+                       class="acara-map-button">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        PETUNJUK LOKASI
+
+                    </a>
+
+                </div>
+
+
+                <div class="acara-dot">
+                    ✦
+                </div>
+
             </div>
 
-            <h3 class="acara-card-title">
-                Akad Nikah
-            </h3>
 
-            <p id="akad-hari"
-               class="acara-card-day">
-            </p>
+            <!-- WALIMAH -->
 
-            <p id="akad-tanggal"
-               class="acara-card-date">
-            </p>
+            <div class="acara-item reveal">
 
-            <p id="akad-jam"
-               class="acara-card-time">
-            </p>
+                <div class="acara-content">
 
-            <p id="akad-tempat"
-               class="acara-card-place">
-            </p>
+                    <p class="acara-content-label">
+                        Syukuran
+                    </p>
 
-            <a id="akad-maps"
-               href="#"
-               target="_blank"
-               class="acara-map-button">
+                    <h3 class="acara-content-title">
+                        Walimah
+                    </h3>
 
-                <i class="fa-solid fa-location-dot"></i>
-                PETUNJUK LOKASI
+                    <p id="resepsi-hari"
+                       class="acara-content-day">
+                    </p>
 
-            </a>
+                    <p id="resepsi-tanggal"
+                       class="acara-content-date">
+                    </p>
+
+                    <p id="resepsi-jam"
+                       class="acara-content-time">
+                    </p>
+
+                    <p id="resepsi-tempat"
+                       class="acara-content-place">
+                    </p>
+
+                    <a id="resepsi-maps"
+                       href="#"
+                       target="_blank"
+                       class="acara-map-button">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        PETUNJUK LOKASI
+
+                    </a>
+
+                </div>
+
+
+                <div class="acara-dot">
+                    ❋
+                </div>
+
+            </div>
 
         </div>
 
 
-        <!-- WALIMAH -->
+        <!-- =================================
+             KALENDER
+        ================================= -->
 
-        <div class="acara-card reveal">
+        <div class="kalender-area reveal">
 
-            <div class="acara-symbol">
-                ❋
-            </div>
-
-            <h3 class="acara-card-title">
-                Walimah
-            </h3>
-
-            <p class="acara-card-day">
-                <span id="resepsi-hari"></span>
-            </p>
-
-            <p id="resepsi-tanggal"
-               class="acara-card-date">
-            </p>
-
-            <p id="resepsi-jam"
-               class="acara-card-time">
-            </p>
-
-            <p id="resepsi-tempat"
-               class="acara-card-place">
-            </p>
-
-            <a id="resepsi-maps"
-               href="#"
-               target="_blank"
-               class="acara-map-button">
-
-                <i class="fa-solid fa-location-dot"></i>
-                PETUNJUK LOKASI
-
-            </a>
-
-        </div>
-
-
-        <!-- KALENDER -->
-
-        <div class="mt-8 reveal">
-
-            <p class="text-[8px] tracking-[0.2em] text-stone-400 uppercase mb-3">
+            <p class="kalender-caption">
                 Tandai tanggalnya
             </p>
 
@@ -1784,8 +2011,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
     </div>
 
-</section>
-            
+</section>   
         <section id="lokasi" class="py-20 px-6 bg-[#fffcf5]">
             <h2 class="text-4xl font-aesthetic text-amber-700 mb-2">Maps</h2>
             <div class="max-w-md mx-auto overflow-hidden rounded-3xl shadow-xl border-4 border-white mb-6 reveal">
