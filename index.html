@@ -18,32 +18,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      /* =========================================
-   LEMBAR AMANAH — KADO DIGITAL
+/* =========================================
+   TANDA KASIH — SATU HALAMAN
 ========================================= */
 
 .amanah-section {
     position: relative;
     overflow: hidden;
-
     background:
         radial-gradient(
-            circle at 50% 10%,
-            rgba(165,139,80,.08),
+            circle at 50% 5%,
+            rgba(165,139,80,.09),
             transparent 35%
         ),
         #f7f3e8;
-
     color: #59634d;
 }
-
-/* Pola lembut */
 
 .amanah-section::before {
     content: "";
     position: absolute;
     inset: 0;
-
     opacity: .025;
 
     background-image:
@@ -65,11 +60,10 @@
         );
 
     background-size: 30px 52px;
-
     pointer-events: none;
 }
 
-.amanah-section > * {
+.amanah-inner {
     position: relative;
     z-index: 1;
 }
@@ -88,22 +82,19 @@
 
 .amanah-title {
     font-family: 'Amiri', serif;
-    font-size: 39px;
+    font-size: 40px;
     color: #59634d;
 }
 
 .amanah-ornament {
-    margin: 12px auto 18px;
-
+    margin: 13px auto 18px;
     color: #a58b50;
-
     font-size: 12px;
 }
 
 .amanah-opening {
-    max-width: 300px;
-
-    margin: 0 auto 40px;
+    max-width: 290px;
+    margin: 0 auto 48px;
 
     font-size: 10px;
     line-height: 2;
@@ -113,152 +104,111 @@
 
 
 /* =========================================
-   LEMBAR REKENING
+   REKENING
+   TIDAK ADA KOTAK
 ========================================= */
 
-.amanah-item {
-    position: relative;
-
-    max-width: 330px;
-
-    margin: 0 auto 38px;
-
-    padding: 25px 15px 22px;
-
+.amanah-account {
     text-align: center;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,255,255,.35),
-            rgba(255,255,255,.12)
-        );
-
-    border-top: 1px solid rgba(165,139,80,.28);
-    border-bottom: 1px solid rgba(165,139,80,.28);
-
-    box-shadow:
-        0 12px 25px rgba(60,65,48,.035);
+    margin: 0 auto;
+    padding: 0 5px;
 }
-
-
-/* sudut dekoratif */
-
-.amanah-item::before,
-.amanah-item::after {
-
-    content: "✦";
-
-    position: absolute;
-
-    top: -7px;
-
-    color: #a58b50;
-
-    font-size: 9px;
-
-}
-
-.amanah-item::before {
-    left: 12px;
-}
-
-.amanah-item::after {
-    right: 12px;
-}
-
-
-/* nama bank */
 
 .amanah-bank {
-
     font-size: 8px;
-
-    letter-spacing: .28em;
-
+    letter-spacing: .32em;
     font-weight: 600;
-
     color: #a58b50;
-
 }
 
-
-/* garis */
-
-.amanah-line {
-
-    width: 45px;
+.amanah-account-line {
+    width: 38px;
     height: 1px;
-
-    margin: 12px auto;
+    margin: 11px auto;
 
     background: #a58b50;
-
     opacity: .45;
 }
 
-
-/* nomor */
-
 .amanah-number {
-
     font-family: 'Montserrat', sans-serif;
-
     font-size: 20px;
-
-    letter-spacing: .15em;
+    letter-spacing: .14em;
 
     color: #3f4636;
-
-    margin-bottom: 5px;
 }
 
-
-/* nama pemilik */
-
 .amanah-name {
+    margin-top: 5px;
 
     font-family: 'Amiri', serif;
-
     font-size: 17px;
 
     color: #77745f;
 }
 
 
-/* tombol salin */
+/* =========================================
+   TOMBOL KECIL
+========================================= */
 
 .amanah-copy {
-
     display: inline-flex;
-
     align-items: center;
+    gap: 6px;
 
-    gap: 7px;
+    margin-top: 12px;
+    padding: 6px 13px;
 
-    margin-top: 15px;
-
-    padding: 8px 16px;
-
-    border: 1px solid rgba(89,99,77,.25);
-
-    border-radius: 999px;
+    border: 0;
+    border-bottom: 1px solid rgba(89,99,77,.3);
 
     background: transparent;
 
     color: #59634d;
 
     font-size: 7px;
-
-    letter-spacing: .13em;
-
+    letter-spacing: .12em;
     font-weight: 600;
 
     transition: .25s ease;
 }
 
 .amanah-copy:active {
-    transform: scale(.95);
+    transform: scale(.94);
+}
+
+
+/* =========================================
+   PEMISAH ANTAR REKENING
+========================================= */
+
+.amanah-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin: 34px auto;
+}
+
+.amanah-divider::before,
+.amanah-divider::after {
+    content: "";
+
+    width: 35px;
+    height: 1px;
+
+    background: #a58b50;
+    opacity: .25;
+}
+
+.amanah-divider span {
+    color: #a58b50;
+    font-size: 8px;
 }
 
 
@@ -267,63 +217,42 @@
 ========================================= */
 
 .amanah-gift {
-
-    max-width: 330px;
-
-    margin: 48px auto 0;
-
-    padding: 25px 20px;
-
     text-align: center;
 
-    border-top: 1px solid rgba(165,139,80,.28);
+    margin: 48px auto 0;
+    padding-top: 28px;
 
-    border-bottom: 1px solid rgba(165,139,80,.28);
-
-    background: rgba(255,255,255,.18);
+    border-top: 1px solid rgba(165,139,80,.25);
 }
 
 .amanah-gift-symbol {
-
     color: #a58b50;
-
-    font-size: 17px;
-
+    font-size: 15px;
     margin-bottom: 8px;
 }
 
 .amanah-gift-label {
-
     font-size: 8px;
-
-    letter-spacing: .28em;
-
+    letter-spacing: .3em;
     color: #a58b50;
-
-    margin-bottom: 12px;
 }
 
 .amanah-address {
+    max-width: 285px;
 
-    max-width: 280px;
-
-    margin: auto;
+    margin: 12px auto 0;
 
     font-family: 'Amiri', serif;
-
     font-size: 18px;
-
     line-height: 1.6;
 
     color: #59634d;
 }
 
 .amanah-recipient {
-
-    margin-top: 7px;
+    margin-top: 5px;
 
     font-size: 9px;
-
     color: #77745f;
 }
 
@@ -333,60 +262,47 @@
 ========================================= */
 
 .amanah-confirm {
-
-    margin-top: 45px;
-
     text-align: center;
+    margin-top: 45px;
 }
 
 .amanah-small-line {
-
-    width: 50px;
-
+    width: 45px;
     height: 1px;
 
     margin: 0 auto 18px;
 
     background: #a58b50;
-
-    opacity: .5;
+    opacity: .45;
 }
 
 .amanah-confirm p {
-
     font-size: 9px;
-
     letter-spacing: .12em;
 
     color: #77745f;
 
-    margin-bottom: 14px;
+    margin-bottom: 15px;
 }
 
 .amanah-wa {
-
     display: inline-flex;
-
     align-items: center;
-
     gap: 8px;
 
-    padding: 12px 20px;
+    padding: 11px 19px;
 
     border-radius: 999px;
 
     background: #59634d;
-
     color: white;
 
     font-size: 8px;
-
     font-weight: 600;
-
     letter-spacing: .12em;
 
     box-shadow:
-        0 8px 20px rgba(60,65,48,.15);
+        0 8px 20px rgba(60,65,48,.14);
 
     transition: .25s ease;
 }
@@ -396,6 +312,25 @@
 }
 
 
+/* =========================================
+   HP KECIL
+========================================= */
+
+@media (max-width:380px) {
+
+    .amanah-title {
+        font-size: 35px;
+    }
+
+    .amanah-number {
+        font-size: 18px;
+    }
+
+    .amanah-address {
+        font-size: 16px;
+    }
+
+}
 /* =========================================
    HP KECIL
 ========================================= */
@@ -3246,14 +3181,13 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>
-
-     <!-- =========================
-     KADO DIGITAL — LEMBAR AMANAH
+<!-- =========================
+     TANDA KASIH
 ========================= -->
 
 <section id="kado" class="amanah-section py-24 px-6">
 
-    <div class="max-w-md mx-auto text-center reveal">
+    <div class="amanah-inner max-w-md mx-auto reveal">
 
         <p class="amanah-label">
             TANDA KASIH
@@ -3269,23 +3203,23 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <p class="amanah-opening">
             Bagi yang ingin memberikan tanda kasih,
-            kami menyediakan beberapa pilihan berikut.
-            Semoga menjadi amal kebaikan dan keberkahan
-            bagi kita semua.
+            kami menyediakan beberapa pilihan.
+            Semoga menjadi amal kebaikan dan
+            keberkahan bagi kita semua.
         </p>
 
 
-        <!-- =========================
+        <!-- =====================
              MANDIRI
-        ========================== -->
+        ====================== -->
 
-        <div class="amanah-item reveal">
+        <div class="amanah-account">
 
-            <div class="amanah-bank">
+            <p class="amanah-bank">
                 BANK MANDIRI
-            </div>
+            </p>
 
-            <div class="amanah-line"></div>
+            <div class="amanah-account-line"></div>
 
             <p id="rek-mandiri"
                class="amanah-number">
@@ -3298,7 +3232,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             </p>
 
             <button
-                onclick="salinTeks('123456789012', 'Mandiri', this)"
+                onclick="salinTeks('123456789012','Mandiri',this)"
                 class="amanah-copy">
 
                 <i class="fa-regular fa-copy"></i>
@@ -3309,17 +3243,24 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
         </div>
 
 
-        <!-- =========================
+        <!-- PEMISAH -->
+
+        <div class="amanah-divider">
+            <span>✦</span>
+        </div>
+
+
+        <!-- =====================
              BCA
-        ========================== -->
+        ====================== -->
 
-        <div class="amanah-item reveal">
+        <div class="amanah-account">
 
-            <div class="amanah-bank">
+            <p class="amanah-bank">
                 BANK BCA
-            </div>
+            </p>
 
-            <div class="amanah-line"></div>
+            <div class="amanah-account-line"></div>
 
             <p id="rek-bca"
                class="amanah-number">
@@ -3332,7 +3273,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             </p>
 
             <button
-                onclick="salinTeks('0987654321', 'BCA', this)"
+                onclick="salinTeks('0987654321','BCA',this)"
                 class="amanah-copy">
 
                 <i class="fa-regular fa-copy"></i>
@@ -3343,17 +3284,24 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
         </div>
 
 
-        <!-- =========================
+        <!-- PEMISAH -->
+
+        <div class="amanah-divider">
+            <span>✦</span>
+        </div>
+
+
+        <!-- =====================
              DANA
-        ========================== -->
+        ====================== -->
 
-        <div class="amanah-item reveal">
+        <div class="amanah-account">
 
-            <div class="amanah-bank">
+            <p class="amanah-bank">
                 DANA
-            </div>
+            </p>
 
-            <div class="amanah-line"></div>
+            <div class="amanah-account-line"></div>
 
             <p id="rek-dana"
                class="amanah-number">
@@ -3366,7 +3314,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             </p>
 
             <button
-                onclick="salinTeks('082149971287', 'DANA', this)"
+                onclick="salinTeks('082149971287','DANA',this)"
                 class="amanah-copy">
 
                 <i class="fa-regular fa-copy"></i>
@@ -3377,11 +3325,11 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
         </div>
 
 
-        <!-- =========================
+        <!-- =====================
              KADO FISIK
-        ========================== -->
+        ====================== -->
 
-        <div class="amanah-gift reveal">
+        <div class="amanah-gift">
 
             <div class="amanah-gift-symbol">
                 ❋
@@ -3418,11 +3366,11 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
         </div>
 
 
-        <!-- =========================
-             WHATSAPP
-        ========================== -->
+        <!-- =====================
+             KONFIRMASI
+        ====================== -->
 
-        <div class="amanah-confirm reveal">
+        <div class="amanah-confirm">
 
             <div class="amanah-small-line"></div>
 
@@ -3447,6 +3395,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>
+    
         <section id="rsvp" class="py-20 px-6 text-center bg-[#fffcf5]">
             <h2 class="text-4xl font-aesthetic text-amber-700 mb-10">Doa & Ucapan</h2>
             <div class="max-w-sm mx-auto space-y-4 reveal">
