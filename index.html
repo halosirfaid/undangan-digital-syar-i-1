@@ -18,6 +18,338 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      /* =========================================
+   FOOTER / PENUTUP SIRFA.ID
+========================================= */
+
+.sirfa-footer {
+    position: relative;
+    overflow: hidden;
+
+    padding: 75px 24px 130px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(165,139,80,.10),
+            transparent 40%
+        ),
+        #f7f3e8;
+
+    color: #59634d;
+
+    border-top: 1px solid rgba(165,139,80,.15);
+}
+
+
+/* pola lembut */
+
+.sirfa-footer::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: .025;
+
+    background-image:
+        linear-gradient(
+            30deg,
+            #5d644e 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #5d644e 87.5%,
+            #5d644e
+        ),
+        linear-gradient(
+            150deg,
+            #5d644e 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #5d644e 87.5%,
+            #5d644e
+        );
+
+    background-size: 30px 52px;
+
+    pointer-events: none;
+}
+
+
+/* isi */
+
+.sirfa-footer-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 350px;
+
+    margin: auto;
+}
+
+
+/* =========================================
+   ORNAMEN
+========================================= */
+
+.sirfa-footer-ornament {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+    color: #a58b50;
+
+    font-size: 10px;
+}
+
+.sirfa-footer-ornament span {
+    width: 45px;
+    height: 1px;
+
+    background: #a58b50;
+
+    opacity: .35;
+}
+
+
+/* =========================================
+   JUDUL
+========================================= */
+
+.sirfa-footer-label {
+    font-size: 7px;
+
+    letter-spacing: .38em;
+
+    color: #a58b50;
+
+    margin-bottom: 12px;
+}
+
+.sirfa-footer-title {
+    font-family: 'Amiri', serif;
+
+    font-size: 27px;
+
+    line-height: 1.6;
+
+    color: #59634d;
+}
+
+.sirfa-footer-text {
+    max-width: 280px;
+
+    margin: 15px auto 0;
+
+    font-size: 9px;
+
+    line-height: 1.9;
+
+    color: #77745f;
+}
+
+
+/* =========================================
+   NAMA PASANGAN
+========================================= */
+
+.sirfa-footer-couple {
+    margin-top: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: 'Amiri', serif;
+
+    font-size: 22px;
+
+    color: #59634d;
+}
+
+.sirfa-footer-couple b {
+    font-size: 13px;
+
+    color: #a58b50;
+
+    font-weight: normal;
+}
+
+
+/* =========================================
+   GARIS
+========================================= */
+
+.sirfa-footer-line {
+    width: 55px;
+
+    height: 1px;
+
+    margin: 28px auto;
+
+    background: #a58b50;
+
+    opacity: .4;
+}
+
+
+/* =========================================
+   SIRFA.ID
+========================================= */
+
+.sirfa-footer-created {
+    font-size: 7px;
+
+    letter-spacing: .3em;
+
+    color: #a58b50;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   SOCIAL MEDIA
+========================================= */
+
+.sirfa-footer-social {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.sirfa-footer-social a {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(165,139,80,.3);
+
+    color: #59634d;
+
+    background: rgba(255,255,255,.35);
+
+    transition: .25s ease;
+}
+
+.sirfa-footer-social a:active {
+
+    transform: scale(.9);
+
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.sirfa-footer-logo {
+
+    display: inline-block;
+
+    margin-top: 2px;
+}
+
+.sirfa-footer-logo img {
+
+    width: 105px;
+
+    height: auto;
+
+    display: block;
+
+    margin: auto;
+
+    opacity: .82;
+
+    transition: .25s ease;
+}
+
+.sirfa-footer-logo:active img {
+
+    transform: scale(.95);
+
+}
+
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.sirfa-footer-copy {
+
+    margin-top: 22px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(165,139,80,.15);
+
+    font-size: 7px;
+
+    letter-spacing: .18em;
+
+    color: #aaa58f;
+
+    text-transform: uppercase;
+}
+
+.sirfa-footer-small {
+
+    margin-top: 7px;
+
+    font-size: 7px;
+
+    color: #aaa58f;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   HP KECIL
+========================================= */
+
+@media (max-width:380px) {
+
+    .sirfa-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .sirfa-footer-title {
+        font-size: 24px;
+    }
+
+    .sirfa-footer-text {
+        font-size: 8.5px;
+    }
+
+}
      /* =========================================
    HALAMAN DOA & UCAPAN
 ========================================= */
@@ -4148,39 +4480,109 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>  
-      
-      <footer class="pt-10 pb-32 text-center bg-[#fffcf5]">
-    <div class="max-w-xs mx-auto mb-6">
-        <p class="text-stone-400 text-[10px] tracking-[0.3em] uppercase mb-4">Created by Sirfa.id</p>
-        
-<div class="flex justify-center items-center gap-6">
-    <a href="https://wa.me/628875754371" class="text-center group relative">
-        <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:hidden"></div>
-        <i class="fa-brands fa-whatsapp text-3xl relative text-[#25D366]""></i>
-    </a>
+      <!-- =========================
+     FOOTER / PENUTUP
+========================= -->
 
-    <a href="https://instagram.com/sirfa.id" class="text-center group relative">
-        <div class="absolute inset-0 bg-pink-500 rounded-full animate-ping opacity-20 group-hover:hidden" style="animation-delay: 0.5s;"></div>
-        <i class="fa-brands fa-instagram text-3xl relative"style="background: -webkit-linear-gradient(#405DE6, #833AB4, #E1306C, #FD1D1D); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-    </a>
+<footer class="sirfa-footer">
 
-    <a href="https://sirfa.id" class="text-center group relative">
-        <div class="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-20 group-hover:hidden" style="animation-delay: 1s;"></div>
-        <i class="fa-solid fa-link text-2xl relative text-[#0077b5]"></i>
-    </a>
-</div>         
+    <div class="sirfa-footer-inner">
 
-    <p class="text-stone-400 text-[9px] tracking-widest uppercase mt-5 border-t border-stone-200/50 pt-4">
-        © 2026 sirfa.id Invitation
-    </p>
-    
-   <a href="https://sirfa.id" target="_blank" class="inline-block">
-        <img src="logosirfa.png" class="w-28 h-auto mx-auto hover:scale-105 transition-transform duration-300" alt="sirfa.id Logo">
-    </a>
-</div>
-   </div>
+        <!-- Ornamen pembuka -->
+        <div class="sirfa-footer-ornament">
+            <span></span>
+            ✦
+            <span></span>
+        </div>
+
+        <!-- Pesan penutup -->
+        <p class="sirfa-footer-label">
+            TERIMA KASIH
+        </p>
+
+        <h2 class="sirfa-footer-title">
+            Telah menjadi bagian<br>
+            dari kebahagiaan kami
+        </h2>
+
+        <p class="sirfa-footer-text">
+            Doa, kehadiran, dan segala kebaikan
+            yang diberikan menjadi bagian yang
+            berarti dalam perjalanan kami.
+        </p>
+
+        <!-- Nama pasangan -->
+        <div class="sirfa-footer-couple">
+            <span id="footer-wanita">Rara</span>
+            <b>&</b>
+            <span id="footer-pria">Adi</span>
+        </div>
+
+        <!-- Ornamen -->
+        <div class="sirfa-footer-line"></div>
+
+        <!-- Dibuat oleh -->
+        <p class="sirfa-footer-created">
+            DIGITAL INVITATION
+        </p>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="sirfa-footer-social">
+
+            <a
+                href="https://wa.me/628875754371"
+                target="_blank"
+                aria-label="WhatsApp Sirfa.id">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
+            <a
+                href="https://instagram.com/sirfa.id"
+                target="_blank"
+                aria-label="Instagram Sirfa.id">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+            <a
+                href="https://sirfa.id"
+                target="_blank"
+                aria-label="Website Sirfa.id">
+
+                <i class="fa-solid fa-link"></i>
+
+            </a>
+
+        </div>
+
+        <!-- LOGO SIRFA.ID -->
+        <a
+            href="https://sirfa.id"
+            target="_blank"
+            class="sirfa-footer-logo">
+
+            <img
+                src="logosirfa.png"
+                alt="Sirfa.id">
+
+        </a>
+
+        <!-- Copyright -->
+        <p class="sirfa-footer-copy">
+            © 2026 sirfa.id
+        </p>
+
+        <p class="sirfa-footer-small">
+            Invitation crafted with care
+        </p>
+
+    </div>
 
 </footer>
+     
     </div>
 
     <audio id="musik" loop><source id="musik-source" src="" type="audio/mpeg"></audio>
@@ -4422,6 +4824,12 @@ function isiDataUndangan() {
         " & " +
         dataMempelai.wanita.panggilan;
 
+
+  document.getElementById("footer-wanita").textContent =
+    dataMempelai.wanita.panggilan;
+
+document.getElementById("footer-pria").textContent =
+    dataMempelai.pria.panggilan;
 //==========================
 // Cover
 //==========================
