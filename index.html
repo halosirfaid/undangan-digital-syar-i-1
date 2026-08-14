@@ -19,95 +19,122 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
    /* =========================================
-   PEMISAH SECTION — SOFT ELEGANT SHADOW
+   PEMISAH SECTION — COLOR TRANSITION
+   Elegan tanpa shadow
 ========================================= */
 
-/* Setiap section menjadi seperti lembar/panel */
 #konten-utama > section {
     position: relative;
     overflow: hidden;
 
-    /* Warna dasar tetap sama */
-    background-color: #f7f3e8;
+    border-radius: 0;
+    box-shadow: none;
 
-    /* Sudut sangat halus */
-    border-radius: 0 0 16px 16px;
-
-    /* SHADOW PEMISAH */
-    box-shadow:
-        0 8px 24px rgba(60, 65, 48, 0.07),
-        0 2px 6px rgba(60, 65, 48, 0.035);
-
-    /* Jarak antar bagian */
-    margin-bottom: 16px;
-
-    /* Supaya shadow tidak tertutup section berikutnya */
-    z-index: 1;
-}
-
-
-/* Section setelahnya sedikit naik secara visual */
-#konten-utama > section + section {
-    margin-top: -1px;
-}
-
-
-/* Shadow bagian bawah dibuat lebih lembut */
-#konten-utama > section::after {
-    content: "";
-    position: absolute;
-
-    left: 5%;
-    right: 5%;
-    bottom: -18px;
-
-    height: 25px;
-
-    background: rgba(60, 65, 48, 0.08);
-
-    filter: blur(14px);
-
-    border-radius: 50%;
-
-    z-index: -1;
-
-    pointer-events: none;
+    transition: background-color 0.3s ease;
 }
 
 
 /* =========================================
-   KHUSUS FOOTER
+   01 — SALAM
+   Krem terang
 ========================================= */
 
-#konten-utama > footer {
-    position: relative;
-    z-index: 1;
-
-    margin-top: -1px;
-
-    box-shadow:
-        0 -8px 24px rgba(60, 65, 48, 0.05);
+#salam {
+    background-color: #f7f3e8;
 }
 
 
 /* =========================================
-   MOBILE
+   02 — MEMPELAI
+   Sedikit lebih gelap
+========================================= */
+
+#mempelai {
+    background-color: #f0ecdf;
+}
+
+
+/* =========================================
+   03 — PERJALANAN
+   Kembali terang
+========================================= */
+
+#perjalanan {
+    background-color: #f7f3e8;
+}
+
+
+/* =========================================
+   04 — ACARA
+   Sedikit lebih dalam
+========================================= */
+
+#acara {
+    background-color: #f0ecdf;
+}
+
+
+/* =========================================
+   05 — LOKASI
+   Terang
+========================================= */
+
+#lokasi {
+    background-color: #f7f3e8;
+}
+
+
+/* =========================================
+   06 — ADAB WALIMAH
+   Sedikit lebih gelap
+========================================= */
+
+#adab {
+    background-color: #f0ecdf;
+}
+
+
+/* =========================================
+   07 — TANDA KASIH
+   Terang
+========================================= */
+
+#kado {
+    background-color: #f7f3e8;
+}
+
+
+/* =========================================
+   08 — DOA & UCAPAN
+   Sedikit lebih gelap
+========================================= */
+
+#rsvp {
+    background-color: #f0ecdf;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.sirfa-footer {
+    background-color: #ebe5d5;
+}
+
+
+/* =========================================
+   HP
 ========================================= */
 
 @media (max-width: 480px) {
 
     #konten-utama > section {
-
-        margin-bottom: 14px;
-
-        border-radius: 0 0 14px 14px;
-
-        box-shadow:
-            0 8px 22px rgba(60, 65, 48, 0.08),
-            0 2px 6px rgba(60, 65, 48, 0.035);
+        box-shadow: none;
+        border-radius: 0;
     }
 
-}  
+}
 /* =========================================
    VARIASI LEMBUT
 ========================================= */
@@ -3603,12 +3630,6 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>
 
-    <div class="section-divider">
-    <span></span>
-
-    <i class="divider-dot left"></i>
-    <i class="divider-dot right"></i>
-</div>
       
 <section id="mempelai"
          class="mempelai-section py-24 px-6 text-center">
@@ -3703,9 +3724,6 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>
 
-<div class="section-divider">
-    <span>✦</span>
-</div>
       
   <section id="perjalanan" class="perjalanan-section py-24 px-6">
 
@@ -3839,9 +3857,6 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>
 
-<div class="section-divider">
-    <span>✦</span>
-</div>
       
          <section id="acara"
          class="acara-section py-24 px-6 text-center">
@@ -4023,9 +4038,6 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>   
 
-<div class="section-divider">
-    <span>✦</span>
-</div>
       
         <section id="lokasi"
          class="maps-section py-24 px-6 text-center">
@@ -4094,9 +4106,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>  
-      <div class="section-divider soft">
-    <span>❋</span>
-</div>
+ 
 <!-- =========================================
      BUKU ADAB WALIMAH
 ========================================= -->
@@ -4364,9 +4374,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>
 
-      <div class="section-divider">
-    <span>✦</span>
-</div>
+   
     <!-- =========================
      HALAMAN TERAKHIR — TANDA KASIH
 ========================= -->
