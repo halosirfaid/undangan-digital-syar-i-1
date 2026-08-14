@@ -18,98 +18,75 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      /* =========================================
-   PEMISAH SECTION — SOFT SHADOW
+   /* =========================================
+   PEMISAH SECTION — SOFT ELEGANT SHADOW
 ========================================= */
 
-.section-divider {
+/* Setiap section menjadi seperti lembar/panel */
+#konten-utama > section {
     position: relative;
-    height: 38px;
+    overflow: hidden;
 
-    background: #f7f3e8;
+    /* Warna dasar tetap sama */
+    background-color: #f7f3e8;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* Sudut sangat halus */
+    border-radius: 0 0 16px 16px;
 
-    z-index: 5;
+    /* SHADOW PEMISAH */
+    box-shadow:
+        0 8px 24px rgba(60, 65, 48, 0.07),
+        0 2px 6px rgba(60, 65, 48, 0.035);
+
+    /* Jarak antar bagian */
+    margin-bottom: 16px;
+
+    /* Supaya shadow tidak tertutup section berikutnya */
+    z-index: 1;
 }
 
 
-/* Bayangan lembut di bagian atas */
-.section-divider::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    top: 0;
-
-    height: 18px;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(60,65,48,.10),
-        rgba(60,65,48,.035),
-        transparent
-    );
-
-    filter: blur(4px);
-
-    pointer-events: none;
+/* Section setelahnya sedikit naik secara visual */
+#konten-utama > section + section {
+    margin-top: -1px;
 }
 
 
-/* Bayangan lembut di bagian bawah */
-.section-divider::after {
+/* Shadow bagian bawah dibuat lebih lembut */
+#konten-utama > section::after {
     content: "";
-
     position: absolute;
 
-    left: 0;
-    right: 0;
+    left: 5%;
+    right: 5%;
+    bottom: -18px;
 
-    bottom: 0;
+    height: 25px;
 
-    height: 18px;
+    background: rgba(60, 65, 48, 0.08);
 
-    background: linear-gradient(
-        to top,
-        rgba(60,65,48,.08),
-        rgba(60,65,48,.025),
-        transparent
-    );
+    filter: blur(14px);
 
-    filter: blur(4px);
+    border-radius: 50%;
+
+    z-index: -1;
 
     pointer-events: none;
 }
 
 
 /* =========================================
-   AKSEN GARIS SANGAT TIPIS
+   KHUSUS FOOTER
 ========================================= */
 
-.section-divider span {
-
+#konten-utama > footer {
     position: relative;
+    z-index: 1;
 
-    z-index: 3;
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #a58b50;
-
-    opacity: .45;
+    margin-top: -1px;
 
     box-shadow:
-        0 0 0 5px #f7f3e8,
-        0 2px 8px rgba(60,65,48,.12);
+        0 -8px 24px rgba(60, 65, 48, 0.05);
 }
 
 
@@ -117,13 +94,20 @@
    MOBILE
 ========================================= */
 
-@media (max-width:380px) {
+@media (max-width: 480px) {
 
-    .section-divider {
-        height: 30px;
+    #konten-utama > section {
+
+        margin-bottom: 14px;
+
+        border-radius: 0 0 14px 14px;
+
+        box-shadow:
+            0 8px 22px rgba(60, 65, 48, 0.08),
+            0 2px 6px rgba(60, 65, 48, 0.035);
     }
 
-}
+}  
 /* =========================================
    VARIASI LEMBUT
 ========================================= */
