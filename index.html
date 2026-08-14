@@ -88,88 +88,6 @@
     transform-style: preserve-3d;
 }
 
-/* =========================================
-   ICON ADAB KETIGA
-   WAJAH MENUNDUK — MENJAGA PANDANGAN
-========================================= */
-
-.icon-pandangan {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.wajah-menunduk {
-    position: relative;
-    width: 62px;
-    height: 62px;
-}
-
-/* bentuk kepala */
-.wajah-menunduk .kepala {
-    position: absolute;
-
-    width: 43px;
-    height: 48px;
-
-    left: 8px;
-    top: 5px;
-
-    border: 1.5px solid #59634d;
-    border-radius: 48% 45% 48% 50%;
-
-    transform: rotate(12deg);
-}
-
-/* sisi wajah / arah menunduk */
-.wajah-menunduk .wajah {
-    position: absolute;
-
-    width: 15px;
-    height: 20px;
-
-    left: 36px;
-    top: 27px;
-
-    border-right: 1.5px solid #59634d;
-    border-bottom: 1.5px solid #59634d;
-
-    border-radius: 0 0 12px 0;
-
-    transform: rotate(18deg);
-}
-
-/* dagu */
-.wajah-menunduk .dagu {
-    position: absolute;
-
-    width: 19px;
-    height: 10px;
-
-    left: 28px;
-    top: 45px;
-
-    border-bottom: 1.5px solid #59634d;
-
-    border-radius: 0 0 50% 50%;
-
-    transform: rotate(12deg);
-}
-
-/* simbol kecil sebagai aksen */
-.wajah-menunduk .daun-kecil {
-    position: absolute;
-
-    right: -2px;
-    bottom: 3px;
-
-    color: #a58b50;
-
-    font-size: 12px;
-
-    transform: rotate(25deg);
-}      
 /* Setiap halaman */
 
 .book-page {
@@ -2817,14 +2735,10 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
                     <div class="book-content">
 
-                        <div class="book-icon icon-pandangan">
-    <div class="wajah-menunduk">
-        <span class="kepala"></span>
-        <span class="wajah"></span>
-        <span class="dagu"></span>
-        <span class="daun-kecil">✦</span>
-    </div>
-</div>
+                       <div class="book-icon">
+                            <i class="fa-solid fa-person-circle-minus"></i>
+                        </div>
+
 
                         <p class="book-small">
                             Adab Ketiga
