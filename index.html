@@ -18,199 +18,322 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      /* =========================================
-   ADAB MENGHADIRI WALIMAH
+   /* =========================================
+   BUKU ADAB WALIMAH
 ========================================= */
 
-.adab-section {
+.buku-adab-section {
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(165, 139, 80, 0.08),
-            transparent 35%
-        ),
+        radial-gradient(circle at 50% 20%,
+            rgba(165,139,80,.08),
+            transparent 38%),
         #f7f3e8;
     color: #59634d;
 }
 
-/* Ornamen lingkaran */
-.adab-section::before {
-    content: "";
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    right: -160px;
-    top: 60px;
-    border: 1px solid rgba(165, 139, 80, 0.16);
-    border-radius: 50%;
-}
-
-.adab-section::after {
-    content: "";
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    left: -140px;
-    bottom: 40px;
-    border: 1px solid rgba(165, 139, 80, 0.13);
-    border-radius: 50%;
-}
-
-.adab-inner {
+.buku-adab-inner {
     position: relative;
     z-index: 2;
 }
 
-.adab-label {
+/* Judul section */
+
+.buku-adab-label {
     font-size: 8px;
-    letter-spacing: 0.3em;
+    letter-spacing: .3em;
     color: #a58b50;
-    margin-bottom: 8px;
     text-transform: uppercase;
+    margin-bottom: 7px;
 }
 
-.adab-title {
+.buku-adab-heading {
     font-family: 'Amiri', serif;
-    font-size: 38px;
+    font-size: 36px;
     color: #59634d;
-    line-height: 1.2;
 }
 
-.adab-opening {
-    max-width: 300px;
-    margin: 15px auto 35px;
+/* AREA BUKU */
+
+.book-wrapper {
+    width: min(330px, 88vw);
+    height: 430px;
+    margin: 30px auto 0;
+    position: relative;
+    perspective: 1800px;
+    touch-action: pan-y;
+}
+
+/* Bayangan buku */
+
+.book-shadow {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: -12px;
+    height: 30px;
+    background: rgba(55,60,45,.16);
+    filter: blur(14px);
+    border-radius: 50%;
+}
+
+/* Buku */
+
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* Setiap halaman */
+
+.book-page {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(80,70,40,.06),
+            transparent 8%,
+            transparent 92%,
+            rgba(80,70,40,.04)
+        ),
+        #f4edda;
+
+    border: 1px solid rgba(165,139,80,.30);
+
+    border-radius: 4px 14px 14px 4px;
+
+    box-shadow:
+        0 8px 20px rgba(60,65,48,.12);
+
+    overflow: hidden;
+
+    transform-origin: left center;
+
+    backface-visibility: hidden;
+
+    transition:
+        transform .9s cubic-bezier(.65,.05,.36,1),
+        box-shadow .9s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 28px;
+}
+
+/* Garis halaman */
+
+.book-page::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+
+    border: 1px solid rgba(165,139,80,.18);
+
+    pointer-events: none;
+}
+
+/* Halaman tertutup */
+
+.book-page.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Nomor halaman */
+
+.book-page-number {
+    position: absolute;
+    bottom: 18px;
+    font-family: 'Amiri', serif;
+    font-size: 11px;
+    color: rgba(89,99,77,.55);
+}
+
+/* Isi halaman */
+
+.book-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+
+.book-small {
+    font-size: 8px;
+    letter-spacing: .25em;
+    color: #a58b50;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.book-title {
+    font-family: 'Amiri', serif;
+    font-size: 29px;
+    line-height: 1.4;
+    color: #59634d;
+    margin-bottom: 15px;
+}
+
+.book-text {
     font-size: 10px;
     line-height: 2;
     color: #77745f;
 }
 
-/* Ornamen pembuka */
+.book-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 20px;
 
-.adab-ornament {
-    width: 52px;
-    height: 52px;
-    margin: 0 auto 18px;
-    border: 1px solid rgba(165, 139, 80, 0.30);
+    border: 1px solid rgba(165,139,80,.35);
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: #a58b50;
-    font-size: 15px;
+    font-size: 17px;
+
     position: relative;
 }
 
-.adab-ornament::before {
+.book-icon::before {
     content: "";
     position: absolute;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(165, 139, 80, 0.18);
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(165,139,80,.20);
     transform: rotate(45deg);
 }
 
-/* Daftar adab */
+/* Sampul */
 
-.adab-list {
-    max-width: 360px;
-    margin: 0 auto;
-    text-align: left;
+.book-cover {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,255,255,.08),
+            transparent 40%
+        ),
+        #59634d;
+
+    color: #f7f3e8;
+
+    border-color: rgba(165,139,80,.55);
+
+    box-shadow:
+        0 12px 30px rgba(60,65,48,.22);
 }
 
-.adab-item {
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    padding: 22px 0;
-    border-bottom: 1px solid rgba(165, 139, 80, 0.18);
+.book-cover::before {
+    inset: 15px;
+    border-color: rgba(220,196,130,.35);
 }
 
-.adab-item:first-child {
-    border-top: 1px solid rgba(165, 139, 80, 0.18);
+.book-cover-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
-.adab-number {
-    min-width: 42px;
-    height: 42px;
-    border: 1px solid rgba(165, 139, 80, 0.35);
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.book-cover-arabic {
     font-family: 'Amiri', serif;
-    font-size: 14px;
+    font-size: 25px;
+    color: #e1cc91;
+    margin-bottom: 25px;
+}
+
+.book-cover-title {
+    font-family: 'Amiri', serif;
+    font-size: 31px;
+    line-height: 1.5;
+    color: #fffdf5;
+}
+
+.book-cover-subtitle {
+    margin-top: 16px;
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    color: #e1d7bd;
+    line-height: 1.8;
+}
+
+.book-cover-line {
+    width: 60px;
+    height: 1px;
+    background: #c7ad6d;
+    margin: 18px auto;
+}
+
+.book-cover-symbol {
+    color: #d7bd7c;
+    font-size: 16px;
+}
+
+/* Petunjuk */
+
+.book-hint {
+    margin-top: 22px;
+    font-size: 8px;
+    letter-spacing: .2em;
     color: #a58b50;
+    text-transform: uppercase;
 
-    background: rgba(255,255,255,0.25);
+    animation: bookHint 2s ease-in-out infinite;
 }
 
-.adab-content h3 {
-    font-family: 'Amiri', serif;
-    font-size: 21px;
-    color: #59634d;
-    margin-bottom: 4px;
-}
+@keyframes bookHint {
+    0%,100% {
+        opacity: .45;
+        transform: translateX(0);
+    }
 
-.adab-content p {
-    font-size: 10px;
-    line-height: 1.9;
-    color: #77745f;
+    50% {
+        opacity: 1;
+        transform: translateX(5px);
+    }
 }
 
 /* Penutup */
 
-.adab-ending {
-    text-align: center;
-    margin: 40px auto 0;
-}
-
-.adab-ending-line {
-    width: 60px;
-    height: 1px;
-    background: #a58b50;
-    margin: 0 auto 15px;
-    opacity: 0.5;
-}
-
-.adab-ending-arabic {
+.book-closing {
+    margin-top: 25px;
     font-family: 'Amiri', serif;
-    font-size: 23px;
+    font-size: 19px;
     color: #59634d;
-}
-
-.adab-ending-text {
-    font-family: 'Amiri', serif;
-    font-size: 16px;
-    color: #77745f;
-    margin-top: 5px;
     line-height: 1.8;
 }
 
-.adab-ending-line:last-child {
-    margin-top: 15px;
-    margin-bottom: 0;
+.book-closing-arabic {
+    font-size: 24px;
+    color: #a58b50;
+    margin-bottom: 8px;
 }
 
-@media (max-width: 380px) {
-    .adab-title {
-        font-size: 34px;
+/* Mobile */
+
+@media (max-width:380px) {
+
+    .book-wrapper {
+        height: 400px;
     }
 
-    .adab-item {
-        gap: 12px;
+    .book-title {
+        font-size: 26px;
     }
 
-    .adab-number {
-        min-width: 38px;
-        height: 38px;
+    .book-cover-title {
+        font-size: 28px;
     }
 
-    .adab-content h3 {
-        font-size: 19px;
+    .book-text {
+        font-size: 9px;
     }
 }
      /* =========================================
@@ -2458,193 +2581,268 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>  
-      <!-- =========================================
-     ADAB MENGHADIRI WALIMAH
+      
+<!-- =========================================
+     BUKU ADAB WALIMAH
 ========================================= -->
 
 <section id="adab"
-         class="adab-section py-24 px-6 text-center">
+         class="buku-adab-section py-24 px-6 text-center">
 
-    <div class="adab-inner max-w-md mx-auto reveal">
+    <div class="buku-adab-inner max-w-md mx-auto reveal">
 
-        <!-- Ornamen -->
-
-        <div class="adab-ornament">
-            ✦
-        </div>
-
-        <!-- Judul -->
-
-        <p class="adab-label">
-            ADAB DALAM MENGHADIRI WALIMAH
+        <p class="buku-adab-label">
+            SEBUAH CATATAN KECIL
         </p>
 
-        <h2 class="adab-title">
-            Adab Menghadiri<br>
-            Walimah
+        <h2 class="buku-adab-heading">
+            Adab Walimah
         </h2>
 
-        <p class="adab-opening">
-            Beberapa adab yang kami harapkan
-            dapat kita jaga bersama agar
-            pertemuan ini menjadi bagian
-            dari keberkahan.
+        <!-- BUKU -->
+
+        <div class="book-wrapper"
+             id="adab-book">
+
+            <div class="book-shadow"></div>
+
+            <div class="book"
+                 id="adab-book-pages">
+
+
+                <!-- =========================
+                     HALAMAN 1 — SAMPUL
+                ========================== -->
+
+                <div class="book-page book-cover"
+                     data-page="0">
+
+                    <div class="book-cover-inner">
+
+                        <div class="book-cover-arabic">
+                            آدَابُ الْوَلِيمَةِ
+                        </div>
+
+                        <div class="book-cover-symbol">
+                            ✦
+                        </div>
+
+                        <h3 class="book-cover-title">
+                            Adab Menghadiri<br>
+                            Walimah
+                        </h3>
+
+                        <div class="book-cover-line"></div>
+
+                        <p class="book-cover-subtitle">
+                            Bekal Kecil Menuju<br>
+                            Sebuah Kebaikan
+                        </p>
+
+                        <div class="book-cover-symbol">
+                            ✦
+                        </div>
+
+                    </div>
+
+                    <span class="book-page-number">
+                        بِسْمِ اللَّهِ
+                    </span>
+
+                </div>
+
+
+                <!-- =========================
+                     HALAMAN 2
+                ========================== -->
+
+                <div class="book-page"
+                     data-page="1">
+
+                    <div class="book-content">
+
+                        <div class="book-icon">
+                            <i class="fa-solid fa-hands-praying"></i>
+                        </div>
+
+                        <p class="book-small">
+                            Adab Pertama
+                        </p>
+
+                        <h3 class="book-title">
+                            Meluruskan Niat
+                        </h3>
+
+                        <p class="book-text">
+                            Menghadiri walimah dengan niat
+                            memenuhi undangan, menjaga
+                            silaturahmi, dan turut mendoakan
+                            keberkahan bagi kedua mempelai.
+                        </p>
+
+                    </div>
+
+                    <span class="book-page-number">
+                        01
+                    </span>
+
+                </div>
+
+
+                <!-- =========================
+                     HALAMAN 3
+                ========================== -->
+
+                <div class="book-page"
+                     data-page="2">
+
+                    <div class="book-content">
+
+                        <div class="book-icon">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+
+                        <p class="book-small">
+                            Adab Kedua
+                        </p>
+
+                        <h3 class="book-title">
+                            Berpakaian dengan Sopan
+                        </h3>
+
+                        <p class="book-text">
+                            Mengenakan pakaian yang bersih,
+                            rapi, dan sesuai dengan adab
+                            serta ketentuan syariat.
+                        </p>
+
+                    </div>
+
+                    <span class="book-page-number">
+                        02
+                    </span>
+
+                </div>
+
+
+                <!-- =========================
+                     HALAMAN 4
+                ========================== -->
+
+                <div class="book-page"
+                     data-page="3">
+
+                    <div class="book-content">
+
+                        <div class="book-icon">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <p class="book-small">
+                            Adab Ketiga
+                        </p>
+
+                        <h3 class="book-title">
+                            Menjaga Pandangan
+                        </h3>
+
+                        <p class="book-text">
+                            Menjaga pandangan, ucapan,
+                            dan perilaku selama berada
+                            di tempat berlangsungnya acara.
+                        </p>
+
+                    </div>
+
+                    <span class="book-page-number">
+                        03
+                    </span>
+
+                </div>
+
+
+                <!-- =========================
+                     HALAMAN 5
+                ========================== -->
+
+                <div class="book-page"
+                     data-page="4">
+
+                    <div class="book-content">
+
+                        <div class="book-icon">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+
+                        <p class="book-small">
+                            Adab Keempat
+                        </p>
+
+                        <h3 class="book-title">
+                            Mendoakan Kedua Mempelai
+                        </h3>
+
+                        <p class="book-text">
+                            Semoga Allah memberikan
+                            keberkahan, menyatukan keduanya
+                            dalam kebaikan, serta menjadikan
+                            rumah tangganya penuh sakinah,
+                            mawaddah, dan rahmah.
+                        </p>
+
+                    </div>
+
+                    <span class="book-page-number">
+                        04
+                    </span>
+
+                </div>
+
+
+                <!-- =========================
+                     HALAMAN 6 — PENUTUP
+                ========================== -->
+
+                <div class="book-page"
+                     data-page="5">
+
+                    <div class="book-content">
+
+                        <div class="book-icon">
+                            <i class="fa-solid fa-dove"></i>
+                        </div>
+
+                        <p class="book-small">
+                            Sebuah Doa
+                        </p>
+
+                        <p class="book-closing-arabic">
+                            بَارَكَ اللَّهُ لَكُمَا
+                        </p>
+
+                        <p class="book-closing">
+                            Semoga Allah memberkahi
+                            pernikahan ini dan menjadikannya
+                            jalan menuju kebaikan serta
+                            keberkahan.
+                        </p>
+
+                    </div>
+
+                    <span class="book-page-number">
+                        05
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="book-hint"
+           id="book-hint">
+            Geser buku untuk membuka
         </p>
-
-
-        <!-- DAFTAR ADAB -->
-
-        <div class="adab-list">
-
-
-            <!-- 01 -->
-
-            <div class="adab-item reveal">
-
-                <div class="adab-number">
-                    01
-                </div>
-
-                <div class="adab-content">
-
-                    <h3>
-                        Meluruskan Niat
-                    </h3>
-
-                    <p>
-                        Menghadiri walimah dengan niat
-                        memenuhi undangan, menjaga
-                        silaturahmi, dan turut mendoakan
-                        keberkahan bagi kedua mempelai.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- 02 -->
-
-            <div class="adab-item reveal">
-
-                <div class="adab-number">
-                    02
-                </div>
-
-                <div class="adab-content">
-
-                    <h3>
-                        Berpakaian dengan Sopan
-                    </h3>
-
-                    <p>
-                        Mengenakan pakaian yang bersih,
-                        rapi, dan sesuai dengan adab
-                        serta ketentuan syariat.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- 03 -->
-
-            <div class="adab-item reveal">
-
-                <div class="adab-number">
-                    03
-                </div>
-
-                <div class="adab-content">
-
-                    <h3>
-                        Menjaga Pandangan & Adab
-                    </h3>
-
-                    <p>
-                        Menjaga pandangan, ucapan,
-                        dan perilaku selama berada
-                        di tempat berlangsungnya acara.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- 04 -->
-
-            <div class="adab-item reveal">
-
-                <div class="adab-number">
-                    04
-                </div>
-
-                <div class="adab-content">
-
-                    <h3>
-                        Mendoakan Kedua Mempelai
-                    </h3>
-
-                    <p>
-                        Semoga Allah memberikan keberkahan,
-                        menyatukan keduanya dalam kebaikan,
-                        serta menjadikan rumah tangganya
-                        penuh sakinah, mawaddah, dan rahmah.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- 05 -->
-
-            <div class="adab-item reveal">
-
-                <div class="adab-number">
-                    05
-                </div>
-
-                <div class="adab-content">
-
-                    <h3>
-                        Menjaga Ketertiban
-                    </h3>
-
-                    <p>
-                        Menjaga suasana walimah dengan
-                        tertib dan menghormati kenyamanan
-                        seluruh tamu yang hadir.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PENUTUP -->
-
-        <div class="adab-ending reveal">
-
-            <div class="adab-ending-line"></div>
-
-            <p class="adab-ending-arabic">
-                بَارَكَ اللَّهُ لَكُمَا
-            </p>
-
-            <p class="adab-ending-text">
-                Semoga langkah yang hadir menjadi doa,
-                dan pertemuan yang sederhana menjadi
-                keberkahan.
-            </p>
-
-            <div class="adab-ending-line"></div>
-
-        </div>
 
     </div>
 
@@ -3225,12 +3423,211 @@ document.getElementById("wa-konfirmasi").setAttribute(
     },20);
 
 } 
+
+
+
+
+
+// ====================================
+// BUKU ADAB WALIMAH — SWIPE
+// ====================================
+
+function aktifkanBukuAdab() {
+
+    const book = document.getElementById("adab-book-pages");
+    const wrapper = document.getElementById("adab-book");
+    const hint = document.getElementById("book-hint");
+
+    if (!book || !wrapper) return;
+
+    const pages = Array.from(
+        book.querySelectorAll(".book-page")
+    );
+
+    let currentPage = 0;
+
+    let startX = 0;
+    let startY = 0;
+
+    let isDragging = false;
+
+
+    function bukaHalaman() {
+
+        pages.forEach((page, index) => {
+
+            if (index < currentPage) {
+                page.classList.add("flipped");
+            } else {
+                page.classList.remove("flipped");
+            }
+
+            page.style.zIndex =
+                pages.length - index;
+
+        });
+
+        if (currentPage > 0) {
+            hint.style.opacity = "0";
+        } else {
+            hint.style.opacity = "1";
+        }
+
+    }
+
+
+    function mulaiGeser(x, y) {
+
+        startX = x;
+        startY = y;
+
+        isDragging = true;
+
+    }
+
+
+    function selesaiGeser(x, y) {
+
+        if (!isDragging) return;
+
+        isDragging = false;
+
+        const deltaX = x - startX;
+        const deltaY = y - startY;
+
+        /*
+         * Pastikan gerakannya memang horizontal.
+         */
+
+        if (Math.abs(deltaX) < 45) return;
+
+        if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+
+
+        /* Geser kiri */
+
+        if (deltaX < 0) {
+
+            if (currentPage < pages.length - 1) {
+
+                currentPage++;
+
+                bukaHalaman();
+
+            }
+
+        }
+
+
+        /* Geser kanan */
+
+        else {
+
+            if (currentPage > 0) {
+
+                currentPage--;
+
+                bukaHalaman();
+
+            }
+
+        }
+
+    }
+
+
+    /* ==========================
+       TOUCH HP / TABLET
+    ========================== */
+
+    wrapper.addEventListener(
+        "touchstart",
+        function(e) {
+
+            const touch = e.touches[0];
+
+            mulaiGeser(
+                touch.clientX,
+                touch.clientY
+            );
+
+        },
+        { passive: true }
+    );
+
+
+    wrapper.addEventListener(
+        "touchend",
+        function(e) {
+
+            const touch = e.changedTouches[0];
+
+            selesaiGeser(
+                touch.clientX,
+                touch.clientY
+            );
+
+        },
+        { passive: true }
+    );
+
+
+    /* ==========================
+       MOUSE
+       untuk testing di komputer
+    ========================== */
+
+    wrapper.addEventListener(
+        "mousedown",
+        function(e) {
+
+            mulaiGeser(
+                e.clientX,
+                e.clientY
+            );
+
+        }
+    );
+
+
+    wrapper.addEventListener(
+        "mouseup",
+        function(e) {
+
+            selesaiGeser(
+                e.clientX,
+                e.clientY
+            );
+
+        }
+    );
+
+
+    bukaHalaman();
+
+}
+
+
+/* Jalankan setelah halaman selesai */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        aktifkanBukuAdab();
+
+    }
+);
+
+
+
+
+
+  
     window.addEventListener("scroll", scrollReveal);
   window.addEventListener('load', () => {
 
     isiDataUndangan();
-
-    tampilkanGaleri();
 
     ambilNamaTamu();
 
