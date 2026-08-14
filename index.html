@@ -19,6 +19,211 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
       /* =========================================
+   SEBUAH PERJALANAN
+========================================= */
+
+.perjalanan-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(165, 139, 80, 0.07),
+            transparent 38%
+        ),
+        #f7f3e8;
+}
+
+/* pola geometris */
+.perjalanan-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.025;
+
+    background-image:
+        linear-gradient(
+            30deg,
+            #5d644e 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #5d644e 87.5%,
+            #5d644e
+        ),
+        linear-gradient(
+            150deg,
+            #5d644e 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #5d644e 87.5%,
+            #5d644e
+        );
+
+    background-size: 30px 52px;
+
+    pointer-events: none;
+}
+
+.perjalanan-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Judul */
+
+.perjalanan-label {
+    font-size: 8px;
+    letter-spacing: 0.3em;
+    color: #a58b50;
+    margin-bottom: 8px;
+}
+
+.perjalanan-title {
+    font-family: 'Amiri', serif;
+    font-size: 38px;
+    color: #59634d;
+}
+
+.perjalanan-divider {
+    margin: 15px auto 20px;
+
+    color: #a58b50;
+    font-size: 12px;
+}
+
+.perjalanan-opening {
+    font-size: 11px;
+    line-height: 2;
+    color: #77745f;
+    font-style: italic;
+}
+
+
+/* Item */
+
+.perjalanan-item {
+    max-width: 360px;
+    margin: 45px auto 0;
+
+    display: flex;
+    gap: 18px;
+
+    align-items: flex-start;
+}
+
+/* Nomor */
+
+.perjalanan-number {
+    min-width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(165, 139, 80, 0.35);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Amiri', serif;
+    font-size: 15px;
+
+    color: #a58b50;
+
+    background: rgba(255,255,255,0.35);
+}
+
+/* Isi */
+
+.perjalanan-content {
+    text-align: left;
+}
+
+.perjalanan-small {
+    font-size: 8px;
+    letter-spacing: 0.22em;
+    color: #a58b50;
+
+    margin-bottom: 5px;
+}
+
+.perjalanan-content h3 {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: #59634d;
+
+    margin-bottom: 5px;
+}
+
+.perjalanan-content p:last-child {
+    font-size: 10px;
+    line-height: 1.9;
+    color: #77745f;
+}
+
+
+/* Penutup */
+
+.perjalanan-ending {
+    text-align: center;
+
+    margin: 55px auto 0;
+
+    color: #59634d;
+}
+
+.perjalanan-ending p {
+    font-family: 'Amiri', serif;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.perjalanan-ending span {
+    display: block;
+
+    font-family: 'Amiri', serif;
+    font-size: 17px;
+
+    color: #77745f;
+}
+
+.perjalanan-ending-line {
+    width: 65px;
+    height: 1px;
+
+    background: #a58b50;
+
+    margin: 0 auto;
+
+    opacity: 0.5;
+}
+
+
+/* HP kecil */
+
+@media (max-width: 380px) {
+
+    .perjalanan-title {
+        font-size: 34px;
+    }
+
+    .perjalanan-item {
+        gap: 12px;
+    }
+
+    .perjalanan-number {
+        min-width: 42px;
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .perjalanan-content h3 {
+        font-size: 20px;
+    }
+
+}
+      /* =========================================
    MEMPELAI SYAR'I
 ========================================= */
 
@@ -1059,11 +1264,138 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>
       
-          <section class="py-20 px-6 bg-[#fffcf5]">
-    <h2 class="text-4xl font-aesthetic text-center text-amber-700 mb-10"> Our Love Story</h2>
-    <div id="story-container" class="max-w-md mx-auto space-y-6 reveal">
+  <section id="perjalanan" class="perjalanan-section py-24 px-6">
+
+    <div class="max-w-md mx-auto text-center reveal">
+
+        <p class="perjalanan-label">
+            MENUJU SEBUAH IKATAN
+        </p>
+
+        <h2 class="perjalanan-title">
+            Sebuah Perjalanan
+        </h2>
+
+        <div class="perjalanan-divider">
+            ✦
+        </div>
+
+        <p class="perjalanan-opening">
+            Setiap perjalanan memiliki awal yang telah Allah tetapkan.
+            Setiap pertemuan terjadi atas izin-Nya, dan setiap langkah
+            membawa kita menuju takdir yang telah dituliskan.
+        </p>
+
     </div>
-</section>         
+
+
+    <!-- PERJALANAN 1 -->
+
+    <div class="perjalanan-item reveal">
+
+        <div class="perjalanan-number">
+            01
+        </div>
+
+        <div class="perjalanan-content">
+
+            <p class="perjalanan-small">
+                SEBUAH PERTEMUAN
+            </p>
+
+            <h3>
+                Dipertemukan dalam kebaikan
+            </h3>
+
+            <p>
+                Dua insan dipertemukan dalam sebuah perjalanan kehidupan.
+                Dari sebuah perkenalan sederhana, tumbuh niat untuk saling
+                mengenal dalam kebaikan.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PERJALANAN 2 -->
+
+    <div class="perjalanan-item reveal">
+
+        <div class="perjalanan-number">
+            02
+        </div>
+
+        <div class="perjalanan-content">
+
+            <p class="perjalanan-small">
+                SEBUAH IKHTIAR
+            </p>
+
+            <h3>
+                Melangkah dengan doa
+            </h3>
+
+            <p>
+                Dengan melibatkan keluarga dan memohon petunjuk-Nya,
+                langkah demi langkah ditempuh dengan niat menuju sebuah
+                ikatan yang diridhai Allah.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PERJALANAN 3 -->
+
+    <div class="perjalanan-item reveal">
+
+        <div class="perjalanan-number">
+            03
+        </div>
+
+        <div class="perjalanan-content">
+
+            <p class="perjalanan-small">
+                SEBUAH AMANAH
+            </p>
+
+            <h3>
+                Menuju sebuah ibadah
+            </h3>
+
+            <p>
+                Kini, dengan mengucapkan bismillah, keduanya memantapkan
+                hati untuk menapaki kehidupan bersama dalam sebuah
+                pernikahan.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PENUTUP -->
+
+    <div class="perjalanan-ending reveal">
+
+        <div class="perjalanan-ending-line"></div>
+
+        <p>
+            بِسْمِ اللَّهِ
+        </p>
+
+        <span>
+            Kami melangkah menuju sebuah ibadah.
+        </span>
+
+        <div class="perjalanan-ending-line"></div>
+
+    </div>
+
+</section>
+      
             <section id="acara" class="py-20 px-6 bg-[#fffcf5] text-center">
     <div class="max-w-md mx-auto reveal">
         <h2 class="text-4xl font-aesthetic text-amber-700 mb-2">Acara Pernikahan</h2>
@@ -1450,78 +1782,7 @@ function feedbackSalin(elemen, teksAsli) {
             else el.classList.remove("active");
         });
     }
- //====================================
-// LOVE STORY
-//====================================
 
-function tampilkanStory() {
-
-    const story = dataMempelai.story;
-
-    const container = document.getElementById("story-container");
-
-    container.innerHTML = "";
-
-    // Cerita Pertama
-    container.innerHTML += `
-        <div class="chat-bubble shadow-md rounded-2xl p-5 mb-6 border-l-4 border-amber-700 reveal">
-            <p class="text-xs font-bold text-amber-700 mb-1">
-                ${story.bulanTahun1}
-            </p>
-
-            <p class="text-[11px] text-stone-600">
-                "${story.pesanWanita1}"
-            </p>
-
-            <p class="text-[10px] text-stone-400 mt-2">
-                ${story.waktuWanita1}
-            </p>
-        </div>
-    `;
-
-    // Cerita Kedua
-    container.innerHTML += `
-        <div class="chat-bubble shadow-md rounded-2xl p-5 mb-6 border-l-4 border-amber-700 reveal"
-        style="margin-left:auto;background:#fef3c7;">
-
-            <p class="text-xs font-bold text-amber-700 mb-1">
-                ${story.bulanTahun2}
-            </p>
-
-            <p class="text-[11px] text-stone-600">
-                "${story.pesanPria1}"
-            </p>
-
-            <p class="text-[10px] text-stone-400 mt-2">
-                ${story.waktuPria1}
-            </p>
-
-        </div>
-    `;
-
-    // Cerita Ketiga (dengan foto)
-    container.innerHTML += `
-        <div class="chat-bubble shadow-md rounded-2xl p-5 mb-6 border-l-4 border-amber-700 reveal">
-
-            <p class="text-xs font-bold text-amber-700 mb-1">
-                ${story.bulanTahun3}
-            </p>
-
-            <img src="${story.fotoPertunangan}"
-                class="rounded-xl my-3 w-full">
-
-            <p class="text-[11px] text-stone-600">
-                "${story.pesanWanita2}"
-            </p>
-
-            <p class="text-[10px] text-stone-400 mt-2">
-                ${story.waktuWanita2}
-            </p>
-
-        </div>
-    `;
-
-}
 //====================================
 // GALERI
 //====================================
@@ -1766,8 +2027,6 @@ document.getElementById("wa-konfirmasi").setAttribute(
   window.addEventListener('load', () => {
 
     isiDataUndangan();
-
-    tampilkanStory();
 
     tampilkanGaleri();
 
