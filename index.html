@@ -18,6 +18,171 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      /* =========================================
+   MEMPELAI SYAR'I
+========================================= */
+
+.mempelai-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(165, 139, 80, 0.07),
+            transparent 38%
+        ),
+        #f7f3e8;
+}
+
+/* Ornamen lingkaran */
+.mempelai-section::before {
+    content: "";
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid rgba(151, 132, 77, 0.08);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 25px rgba(151, 132, 77, 0.025),
+        0 0 0 50px rgba(151, 132, 77, 0.018);
+
+    pointer-events: none;
+}
+
+/* Judul */
+.mempelai-title {
+    font-family: 'Amiri', serif;
+    color: #59634d;
+    font-size: 38px;
+}
+
+/* Ilustrasi pasangan */
+.mempelai-illustration {
+    width: 245px;
+    margin: 5px auto 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.mempelai-illustration img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 12px 18px
+            rgba(60, 65, 48, 0.10)
+        );
+
+    animation: mempelaiFloat 6s ease-in-out infinite;
+}
+
+@keyframes mempelaiFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Label */
+.mempelai-label {
+    font-size: 8px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #a58b50;
+    margin-bottom: 8px;
+}
+
+/* Nama */
+.mempelai-name {
+    font-family: 'Amiri', serif;
+    font-size: 27px;
+    line-height: 1.4;
+    color: #3f4636;
+}
+
+/* Orang tua */
+.mempelai-parents {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #77745f;
+    max-width: 280px;
+    margin: 5px auto 0;
+}
+
+/* Instagram */
+.mempelai-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 10px;
+
+    font-size: 10px;
+    color: #59634d;
+
+    opacity: 0.85;
+}
+
+/* Pemisah pasangan */
+.mempelai-divider {
+    width: 50px;
+    height: 1px;
+
+    background: #a58b50;
+
+    margin: 30px auto;
+
+    opacity: 0.55;
+}
+
+.mempelai-divider-symbol {
+    margin: -38px auto 28px;
+
+    width: 28px;
+    height: 28px;
+
+    background: #f7f3e8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #a58b50;
+    font-size: 12px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsif HP kecil */
+@media (max-width: 380px) {
+
+    .mempelai-illustration {
+        width: 210px;
+        margin-bottom: 25px;
+    }
+
+    .mempelai-title {
+        font-size: 34px;
+    }
+
+    .mempelai-name {
+        font-size: 24px;
+    }
+}
 
       /* =========================================
    BACKGROUND ISLAMI UNTUK ISI UNDANGAN
@@ -800,37 +965,101 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     </div>
 
 </section>
-        
-        <section id="mempelai" class="py-20 px-6 text-center bg-[#fffcf5]">
+
+<section id="mempelai"
+         class="mempelai-section py-24 px-6 text-center">
+
     <div class="max-w-md mx-auto reveal">
-        <h2 class="text-4xl font-aesthetic text-amber-700 mb-12">Mempelai</h2>
-        
-        <div class="space-y-16">
-            <div class="flex flex-col items-center reveal">
-                <img id="foto-pria" src="" class="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4 object-cover floating zoom-anim">
-                <h3 id="nama-pria" class="text-2xl font-bold text-stone-800"></h3>
-                <p id="ortu-pria" class="text-xs text-stone-500 italic mt-1"></p>
-                <a id="ig-link-pria" href="#" target="_blank" class="mt-3 flex items-center gap-2 text-amber-700 font-semibold">
-                    <i class="fa-brands fa-instagram text-lg"></i>
-                    <span id="ig-pria" class="text-[12px]"></span>
-                </a>
-            </div>
 
-            <div class="text-4xl font-aesthetic text-amber-700">dengan</div>
+        <!-- Judul -->
+        <p class="mempelai-label">
+            Dengan Memohon Ridha Allah
+        </p>
 
-            <div class="flex flex-col items-center reveal">
-                <img id="foto-wanita" src="" class="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4 object-cover floating zoom-anim">
-               <h3 id="nama-wanita" class="text-2xl font-bold text-stone-800"></h3>
-             <p id="ortu-wanita" class="text-xs text-stone-500 italic mt-1"></p>
-               <a id="ig-link-wanita" href="#" target="_blank" class="mt-3 flex items-center gap-2 text-amber-700 font-semibold">
-                    <i class="fa-brands fa-instagram text-lg"></i>
-                   <span id="ig-wanita" class="text-[12px]"></span>
-                </a>
-            </div>
+        <h2 class="mempelai-title mb-6">
+            Mempelai
+        </h2>
+
+        <!-- Ilustrasi -->
+        <div class="mempelai-illustration">
+
+            <img
+                src="undangansyari.png"
+                alt="Ilustrasi Pengantin">
+
         </div>
+
+
+        <!-- MEMPELAI PRIA -->
+        <div class="mempelai-card reveal">
+
+            <p class="mempelai-label">
+                Mempelai Pria
+            </p>
+
+            <h3 id="nama-pria"
+                class="mempelai-name">
+            </h3>
+
+            <p id="ortu-pria"
+               class="mempelai-parents">
+            </p>
+
+            <a id="ig-link-pria"
+               href="#"
+               target="_blank"
+               class="mempelai-instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+                <span id="ig-pria"></span>
+
+            </a>
+
+        </div>
+
+
+        <!-- PEMISAH -->
+        <div class="mempelai-divider"></div>
+
+        <div class="mempelai-divider-symbol">
+            ✦
+        </div>
+
+
+        <!-- MEMPELAI WANITA -->
+        <div class="mempelai-card reveal">
+
+            <p class="mempelai-label">
+                Mempelai Wanita
+            </p>
+
+            <h3 id="nama-wanita"
+                class="mempelai-name">
+            </h3>
+
+            <p id="ortu-wanita"
+               class="mempelai-parents">
+            </p>
+
+            <a id="ig-link-wanita"
+               href="#"
+               target="_blank"
+               class="mempelai-instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+                <span id="ig-wanita"></span>
+
+            </a>
+
+        </div>
+
     </div>
+
 </section>
-    <section class="py-20 px-6 bg-[#fffcf5]">
+      
+          <section class="py-20 px-6 bg-[#fffcf5]">
     <h2 class="text-4xl font-aesthetic text-center text-amber-700 mb-10"> Our Love Story</h2>
     <div id="story-container" class="max-w-md mx-auto space-y-6 reveal">
     </div>
@@ -1350,9 +1579,6 @@ document.getElementById("preloader-logo").textContent =
 // Data Pria
 //==============================
 
-document.getElementById("foto-pria").src =
-dataMempelai.pria.foto;
-
 document.getElementById("nama-pria").textContent =
 dataMempelai.pria.namaLengkap;
 
@@ -1375,8 +1601,6 @@ document.getElementById("ig-pria").textContent =
 //==============================
 
 console.log(dataMempelai.wanita);
-
-document.getElementById("foto-wanita").src = dataMempelai.wanita.foto;
 
 document.getElementById("nama-wanita").textContent =
 dataMempelai.wanita.namaLengkap;
