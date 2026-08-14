@@ -18,110 +18,94 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      
       /* =========================================
-   KADO DIGITAL — SYAR'I MINIMAL
+   LEMBAR AMANAH — KADO DIGITAL
 ========================================= */
 
-.kado-section {
+.amanah-section {
     position: relative;
     overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 15% 20%,
+            circle at 50% 10%,
             rgba(165,139,80,.08),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(89,99,77,.06),
-            transparent 30%
+            transparent 35%
         ),
         #f7f3e8;
 
     color: #59634d;
 }
 
+/* Pola lembut */
 
-/* Ornamen lingkaran */
-
-.kado-section::before {
+.amanah-section::before {
     content: "";
-
     position: absolute;
+    inset: 0;
 
-    width: 280px;
-    height: 280px;
+    opacity: .025;
 
-    right: -170px;
-    top: 80px;
+    background-image:
+        linear-gradient(
+            30deg,
+            #5d644e 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #5d644e 87.5%,
+            #5d644e
+        ),
+        linear-gradient(
+            150deg,
+            #5d644e 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #5d644e 87.5%,
+            #5d644e
+        );
 
-    border: 1px solid rgba(165,139,80,.14);
-
-    border-radius: 50%;
+    background-size: 30px 52px;
 
     pointer-events: none;
 }
 
-.kado-section::after {
-    content: "";
-
-    position: absolute;
-
-    width: 220px;
-    height: 220px;
-
-    left: -150px;
-    bottom: 100px;
-
-    border: 1px solid rgba(89,99,77,.10);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-
-/* Judul */
-
-.kado-section > div {
+.amanah-section > * {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
-.kado-label {
+
+/* =========================================
+   JUDUL
+========================================= */
+
+.amanah-label {
     font-size: 8px;
-    letter-spacing: .32em;
-
+    letter-spacing: .35em;
     color: #a58b50;
-
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
-.kado-title {
+.amanah-title {
     font-family: 'Amiri', serif;
-
-    font-size: 40px;
-
+    font-size: 39px;
     color: #59634d;
 }
 
-.kado-divider {
-    margin: 13px auto 18px;
+.amanah-ornament {
+    margin: 12px auto 18px;
 
     color: #a58b50;
 
     font-size: 12px;
 }
 
-.kado-opening {
+.amanah-opening {
     max-width: 300px;
 
-    margin: 0 auto 35px;
+    margin: 0 auto 40px;
 
     font-size: 10px;
-
     line-height: 2;
 
     color: #77745f;
@@ -129,128 +113,122 @@
 
 
 /* =========================================
-   ITEM REKENING
+   LEMBAR REKENING
 ========================================= */
 
-.kado-item {
-
+.amanah-item {
     position: relative;
 
-    max-width: 350px;
+    max-width: 330px;
 
-    min-height: 175px;
+    margin: 0 auto 38px;
 
-    margin: 0 auto 22px;
+    padding: 25px 15px 22px;
 
-    padding: 23px 22px;
-
-    text-align: left;
-
-    border: 1px solid rgba(165,139,80,.25);
-
-    border-radius: 22px;
+    text-align: center;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(255,255,255,.72),
-            rgba(247,243,232,.55)
+            to bottom,
+            rgba(255,255,255,.35),
+            rgba(255,255,255,.12)
         );
 
+    border-top: 1px solid rgba(165,139,80,.28);
+    border-bottom: 1px solid rgba(165,139,80,.28);
+
     box-shadow:
-        0 12px 30px rgba(60,65,48,.07);
-
-    overflow: hidden;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
+        0 12px 25px rgba(60,65,48,.035);
 }
 
-.kado-item::before {
 
-    content: "";
+/* sudut dekoratif */
+
+.amanah-item::before,
+.amanah-item::after {
+
+    content: "✦";
 
     position: absolute;
 
-    width: 120px;
-    height: 120px;
-
-    right: -55px;
-    top: -55px;
-
-    border: 1px solid rgba(165,139,80,.15);
-
-    border-radius: 50%;
-}
-
-.kado-item-top {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
+    top: -7px;
 
     color: #a58b50;
-}
-
-.kado-bank {
 
     font-size: 9px;
+
+}
+
+.amanah-item::before {
+    left: 12px;
+}
+
+.amanah-item::after {
+    right: 12px;
+}
+
+
+/* nama bank */
+
+.amanah-bank {
+
+    font-size: 8px;
+
+    letter-spacing: .28em;
 
     font-weight: 600;
 
-    letter-spacing: .25em;
-}
+    color: #a58b50;
 
-.kado-item-top i {
-
-    font-size: 17px;
-
-    opacity: .65;
 }
 
 
-/* Nomor */
+/* garis */
 
-.kado-number-area {
+.amanah-line {
 
-    margin-top: 30px;
+    width: 45px;
+    height: 1px;
+
+    margin: 12px auto;
+
+    background: #a58b50;
+
+    opacity: .45;
 }
 
-.kado-number {
 
-    font-family: monospace;
+/* nomor */
 
-    font-size: 21px;
+.amanah-number {
 
-    letter-spacing: .16em;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 20px;
+
+    letter-spacing: .15em;
 
     color: #3f4636;
 
-    margin: 0;
-
-    word-break: break-word;
+    margin-bottom: 5px;
 }
 
-.kado-owner {
 
-    margin-top: 7px;
+/* nama pemilik */
 
-    font-size: 9px;
+.amanah-name {
 
-    text-transform: uppercase;
+    font-family: 'Amiri', serif;
 
-    letter-spacing: .2em;
+    font-size: 17px;
 
     color: #77745f;
 }
 
 
-/* Tombol salin */
+/* tombol salin */
 
-.kado-copy {
+.amanah-copy {
 
     display: inline-flex;
 
@@ -258,63 +236,63 @@
 
     gap: 7px;
 
-    margin-top: 18px;
+    margin-top: 15px;
 
-    padding: 8px 14px;
+    padding: 8px 16px;
+
+    border: 1px solid rgba(89,99,77,.25);
 
     border-radius: 999px;
 
-    border: 1px solid rgba(89,99,77,.22);
-
-    background: rgba(255,255,255,.55);
+    background: transparent;
 
     color: #59634d;
 
     font-size: 7px;
 
+    letter-spacing: .13em;
+
     font-weight: 600;
 
-    letter-spacing: .12em;
-
-    transition: .2s ease;
+    transition: .25s ease;
 }
 
-.kado-copy:active {
-
+.amanah-copy:active {
     transform: scale(.95);
-
 }
 
 
 /* =========================================
-   ALAMAT
+   KADO FISIK
 ========================================= */
 
-.kado-address {
+.amanah-gift {
 
-    max-width: 350px;
+    max-width: 330px;
 
-    margin: 30px auto 0;
+    margin: 48px auto 0;
 
-    padding: 30px 24px;
+    padding: 25px 20px;
 
     text-align: center;
 
-    border-top: 1px solid rgba(165,139,80,.25);
+    border-top: 1px solid rgba(165,139,80,.28);
 
-    border-bottom: 1px solid rgba(165,139,80,.25);
+    border-bottom: 1px solid rgba(165,139,80,.28);
+
+    background: rgba(255,255,255,.18);
 }
 
-.kado-address-icon {
+.amanah-gift-symbol {
 
     color: #a58b50;
 
-    font-size: 20px;
+    font-size: 17px;
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.kado-address-label {
+.amanah-gift-label {
 
     font-size: 8px;
 
@@ -322,10 +300,14 @@
 
     color: #a58b50;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.kado-address-text {
+.amanah-address {
+
+    max-width: 280px;
+
+    margin: auto;
 
     font-family: 'Amiri', serif;
 
@@ -336,56 +318,52 @@
     color: #59634d;
 }
 
-.kado-recipient {
+.amanah-recipient {
 
-    margin-top: 8px;
+    margin-top: 7px;
 
     font-size: 9px;
 
     color: #77745f;
-
-    letter-spacing: .08em;
-}
-
-.address-copy {
-
-    margin-top: 18px;
 }
 
 
 /* =========================================
-   WHATSAPP
+   KONFIRMASI
 ========================================= */
 
-.kado-confirm {
+.amanah-confirm {
 
-    margin-top: 38px;
+    margin-top: 45px;
 
     text-align: center;
 }
 
-.kado-confirm-line {
+.amanah-small-line {
 
-    width: 55px;
+    width: 50px;
+
     height: 1px;
 
-    background: #a58b50;
-
     margin: 0 auto 18px;
+
+    background: #a58b50;
 
     opacity: .5;
 }
 
-.kado-confirm p {
+.amanah-confirm p {
 
     font-size: 9px;
+
+    letter-spacing: .12em;
 
     color: #77745f;
 
     margin-bottom: 14px;
 }
 
-.kado-wa {
+.amanah-wa {
 
     display: inline-flex;
 
@@ -410,37 +388,34 @@
     box-shadow:
         0 8px 20px rgba(60,65,48,.15);
 
-    transition: .2s ease;
+    transition: .25s ease;
 }
 
-.kado-wa:active {
-
+.amanah-wa:active {
     transform: scale(.95);
-
 }
 
 
-/* HP kecil */
+/* =========================================
+   HP KECIL
+========================================= */
 
-@media (max-width: 380px) {
+@media (max-width:380px) {
 
-    .kado-title {
-        font-size: 35px;
+    .amanah-title {
+        font-size: 34px;
     }
 
-    .kado-item {
-        padding: 20px 18px;
+    .amanah-number {
+        font-size: 18px;
     }
 
-    .kado-number {
-        font-size: 17px;
-    }
-
-    .kado-address-text {
+    .amanah-address {
         font-size: 16px;
     }
 
 }
+    
    /* =========================================
    BUKU ADAB WALIMAH
 ========================================= */
@@ -3272,69 +3247,61 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 </section>
 
-      <section id="kado" class="kado-section py-24 px-6 text-center">
+     <!-- =========================
+     KADO DIGITAL — LEMBAR AMANAH
+========================= -->
 
-    <div class="max-w-md mx-auto reveal">
+<section id="kado" class="amanah-section py-24 px-6">
 
-        <!-- JUDUL -->
+    <div class="max-w-md mx-auto text-center reveal">
 
-        <p class="kado-label">
-            SEBUAH TANDA KASIH
+        <p class="amanah-label">
+            TANDA KASIH
         </p>
 
-        <h2 class="kado-title">
-            Kado Digital
+        <h2 class="amanah-title">
+            Lembar Amanah
         </h2>
 
-        <div class="kado-divider">
+        <div class="amanah-ornament">
             ✦
         </div>
 
-        <p class="kado-opening">
-            Doa dan kehadiranmu adalah hadiah yang
-            sangat berarti bagi kami.
-            <br>
-            Apabila berkenan memberikan tanda kasih,
+        <p class="amanah-opening">
+            Bagi yang ingin memberikan tanda kasih,
             kami menyediakan beberapa pilihan berikut.
+            Semoga menjadi amal kebaikan dan keberkahan
+            bagi kita semua.
         </p>
 
 
         <!-- =========================
-             REKENING MANDIRI
+             MANDIRI
         ========================== -->
 
-        <div class="kado-item reveal">
+        <div class="amanah-item reveal">
 
-            <div class="kado-item-top">
-
-                <span class="kado-bank">
-                    BANK MANDIRI
-                </span>
-
-                <i class="fa-solid fa-building-columns"></i>
-
+            <div class="amanah-bank">
+                BANK MANDIRI
             </div>
 
-            <div class="kado-number-area">
+            <div class="amanah-line"></div>
 
-                <p class="kado-number"
-                   id="rek-mandiri">
-                    1234 5678 9012
-                </p>
+            <p id="rek-mandiri"
+               class="amanah-number">
+                1234 5678 9012
+            </p>
 
-                <p class="kado-owner"
-                   id="mandiri-an">
-                    Sirajuddin
-                </p>
-
-            </div>
+            <p id="mandiri-an"
+               class="amanah-name">
+                Sirajuddin
+            </p>
 
             <button
                 onclick="salinTeks('123456789012', 'Mandiri', this)"
-                class="kado-copy">
+                class="amanah-copy">
 
                 <i class="fa-regular fa-copy"></i>
-
                 SALIN NOMOR
 
             </button>
@@ -3343,41 +3310,32 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 
         <!-- =========================
-             REKENING BCA
+             BCA
         ========================== -->
 
-        <div class="kado-item reveal">
+        <div class="amanah-item reveal">
 
-            <div class="kado-item-top">
-
-                <span class="kado-bank">
-                    BANK BCA
-                </span>
-
-                <i class="fa-solid fa-building-columns"></i>
-
+            <div class="amanah-bank">
+                BANK BCA
             </div>
 
-            <div class="kado-number-area">
+            <div class="amanah-line"></div>
 
-                <p class="kado-number"
-                   id="rek-bca">
-                    0987 6543 21
-                </p>
+            <p id="rek-bca"
+               class="amanah-number">
+                0987 6543 21
+            </p>
 
-                <p class="kado-owner"
-                   id="bca-an">
-                    Aulia Rahmah
-                </p>
-
-            </div>
+            <p id="bca-an"
+               class="amanah-name">
+                Aulia Rahmah
+            </p>
 
             <button
                 onclick="salinTeks('0987654321', 'BCA', this)"
-                class="kado-copy">
+                class="amanah-copy">
 
                 <i class="fa-regular fa-copy"></i>
-
                 SALIN NOMOR
 
             </button>
@@ -3389,38 +3347,29 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
              DANA
         ========================== -->
 
-        <div class="kado-item reveal">
+        <div class="amanah-item reveal">
 
-            <div class="kado-item-top">
-
-                <span class="kado-bank">
-                    DANA
-                </span>
-
-                <i class="fa-solid fa-wallet"></i>
-
+            <div class="amanah-bank">
+                DANA
             </div>
 
-            <div class="kado-number-area">
+            <div class="amanah-line"></div>
 
-                <p class="kado-number"
-                   id="rek-dana">
-                    082149971287
-                </p>
+            <p id="rek-dana"
+               class="amanah-number">
+                082149971287
+            </p>
 
-                <p class="kado-owner"
-                   id="dana-an">
-                    Sirajuddin
-                </p>
-
-            </div>
+            <p id="dana-an"
+               class="amanah-name">
+                Sirajuddin
+            </p>
 
             <button
                 onclick="salinTeks('082149971287', 'DANA', this)"
-                class="kado-copy">
+                class="amanah-copy">
 
                 <i class="fa-regular fa-copy"></i>
-
                 SALIN NOMOR
 
             </button>
@@ -3429,36 +3378,39 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 
         <!-- =========================
-             ALAMAT KADO
+             KADO FISIK
         ========================== -->
 
-        <div class="kado-address reveal">
+        <div class="amanah-gift reveal">
 
-            <div class="kado-address-icon">
-                <i class="fa-solid fa-box-open"></i>
+            <div class="amanah-gift-symbol">
+                ❋
             </div>
 
-            <p class="kado-address-label">
-                KIRIMAN KADO
+            <p class="amanah-gift-label">
+                KADO FISIK
             </p>
 
             <p id="alamat-kado"
-               class="kado-address-text">
+               class="amanah-address">
                 Jl. Trans Kalimantan No. 123,
                 Kuala Kapuas, Kapuas Murung
             </p>
 
             <p id="penerima-kado"
-               class="kado-recipient">
-                Penerima: Rara & Adi
+               class="amanah-recipient">
+                Penerima : Rara & Adi
             </p>
 
             <button
-                onclick="salinTeks('Jl. Trans Kalimantan No. 123, Kuala Kapuas, Kapuas Murung', this)"
-                class="kado-copy address-copy">
+                onclick="salinTeks(
+                    'Jl. Trans Kalimantan No. 123, Kuala Kapuas, Kapuas Murung',
+                    'Alamat',
+                    this
+                )"
+                class="amanah-copy">
 
                 <i class="fa-regular fa-copy"></i>
-
                 SALIN ALAMAT
 
             </button>
@@ -3467,12 +3419,12 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
 
         <!-- =========================
-             KONFIRMASI
+             WHATSAPP
         ========================== -->
 
-        <div class="kado-confirm reveal">
+        <div class="amanah-confirm reveal">
 
-            <div class="kado-confirm-line"></div>
+            <div class="amanah-small-line"></div>
 
             <p>
                 Sudah mengirimkan tanda kasih?
@@ -3482,7 +3434,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
                 id="wa-konfirmasi"
                 href="#"
                 target="_blank"
-                class="kado-wa">
+                class="amanah-wa">
 
                 <i class="fa-brands fa-whatsapp"></i>
 
