@@ -2581,21 +2581,33 @@ function feedbackSalin(elemen, teksAsli) {
 //====================================
 // GALERI
 //====================================
-function tampilkanGaleri(){
+  function tampilkanGaleri(){
 
     const container = document.getElementById("galeri-container");
 
+    // Kalau bagian galeri belum dibuat, jangan jalankan fungsi
+    if (!container) {
+        console.log("Galeri belum tersedia, dilewati.");
+        return;
+    }
+
     container.innerHTML = "";
+
+    if (!dataMempelai.galeri) {
+        return;
+    }
 
     dataMempelai.galeri.forEach(function(foto,index){
 
         container.innerHTML += `
             <div class="reveal break-inside-avoid shadow-lg rounded-2xl overflow-hidden group">
                 <a href="${foto}" class="galeri-item">
+
                     <img
                         src="${foto}"
-                        alt="Galeri ${index+1}"
+                        alt="Galeri ${index + 1}"
                         class="w-full h-auto hover:scale-110 transition-transform duration-500 cursor-zoom-in">
+
                 </a>
             </div>
         `;
