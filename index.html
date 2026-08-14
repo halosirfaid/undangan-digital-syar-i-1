@@ -18,14 +18,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      /* =========================================
-   PEMISAH ANTAR SECTION
-   GAYA ELEGAN ISLAMI
+/* =========================================
+   PEMISAH SECTION — LENGKUNG ELEGAN
 ========================================= */
 
 .section-divider {
     position: relative;
-    height: 42px;
+    height: 70px;
 
     background: #f7f3e8;
 
@@ -36,44 +35,50 @@
     overflow: hidden;
 }
 
-/* Garis kiri dan kanan */
+/* Lengkungan utama */
 .section-divider::before {
     content: "";
 
     position: absolute;
 
-    left: 0;
-    right: 0;
+    width: 115%;
+    height: 55px;
 
-    top: 50%;
+    left: -7.5%;
+    top: -28px;
 
-    height: 1px;
+    border-radius: 0 0 50% 50%;
 
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(165,139,80,.18) 10%,
-        rgba(165,139,80,.45) 35%,
-        rgba(165,139,80,.45) 46%,
-        transparent 49%,
-        transparent 51%,
-        rgba(165,139,80,.45) 54%,
-        rgba(165,139,80,.45) 65%,
-        rgba(165,139,80,.18) 90%,
-        transparent 100%
-    );
+    border-bottom: 1px solid rgba(165,139,80,.35);
+
+    box-shadow:
+        0 5px 0 rgba(165,139,80,.08);
+}
+
+/* Lengkungan kedua yang lebih halus */
+.section-divider::after {
+    content: "";
+
+    position: absolute;
+
+    width: 105%;
+    height: 45px;
+
+    left: -2.5%;
+    top: -20px;
+
+    border-radius: 0 0 50% 50%;
+
+    border-bottom: 1px solid rgba(165,139,80,.16);
 }
 
 /* Ornamen tengah */
-.section-divider::after {
-    content: "✦";
-
+.section-divider span {
     position: relative;
+    z-index: 3;
 
-    z-index: 2;
-
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
 
     display: flex;
     align-items: center;
@@ -81,31 +86,34 @@
 
     background: #f7f3e8;
 
-    border: 1px solid rgba(165,139,80,.35);
+    border: 1px solid rgba(165,139,80,.30);
 
-    color: #a58b50;
-
-    font-size: 10px;
-
-    transform: rotate(45deg);
-
-    box-shadow:
-        0 0 0 6px #f7f3e8;
-}
-
-/* Simbol di dalam dibuat tegak */
-.section-divider span {
-    position: relative;
-
-    z-index: 3;
+    border-radius: 50%;
 
     color: #a58b50;
 
     font-size: 9px;
 
-    transform: none;
+    box-shadow:
+        0 0 0 5px #f7f3e8;
 }
 
+
+/* HP kecil */
+
+@media (max-width:380px) {
+
+    .section-divider {
+        height: 55px;
+    }
+
+    .section-divider span {
+        width: 24px;
+        height: 24px;
+        font-size: 8px;
+    }
+
+}     
 
 /* =========================================
    VARIASI LEMBUT
