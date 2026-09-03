@@ -18,142 +18,171 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      /* =========================================
-   NAVIGASI MIHRAB SYAR'I
+ /* =========================================
+   NAVIGASI MIHRAB — SYAR'I EDITION
    ========================================= */
 
-.nav-mihrab {
-    position: fixed;
+#nav-menu.nav-bottom {
+    position: fixed !important;
 
-    left: 50%;
-    bottom: 10px;
+    left: 50% !important;
+    bottom: 10px !important;
 
-    transform: translateX(-50%);
+    transform: translateX(-50%) !important;
 
-    width: calc(100% - 18px);
-    max-width: 540px;
+    width: calc(100% - 24px) !important;
+    max-width: 520px !important;
 
-    height: 52px;
+    height: 48px !important;
 
-    padding: 4px 8px;
+    padding: 0 5px !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
 
-    background: rgba(247, 244, 234, 0.94);
+    /* TIDAK ADA KAPSUL PUTIH */
+    background: transparent !important;
 
-    border: 1px solid rgba(183, 155, 101, 0.55);
+    border: none !important;
+    box-shadow: none !important;
 
-    border-radius: 18px;
+    z-index: 9999 !important;
 
-    box-shadow:
-        0 7px 25px rgba(65, 61, 45, 0.14);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    z-index: 9999;
-
-    overflow: visible;
+    overflow: visible !important;
 }
 
 
-/* GARIS ORNAMEN ATAS */
+/* =========================================
+   GARIS ORNAMEN UTAMA
+   ========================================= */
 
-.nav-mihrab::before {
+#nav-menu.nav-bottom::before {
     content: "";
 
     position: absolute;
 
-    left: 7%;
-    right: 7%;
+    left: 0;
+    right: 0;
 
-    top: -1px;
+    top: 27px;
 
     height: 1px;
 
     background: linear-gradient(
         to right,
-        transparent,
-        rgba(183,155,101,0.7),
-        transparent
+        transparent 0%,
+        rgba(183,155,101,0.15) 4%,
+        rgba(183,155,101,0.65) 18%,
+        rgba(183,155,101,0.65) 38%,
+        rgba(183,155,101,0.20) 46%,
+        rgba(183,155,101,0.20) 54%,
+        rgba(183,155,101,0.65) 62%,
+        rgba(183,155,101,0.65) 82%,
+        rgba(183,155,101,0.15) 96%,
+        transparent 100%
     );
+
+    z-index: -2;
 }
 
 
-/* ORNAMEN MIHRAB TENGAH */
+/* =========================================
+   LENGKUNG MIHRAB DI TENGAH
+   ========================================= */
 
-.nav-mihrab::after {
+#nav-menu.nav-bottom::after {
     content: "";
 
     position: absolute;
 
     left: 50%;
-    top: -17px;
+    top: -7px;
 
-    width: 64px;
-    height: 34px;
+    width: 58px;
+    height: 35px;
 
     transform: translateX(-50%);
 
-    border: 1px solid rgba(183,155,101,0.6);
+    border: 1px solid rgba(183,155,101,0.55);
 
     border-bottom: none;
 
-    border-radius: 34px 34px 0 0;
+    border-radius: 32px 32px 0 0;
 
-    pointer-events: none;
+    background: rgba(247,244,234,0.72);
 
     z-index: -1;
+
+    box-shadow:
+        0 -2px 8px rgba(100,90,65,0.04);
 }
 
 
 /* =========================================
-   ITEM
+   SEMUA IKON
    ========================================= */
 
-.mihrab-nav-item {
+#nav-menu.nav-bottom > a,
+#nav-menu.nav-bottom > button {
+
     position: relative;
 
-    width: 38px;
-    height: 42px;
+    width: 38px !important;
+    height: 42px !important;
 
-    flex: 1;
+    flex: 1 !important;
 
-    max-width: 50px;
+    max-width: 48px !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0 !important;
+    padding: 0 !important;
 
-    border: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 
-    background: transparent;
+    color: #686e53 !important;
 
-    text-decoration: none;
+    background: transparent !important;
 
-    color: #6b7055;
+    border: none !important;
 
-    font-size: 14px;
+    text-decoration: none !important;
 
-    cursor: pointer;
+    z-index: 1;
 
     transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+        transform 0.25s ease,
+        color 0.25s ease;
 }
 
 
-/* garis kecil di bawah icon */
+/* ukuran ikon */
 
-.mihrab-nav-item::after {
+#nav-menu.nav-bottom > a i,
+#nav-menu.nav-bottom > button i {
+
+    font-size: 13px !important;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================
+   TITIK KECIL DI BAWAH IKON
+   ========================================= */
+
+#nav-menu.nav-bottom > a::after,
+#nav-menu.nav-bottom > button::after {
+
     content: "";
 
     position: absolute;
 
-    bottom: 3px;
-
+    bottom: 4px;
     left: 50%;
 
     width: 3px;
@@ -171,55 +200,108 @@
 }
 
 
-/* HOVER */
+#nav-menu.nav-bottom > a:hover,
+#nav-menu.nav-bottom > button:hover {
 
-.mihrab-nav-item:hover {
-    color: #4f563f;
+    color: #4f573f !important;
 
     transform: translateY(-2px);
 }
 
-.mihrab-nav-item:hover::after {
+
+#nav-menu.nav-bottom > a:hover::after,
+#nav-menu.nav-bottom > button:hover::after {
+
     opacity: 1;
 }
 
 
 /* =========================================
-   AKAD — PUSAT MIHRAB
+   AKAD — IKON TENGAH
    ========================================= */
 
-.mihrab-akad {
-    width: 42px;
-    height: 48px;
+/* item ke-4 = Acara/Akad */
 
-    margin-top: -7px;
+#nav-menu.nav-bottom > a:nth-child(4) {
 
-    color: #596044;
+    width: 48px !important;
+    height: 48px !important;
+
+    max-width: 52px !important;
+
+    margin-top: -9px !important;
+
+    z-index: 5;
+}
+
+
+/* wadah ikon akad */
+
+#nav-menu.nav-bottom > a:nth-child(4)::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 39px;
+    height: 39px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(247,244,234,0.98) 55%,
+            rgba(247,244,234,0.80) 56%,
+            transparent 58%
+        );
+
+    border: 1px solid rgba(183,155,101,0.70);
+
+    box-shadow:
+        0 3px 12px rgba(80,75,55,0.10);
+
+    z-index: -1;
+}
+
+
+#nav-menu.nav-bottom > a:nth-child(4) i {
+
+    font-size: 15px !important;
+
+    color: #596044 !important;
+
+    position: relative;
 
     z-index: 2;
 }
 
 
-/* lingkaran lembut akad */
+/* =========================================
+   ORNAMEN KECIL DI ATAS AKAD
+   ========================================= */
 
-.mihrab-akad i {
-    width: 32px;
-    height: 32px;
+#nav-menu.nav-bottom > a:nth-child(4)::after {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    content: "✦";
 
-    border-radius: 50%;
+    position: absolute;
 
-    background: #eee9da;
+    left: 50%;
+    top: -13px;
 
-    border: 1px solid rgba(183,155,101,0.7);
+    transform: translateX(-50%);
 
-    font-size: 14px;
+    width: auto;
+    height: auto;
 
-    box-shadow:
-        0 3px 10px rgba(80,75,55,0.08);
+    font-size: 9px;
+
+    color: #b79b65;
+
+    background: transparent;
+
+    opacity: 1;
 }
 
 
@@ -227,12 +309,15 @@
    AUTO SCROLL
    ========================================= */
 
-.mihrab-scroll {
-    color: #88816e;
+#nav-menu.nav-bottom > #scroll-btn {
+
+    color: #7b8068 !important;
 }
 
-.mihrab-scroll i {
-    font-size: 12px;
+
+#nav-menu.nav-bottom > #scroll-btn i {
+
+    font-size: 11px !important;
 }
 
 
@@ -242,42 +327,72 @@
 
 @media (max-width: 380px) {
 
-    .nav-mihrab {
-        width: calc(100% - 8px);
+    #nav-menu.nav-bottom {
 
-        height: 48px;
+        width: calc(100% - 12px) !important;
 
-        padding: 3px 3px;
+        bottom: 7px !important;
 
-        bottom: 6px;
+        height: 45px !important;
 
-        border-radius: 16px;
+        padding: 0 2px !important;
     }
 
-    .mihrab-nav-item {
-        height: 39px;
 
-        font-size: 12px;
+    #nav-menu.nav-bottom::before {
+
+        top: 25px;
     }
 
-    .mihrab-akad {
-        height: 45px;
+
+    #nav-menu.nav-bottom::after {
+
+        width: 52px;
+        height: 31px;
+
+        top: -5px;
     }
 
-    .mihrab-akad i {
-        width: 29px;
-        height: 29px;
 
-        font-size: 12px;
+    #nav-menu.nav-bottom > a,
+    #nav-menu.nav-bottom > button {
+
+        height: 40px !important;
+
+        max-width: 42px !important;
     }
 
-    .nav-mihrab::after {
-        width: 56px;
-        height: 29px;
 
-        top: -14px;
+    #nav-menu.nav-bottom > a i,
+    #nav-menu.nav-bottom > button i {
+
+        font-size: 12px !important;
     }
-}
+
+
+    #nav-menu.nav-bottom > a:nth-child(4) {
+
+        height: 45px !important;
+
+        max-width: 47px !important;
+
+        margin-top: -7px !important;
+    }
+
+
+    #nav-menu.nav-bottom > a:nth-child(4)::before {
+
+        width: 35px;
+        height: 35px;
+    }
+
+
+    #nav-menu.nav-bottom > a:nth-child(4) i {
+
+        font-size: 14px !important;
+    }
+}  
+
 /* =========================================
    VARIASI LEMBUT
 ========================================= */
