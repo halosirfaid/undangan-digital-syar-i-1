@@ -18,31 +18,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      /* =========================================
-   RADIAL NAVIGATION — SYAR'I DONUT
+   /* =========================================
+   RADIAL MENU — SYAR'I MINI DONUT
 ========================================= */
 
 #nav-menu.nav-bottom {
     position: fixed !important;
 
     left: 50% !important;
-    bottom: -115px !important;
+    bottom: -108px !important;
 
     transform: translateX(-50%) !important;
 
-    width: 270px !important;
-    height: 270px !important;
+    width: 235px !important;
+    height: 235px !important;
 
     padding: 0 !important;
-    
+
     display: block !important;
+
     background:
         radial-gradient(
-            circle,
-            transparent 0 25%,
-            rgba(247,243,232,.96) 25.5%,
-            rgba(247,243,232,.96) 26%,
-            transparent 26.5%
+            circle at center,
+            #f7f3e8 0 31%,
+            transparent 31.5%
         ),
         linear-gradient(
             145deg,
@@ -55,9 +54,9 @@
     border-radius: 50% !important;
 
     box-shadow:
-        0 -5px 25px rgba(70,70,50,.10),
-        inset 0 0 0 9px rgba(255,255,255,.35),
-        inset 0 0 0 10px rgba(183,155,101,.16) !important;
+        0 -4px 18px rgba(70,70,50,.10),
+        inset 0 0 0 7px rgba(255,255,255,.35),
+        inset 0 0 0 8px rgba(183,155,101,.16) !important;
 
     z-index: 9999 !important;
 
@@ -68,43 +67,52 @@
 
 
 /* =========================================
-   ORNAMEN CINCIN LUAR
+   JANGAN TAMPIL SEBELUM BUKA UNDANGAN
 ========================================= */
 
-#nav-menu.nav-bottom::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 13px;
-
-    border-radius: 50%;
-
-    border: 1px dashed rgba(183,155,101,.35);
-
-    pointer-events: none;
+#nav-menu.nav-bottom.hidden {
+    display: none !important;
 }
 
 
 /* =========================================
-   CINCIN DALAM
+   CINCIN LUAR
 ========================================= */
 
-#nav-menu.nav-bottom::after {
-
+#nav-menu.nav-bottom::before {
     content: "";
 
     position: absolute;
 
-    inset: 92px;
+    inset: 10px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(183,155,101,.32);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   CINCIN DALAM / DONAT
+========================================= */
+
+#nav-menu.nav-bottom::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 68px;
 
     border-radius: 50%;
 
     border: 1px solid rgba(183,155,101,.40);
 
     box-shadow:
-        0 0 0 5px rgba(247,243,232,.35);
+        0 0 0 4px rgba(247,243,232,.40);
 
     pointer-events: none;
 
@@ -113,7 +121,7 @@
 
 
 /* =========================================
-   WADAH IKON YANG BERPUTAR
+   RODA
 ========================================= */
 
 #nav-menu .nav-wheel {
@@ -127,14 +135,16 @@
 
     transform: rotate(0deg);
 
-    transform-origin: center;
+    transform-origin: center center;
 
     touch-action: none;
+
+    z-index: 5;
 }
 
 
 /* =========================================
-   SEMUA IKON
+   SEMUA IKON MENU
 ========================================= */
 
 #nav-menu .mihrab-nav-item {
@@ -144,10 +154,10 @@
     left: 50% !important;
     top: 50% !important;
 
-    width: 44px !important;
-    height: 44px !important;
+    width: 36px !important;
+    height: 36px !important;
 
-    margin: -22px !important;
+    margin: -18px !important;
 
     padding: 0 !important;
 
@@ -158,49 +168,52 @@
 
     border-radius: 50% !important;
 
-    border: 1px solid rgba(183,155,101,.35) !important;
+    border: 1px solid rgba(183,155,101,.38) !important;
 
-    background:
-        rgba(250,248,241,.96) !important;
+    background: rgba(250,248,241,.98) !important;
 
     color: #59634d !important;
 
     box-shadow:
-        0 3px 10px rgba(60,65,48,.09) !important;
+        0 3px 9px rgba(60,65,48,.10) !important;
 
     text-decoration: none !important;
 
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        color .2s ease !important;
-
-    z-index: 4;
-
-    /* posisi radial */
+    /*
+       JARAK IKON DARI TENGAH
+       82px = radius roda
+    */
     transform:
-    rotate(var(--angle))
-    translateY(-98px)
-    rotate(calc(var(--angle) * -1));
-}
-
-
-/* ikon */
-
-#nav-menu .mihrab-nav-item i {
-
-    font-size: 14px !important;
-
-    color: #59634d !important;
+        rotate(var(--angle))
+        translateY(-82px)
+        rotate(calc(var(--angle) * -1));
 
     transition:
-        transform .2s ease,
-        color .2s ease;
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+
+    z-index: 6;
 }
 
 
 /* =========================================
-   EFEK IKON AKTIF
+   IKON FONT AWESOME
+========================================= */
+
+#nav-menu .mihrab-nav-item i {
+
+    font-size: 12px !important;
+
+    color: #59634d !important;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   IKON AKTIF
 ========================================= */
 
 #nav-menu .mihrab-nav-item.active {
@@ -210,8 +223,9 @@
     border-color: #59634d !important;
 
     box-shadow:
-        0 5px 15px rgba(60,65,48,.18) !important;
+        0 4px 12px rgba(60,65,48,.18) !important;
 }
+
 
 #nav-menu .mihrab-nav-item.active i {
 
@@ -220,8 +234,8 @@
 
 
 /* =========================================
-   TOMBOL AUTO SCROLL
-   TETAP DI TENGAH
+   TOMBOL TENGAH
+   AUTO SCROLL
 ========================================= */
 
 #nav-menu #scroll-btn {
@@ -231,10 +245,10 @@
     left: 50% !important;
     top: 50% !important;
 
-    width: 86px !important;
-    height: 86px !important;
+    width: 68px !important;
+    height: 68px !important;
 
-    margin: -43px !important;
+    margin: -34px !important;
 
     padding: 0 !important;
 
@@ -245,24 +259,27 @@
 
     border-radius: 50% !important;
 
-    background:
-        #f7f3e8 !important;
+    background: #f7f3e8 !important;
 
     border: 1px solid rgba(183,155,101,.65) !important;
 
     color: #59634d !important;
 
     box-shadow:
-        0 5px 18px rgba(60,65,48,.13),
-        inset 0 0 0 7px rgba(255,255,255,.45) !important;
+        0 4px 15px rgba(60,65,48,.13),
+        inset 0 0 0 5px rgba(255,255,255,.45) !important;
 
     z-index: 20 !important;
 
     transform: none !important;
+
+    cursor: pointer;
 }
 
 
-/* lingkaran kecil di dalam tombol */
+/* =========================================
+   CINCIN TOMBOL TENGAH
+========================================= */
 
 #nav-menu #scroll-btn::before {
 
@@ -270,7 +287,7 @@
 
     position: absolute;
 
-    inset: 8px;
+    inset: 6px;
 
     border-radius: 50%;
 
@@ -280,7 +297,9 @@
 }
 
 
-/* ikon pause/play */
+/* =========================================
+   IKON PLAY / PAUSE
+========================================= */
 
 #nav-menu #scroll-btn i {
 
@@ -288,21 +307,24 @@
 
     z-index: 2;
 
-    font-size: 17px !important;
+    font-size: 14px !important;
 
     color: #59634d !important;
+
 }
 
 
-/* ketika ON */
+/* =========================================
+   AUTO SCROLL AKTIF
+========================================= */
 
 #nav-menu #scroll-btn.auto-on {
 
     background: #59634d !important;
 
     border-color: #59634d !important;
-
 }
+
 
 #nav-menu #scroll-btn.auto-on i {
 
@@ -311,7 +333,7 @@
 
 
 /* =========================================
-   ORNAMEN MIHRAB BAGIAN ATAS
+   ORNAMEN ATAS
 ========================================= */
 
 #nav-menu .mihrab-top-ornament {
@@ -320,25 +342,27 @@
 
     left: 50%;
 
-    top: 8px;
+    top: 6px;
 
     transform: translateX(-50%);
 
-    width: 44px;
-    height: 25px;
+    width: 34px;
+
+    height: 18px;
 
     border:
         1px solid
-        rgba(183,155,101,.45);
+        rgba(183,155,101,.40);
 
     border-bottom: none;
 
-    border-radius: 30px 30px 0 0;
+    border-radius: 22px 22px 0 0;
 
     z-index: 3;
 
     pointer-events: none;
 }
+
 
 #nav-menu .mihrab-top-ornament::after {
 
@@ -347,61 +371,80 @@
     position: absolute;
 
     left: 50%;
-    top: -8px;
+
+    top: -7px;
 
     transform: translateX(-50%);
 
     color: #b79b65;
 
-    font-size: 9px;
+    font-size: 8px;
 
     background: #f7f3e8;
 
-    padding: 0 5px;
+    padding: 0 4px;
 }
 
 
 /* =========================================
    HP KECIL
 ========================================= */
+
 @media (max-width:380px) {
 
     #nav-menu.nav-bottom {
 
-        width: 245px !important;
+        width: 215px !important;
 
-        height: 245px !important;
+        height: 215px !important;
 
-        bottom: -105px !important;
+        bottom: -98px !important;
 
     }
 
+
     #nav-menu .mihrab-nav-item {
 
-        width: 40px !important;
-        height: 40px !important;
+        width: 34px !important;
+        height: 34px !important;
 
-        margin: -20px !important;
+        margin: -17px !important;
 
         transform:
             rotate(var(--angle))
-            translateY(-88px)
+            translateY(-74px)
             rotate(calc(var(--angle) * -1));
 
     }
 
-    #nav-menu #scroll-btn {
 
-        width: 78px !important;
-        height: 78px !important;
+    #nav-menu .mihrab-nav-item i {
 
-        margin: -39px !important;
+        font-size: 11px !important;
 
     }
 
+
+    #nav-menu #scroll-btn {
+
+        width: 62px !important;
+        height: 62px !important;
+
+        margin: -31px !important;
+
+    }
+
+
     #nav-menu #scroll-btn i {
 
-        font-size: 15px !important;
+        font-size: 13px !important;
+
+    }
+
+
+    #nav-menu.nav-bottom::after {
+
+        inset: 62px;
 
     }
 
@@ -3820,10 +3863,10 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <!-- SALAM -->
 
-        <a href="#salam"
-           class="mihrab-nav-item"
-           style="--angle:-75deg"
-           aria-label="Salam">
+  <a href="#salam"
+   class="mihrab-nav-item"
+   style="--angle:0deg"          
+    aria-label="Salam">
 
             <i class="fa-solid fa-heart"></i>
 
@@ -3834,7 +3877,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <a href="#mempelai"
            class="mihrab-nav-item"
-           style="--angle:-50deg"
+           style="--angle:45deg"
            aria-label="Mempelai">
 
             <i class="fa-solid fa-user-group"></i>
@@ -3846,7 +3889,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <a href="#perjalanan"
            class="mihrab-nav-item"
-           style="--angle:-25deg"
+           style="--angle:-90deg"
            aria-label="Perjalanan">
 
             <i class="fa-solid fa-book-open"></i>
@@ -3858,7 +3901,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <a href="#acara"
            class="mihrab-nav-item"
-           style="--angle:0deg"
+           style="--angle:135deg"
            aria-label="Acara">
 
             <i class="fa-solid fa-mosque"></i>
@@ -3870,7 +3913,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <a href="#lokasi"
            class="mihrab-nav-item"
-           style="--angle:25deg"
+           style="--angle:180deg"
            aria-label="Lokasi">
 
             <i class="fa-solid fa-location-dot"></i>
@@ -3882,7 +3925,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <a href="#adab"
            class="mihrab-nav-item"
-           style="--angle:50deg"
+           style="--angle:225deg"
            aria-label="Adab">
 
             <i class="fa-solid fa-book-open"></i>
@@ -3894,7 +3937,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <a href="#kado"
            class="mihrab-nav-item"
-           style="--angle:75deg"
+           style="--angle:270deg"
            aria-label="Kado">
 
             <i class="fa-solid fa-gift"></i>
@@ -3906,7 +3949,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
 
         <a href="#rsvp"
            class="mihrab-nav-item"
-           style="--angle:100deg"
+           style="--angle:315deg"
            aria-label="Ucapan">
 
             <i class="fa-solid fa-envelope"></i>
@@ -3924,8 +3967,8 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     <button
         id="scroll-btn"
         type="button"
-        aria-label="Auto Scroll">
-
+        aria-label="Auto Scroll"
+        onclick="toggleAutoScroll()">
         <i id="scroll-icon"
            class="fa-solid fa-pause"></i>
 
@@ -5445,9 +5488,9 @@ function feedbackSalin(elemen, teksAsli) {
         }
     }
 
-
+    
     // ====================================
-// RADIAL MENU — SWIPE / DRAG ROTATION
+// RADIAL MENU — ROTASI 360°
 // ====================================
 
 function aktifkanRotasiMenu() {
@@ -5456,125 +5499,200 @@ function aktifkanRotasiMenu() {
 
     if (!wheel) return;
 
+
     let sedangMemutar = false;
+
     let sudutAwal = 0;
+
     let rotasiAwal = 0;
+
     let rotasiSekarang = 0;
+
+    let pointerId = null;
+
+    let sudahGeser = false;
+
+
+    // ==============================
+    // MENGAMBIL SUDUT DARI TENGAH
+    // ==============================
 
     function ambilSudut(x, y) {
 
-        const rect = wheel.getBoundingClientRect();
+        const rect =
+            wheel.getBoundingClientRect();
 
-        const tengahX = rect.left + rect.width / 2;
-        const tengahY = rect.top + rect.height / 2;
+        const tengahX =
+            rect.left + rect.width / 2;
+
+        const tengahY =
+            rect.top + rect.height / 2;
 
         return Math.atan2(
             y - tengahY,
             x - tengahX
         ) * 180 / Math.PI;
+
     }
 
 
-    // ==========================
-    // TOUCH HP
-    // ==========================
+    // ==============================
+    // NORMALISASI SUDUT
+    // AGAR TIDAK LONCAT
+    // -180 ↔ 180
+    // ==============================
 
-    wheel.addEventListener("touchstart", function(e) {
+    function normalisasiSudut(sudut) {
 
-        const touch = e.touches[0];
+        while (sudut > 180) {
+            sudut -= 360;
+        }
 
-        sedangMemutar = true;
+        while (sudut < -180) {
+            sudut += 360;
+        }
 
-        sudutAwal =
-            ambilSudut(
-                touch.clientX,
-                touch.clientY
-            );
+        return sudut;
 
-        rotasiAwal = rotasiSekarang;
-
-    }, { passive: true });
+    }
 
 
-    wheel.addEventListener("touchmove", function(e) {
+    // ==============================
+    // MULAI PUTAR
+    // ==============================
+
+    wheel.addEventListener(
+        "pointerdown",
+        function(e) {
+
+            sedangMemutar = true;
+
+            sudahGeser = false;
+
+            pointerId = e.pointerId;
+
+            wheel.setPointerCapture(pointerId);
+
+            sudutAwal =
+                ambilSudut(
+                    e.clientX,
+                    e.clientY
+                );
+
+            rotasiAwal =
+                rotasiSekarang;
+
+        }
+    );
+
+
+    // ==============================
+    // SAAT DIPUTAR
+    // ==============================
+
+    wheel.addEventListener(
+        "pointermove",
+        function(e) {
+
+            if (!sedangMemutar) return;
+
+            if (e.pointerId !== pointerId) return;
+
+
+            const sudutSekarang =
+                ambilSudut(
+                    e.clientX,
+                    e.clientY
+                );
+
+
+            const selisih =
+                normalisasiSudut(
+                    sudutSekarang - sudutAwal
+                );
+
+
+            if (Math.abs(selisih) > 5) {
+
+                sudahGeser = true;
+
+            }
+
+
+            rotasiSekarang =
+                rotasiAwal + selisih;
+
+
+            wheel.style.transform =
+                "rotate(" +
+                rotasiSekarang +
+                "deg)";
+
+        }
+    );
+
+
+    // ==============================
+    // SELESAI PUTAR
+    // ==============================
+
+    function selesaiPutar(e) {
 
         if (!sedangMemutar) return;
 
-        const touch = e.touches[0];
+        if (
+            e &&
+            pointerId !== null &&
+            e.pointerId !== pointerId
+        ) {
+            return;
+        }
 
-        const sudutSekarang =
-            ambilSudut(
-                touch.clientX,
-                touch.clientY
-            );
-
-        let selisih =
-            sudutSekarang - sudutAwal;
-
-        rotasiSekarang =
-            rotasiAwal + selisih;
-
-        wheel.style.transform =
-            "rotate(" + rotasiSekarang + "deg)";
-
-    }, { passive: true });
-
-
-    wheel.addEventListener("touchend", function() {
 
         sedangMemutar = false;
 
-    }, { passive: true });
+        pointerId = null;
+
+    }
 
 
-    // ==========================
-    // MOUSE
-    // ==========================
-
-    wheel.addEventListener("mousedown", function(e) {
-
-        sedangMemutar = true;
-
-        sudutAwal =
-            ambilSudut(
-                e.clientX,
-                e.clientY
-            );
-
-        rotasiAwal = rotasiSekarang;
-
-    });
+    wheel.addEventListener(
+        "pointerup",
+        selesaiPutar
+    );
 
 
-    window.addEventListener("mousemove", function(e) {
-
-        if (!sedangMemutar) return;
-
-        const sudutSekarang =
-            ambilSudut(
-                e.clientX,
-                e.clientY
-            );
-
-        let selisih =
-            sudutSekarang - sudutAwal;
-
-        rotasiSekarang =
-            rotasiAwal + selisih;
-
-        wheel.style.transform =
-            "rotate(" + rotasiSekarang + "deg)";
-
-    });
+    wheel.addEventListener(
+        "pointercancel",
+        selesaiPutar
+    );
 
 
-    window.addEventListener("mouseup", function() {
+    // ==============================
+    // JANGAN BIARKAN DRAG
+    // MENJADI KLIK MENU
+    // ==============================
 
-        sedangMemutar = false;
+    wheel.addEventListener(
+        "click",
+        function(e) {
 
-    });
+            if (sudahGeser) {
+
+                e.preventDefault();
+
+                e.stopPropagation();
+
+                sudahGeser = false;
+
+            }
+
+        },
+        true
+    );
 
 }
+
 
 aktifkanRotasiMenu();
     // 5. Countdown (Rara & Adi 15 April 2026)
