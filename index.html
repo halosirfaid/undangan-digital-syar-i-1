@@ -5178,15 +5178,26 @@ dataMempelai.kado.alamatKirim;
 document.getElementById("penerima-kado").textContent =
 "Penerima : " +
 dataMempelai.kado.penerimaPaket;
+// ==============================
+// KONFIRMASI WHATSAPP
+// ==============================
+
+const namaPengantin =
+    dataMempelai.wanita.panggilan +
+    " & " +
+    dataMempelai.pria.panggilan;
+
+const pesanWhatsApp =
+    "Assalamu'alaikum, saya sudah mengirimkan tanda kasih untuk " +
+    namaPengantin +
+    " melalui Kado Digital. Semoga menjadi berkah untuk kalian. 🤲";
 
 document.getElementById("wa-konfirmasi").setAttribute(
     "href",
     "https://wa.me/" +
     dataMempelai.kado.NoWaKonfirmasi +
     "?text=" +
-    encodeURIComponent(
-        "Halo, saya sudah mengirimkan tanda kasih melalui Kado Digital."
-    )
+    encodeURIComponent(pesanWhatsApp)
 );
   
 }
