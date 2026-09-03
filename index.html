@@ -19,171 +19,272 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
  /* =========================================
-   NAVIGASI MIHRAB — SYAR'I EDITION
-   ========================================= */
+   NAVIGASI MIHRAB — HALF MOON
+========================================= */
 
-#nav-menu.nav-bottom {
+#nav-menu.nav-mihrab {
+
     position: fixed !important;
 
     left: 50% !important;
-    bottom: 10px !important;
+    bottom: 0 !important;
 
     transform: translateX(-50%) !important;
 
-    width: calc(100% - 24px) !important;
+    width: 100% !important;
     max-width: 520px !important;
 
-    height: 48px !important;
-
-    padding: 0 5px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-around !important;
-
-    /* TIDAK ADA KAPSUL PUTIH */
-    background: transparent !important;
-
-    border: none !important;
-    box-shadow: none !important;
+    height: 78px !important;
 
     z-index: 9999 !important;
 
-    overflow: visible !important;
+    display: flex !important;
+
+    align-items: flex-end !important;
+    justify-content: center !important;
+
+    pointer-events: none;
+
 }
 
 
 /* =========================================
-   GARIS ORNAMEN UTAMA
-   ========================================= */
+   LENGKUNG MIHRAB
+========================================= */
 
-#nav-menu.nav-bottom::before {
+#nav-menu .mihrab-arch {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -34px;
+
+    width: 170px;
+    height: 92px;
+
+    transform: translateX(-50%);
+
+    border: 1px solid rgba(183,155,101,.55);
+
+    border-bottom: none;
+
+    border-radius: 100px 100px 0 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,255,255,.55),
+            rgba(247,244,234,.90) 65%,
+            rgba(247,244,234,.96)
+        );
+
+    box-shadow:
+        0 -5px 18px rgba(80,75,55,.06);
+
+    pointer-events: none;
+
+}
+
+
+/* Garis kedua */
+
+#nav-menu .mihrab-arch::before {
+
     content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+
+    top: 10px;
+
+    height: 70px;
+
+    border: 1px solid rgba(183,155,101,.18);
+
+    border-bottom: none;
+
+    border-radius: 90px 90px 0 0;
+
+}
+
+
+/* =========================================
+   BINTANG DI PUNCAK
+========================================= */
+
+#nav-menu .mihrab-star {
+
+    position: absolute;
+
+    left: 50%;
+    top: -9px;
+
+    transform: translateX(-50%);
+
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 8px;
+
+    color: #b79b65;
+
+    background: #f7f4ea;
+
+    border-radius: 50%;
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   GARIS HORIZONTAL
+========================================= */
+
+#nav-menu::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: 27px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(183,155,101,.35) 10%,
+            rgba(183,155,101,.65) 35%,
+            rgba(183,155,101,.65) 65%,
+            rgba(183,155,101,.35) 90%,
+            transparent
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   AREA MENU YANG BISA DIGESER
+========================================= */
+
+#nav-menu .mihrab-scroll-area {
 
     position: absolute;
 
     left: 0;
     right: 0;
 
-    top: 27px;
+    bottom: 4px;
 
-    height: 1px;
+    height: 48px;
 
-    background: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(183,155,101,0.15) 4%,
-        rgba(183,155,101,0.65) 18%,
-        rgba(183,155,101,0.65) 38%,
-        rgba(183,155,101,0.20) 46%,
-        rgba(183,155,101,0.20) 54%,
-        rgba(183,155,101,0.65) 62%,
-        rgba(183,155,101,0.65) 82%,
-        rgba(183,155,101,0.15) 96%,
-        transparent 100%
-    );
+    overflow-x: auto;
+    overflow-y: hidden;
 
-    z-index: -2;
+    display: flex;
+
+    align-items: center;
+
+    pointer-events: auto;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+
+    overscroll-behavior-x: contain;
+
+}
+
+
+/* Hilangkan scrollbar */
+
+#nav-menu .mihrab-scroll-area::-webkit-scrollbar {
+    display: none;
 }
 
 
 /* =========================================
-   LENGKUNG MIHRAB DI TENGAH
-   ========================================= */
+   ISI MENU
+========================================= */
 
-#nav-menu.nav-bottom::after {
-    content: "";
+#nav-menu .mihrab-scroll-content {
 
-    position: absolute;
+    display: flex;
 
-    left: 50%;
-    top: -7px;
+    align-items: center;
 
-    width: 58px;
-    height: 35px;
+    gap: 4px;
 
-    transform: translateX(-50%);
+    min-width: max-content;
 
-    border: 1px solid rgba(183,155,101,0.55);
+    padding-left: 13px;
+    padding-right: 13px;
 
-    border-bottom: none;
+    margin: auto;
 
-    border-radius: 32px 32px 0 0;
-
-    background: rgba(247,244,234,0.72);
-
-    z-index: -1;
-
-    box-shadow:
-        0 -2px 8px rgba(100,90,65,0.04);
 }
 
 
 /* =========================================
-   SEMUA IKON
-   ========================================= */
+   IKON MENU
+========================================= */
 
-#nav-menu.nav-bottom > a,
-#nav-menu.nav-bottom > button {
+#nav-menu .mihrab-nav-item {
+
+    flex: 0 0 43px;
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     position: relative;
 
-    width: 38px !important;
-    height: 42px !important;
+    color: #687054;
 
-    flex: 1 !important;
+    background: transparent;
 
-    max-width: 48px !important;
+    border: none;
 
-    margin: 0 !important;
-    padding: 0 !important;
+    text-decoration: none;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    color: #686e53 !important;
-
-    background: transparent !important;
-
-    border: none !important;
-
-    text-decoration: none !important;
-
-    z-index: 1;
+    font-size: 12px;
 
     transition:
-        transform 0.25s ease,
-        color 0.25s ease;
-}
+        transform .25s ease,
+        color .25s ease;
 
-
-/* ukuran ikon */
-
-#nav-menu.nav-bottom > a i,
-#nav-menu.nav-bottom > button i {
-
-    font-size: 13px !important;
-
-    transition:
-        transform 0.25s ease,
-        color 0.25s ease;
 }
 
 
 /* =========================================
-   TITIK KECIL DI BAWAH IKON
-   ========================================= */
+   TITIK DI BAWAH IKON
+========================================= */
 
-#nav-menu.nav-bottom > a::after,
-#nav-menu.nav-bottom > button::after {
+#nav-menu .mihrab-nav-item::after {
 
     content: "";
 
     position: absolute;
 
-    bottom: 4px;
     left: 50%;
+    bottom: 1px;
 
     width: 3px;
     height: 3px;
@@ -194,205 +295,174 @@
 
     background: #b79b65;
 
-    opacity: 0;
+    opacity: .45;
 
-    transition: opacity 0.25s ease;
-}
-
-
-#nav-menu.nav-bottom > a:hover,
-#nav-menu.nav-bottom > button:hover {
-
-    color: #4f573f !important;
-
-    transform: translateY(-2px);
-}
-
-
-#nav-menu.nav-bottom > a:hover::after,
-#nav-menu.nav-bottom > button:hover::after {
-
-    opacity: 1;
 }
 
 
 /* =========================================
-   AKAD — IKON TENGAH
-   ========================================= */
+   EFEK SENTUH
+========================================= */
 
-/* item ke-4 = Acara/Akad */
+#nav-menu .mihrab-nav-item:active {
 
-#nav-menu.nav-bottom > a:nth-child(4) {
+    transform: translateY(-3px) scale(.94);
 
-    width: 48px !important;
-    height: 48px !important;
+    color: #4f573f;
 
-    max-width: 52px !important;
-
-    margin-top: -9px !important;
-
-    z-index: 5;
 }
 
 
-/* wadah ikon akad */
+/* =========================================
+   AUTO SCROLL — PUSAT
+========================================= */
 
-#nav-menu.nav-bottom > a:nth-child(4)::before {
+#nav-menu #scroll-btn {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 27px;
+
+    transform: translateX(-50%);
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #59634d;
+
+    background:
+        radial-gradient(
+            circle,
+            #f7f4ea 58%,
+            rgba(247,244,234,.92) 59%,
+            rgba(247,244,234,.92) 70%,
+            transparent 71%
+        );
+
+    border: 1px solid rgba(183,155,101,.65);
+
+    box-shadow:
+        0 4px 15px rgba(70,70,55,.12);
+
+    font-size: 12px;
+
+    z-index: 10;
+
+    pointer-events: auto;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+
+}
+
+
+/* Cincin luar */
+
+#nav-menu #scroll-btn::before {
 
     content: "";
 
     position: absolute;
 
-    width: 39px;
-    height: 39px;
+    inset: 4px;
+
+    border: 1px solid rgba(183,155,101,.22);
 
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(247,244,234,0.98) 55%,
-            rgba(247,244,234,0.80) 56%,
-            transparent 58%
-        );
-
-    border: 1px solid rgba(183,155,101,0.70);
-
-    box-shadow:
-        0 3px 12px rgba(80,75,55,0.10);
-
-    z-index: -1;
 }
 
 
-#nav-menu.nav-bottom > a:nth-child(4) i {
+/* Tekan */
 
-    font-size: 15px !important;
+#nav-menu #scroll-btn:active {
 
-    color: #596044 !important;
+    transform:
+        translateX(-50%)
+        scale(.92);
+
+}
+
+
+/* =========================================
+   IKON AUTO SCROLL
+========================================= */
+
+#nav-menu #scroll-btn i {
 
     position: relative;
 
     z-index: 2;
-}
 
+    font-size: 11px;
 
-/* =========================================
-   ORNAMEN KECIL DI ATAS AKAD
-   ========================================= */
-
-#nav-menu.nav-bottom > a:nth-child(4)::after {
-
-    content: "✦";
-
-    position: absolute;
-
-    left: 50%;
-    top: -13px;
-
-    transform: translateX(-50%);
-
-    width: auto;
-    height: auto;
-
-    font-size: 9px;
-
-    color: #b79b65;
-
-    background: transparent;
-
-    opacity: 1;
-}
-
-
-/* =========================================
-   AUTO SCROLL
-   ========================================= */
-
-#nav-menu.nav-bottom > #scroll-btn {
-
-    color: #7b8068 !important;
-}
-
-
-#nav-menu.nav-bottom > #scroll-btn i {
-
-    font-size: 11px !important;
 }
 
 
 /* =========================================
    HP KECIL
-   ========================================= */
+========================================= */
 
-@media (max-width: 380px) {
+@media (max-width:380px) {
 
-    #nav-menu.nav-bottom {
+    #nav-menu.nav-mihrab {
 
-        width: calc(100% - 12px) !important;
+        height: 72px !important;
 
-        bottom: 7px !important;
-
-        height: 45px !important;
-
-        padding: 0 2px !important;
     }
 
 
-    #nav-menu.nav-bottom::before {
+    #nav-menu .mihrab-arch {
 
-        top: 25px;
+        width: 145px;
+
+        height: 80px;
+
+        bottom: -30px;
+
     }
 
 
-    #nav-menu.nav-bottom::after {
+    #nav-menu .mihrab-nav-item {
 
-        width: 52px;
-        height: 31px;
+        flex-basis: 40px;
 
-        top: -5px;
+        width: 40px;
+        height: 40px;
+
+        font-size: 11px;
+
     }
 
 
-    #nav-menu.nav-bottom > a,
-    #nav-menu.nav-bottom > button {
+    #nav-menu #scroll-btn {
 
-        height: 40px !important;
+        width: 39px;
+        height: 39px;
 
-        max-width: 42px !important;
+        bottom: 25px;
+
     }
 
 
-    #nav-menu.nav-bottom > a i,
-    #nav-menu.nav-bottom > button i {
+    #nav-menu .mihrab-scroll-area {
 
-        font-size: 12px !important;
+        bottom: 3px;
+
+        height: 45px;
+
     }
 
-
-    #nav-menu.nav-bottom > a:nth-child(4) {
-
-        height: 45px !important;
-
-        max-width: 47px !important;
-
-        margin-top: -7px !important;
-    }
-
-
-    #nav-menu.nav-bottom > a:nth-child(4)::before {
-
-        width: 35px;
-        height: 35px;
-    }
-
-
-    #nav-menu.nav-bottom > a:nth-child(4) i {
-
-        font-size: 14px !important;
-    }
-}  
-
+}
 /* =========================================
    VARIASI LEMBUT
 ========================================= */
@@ -3788,49 +3858,73 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
   
     <div id="music-btn" class="music-control hidden spinning" onclick="toggleMusik()"><i id="music-icon" class="fa-solid fa-music"></i></div>
 
-    <div id="nav-menu" class="nav-bottom nav-mihrab hidden">
+    <!-- =========================================
+     NAVIGASI MIHRAB
+========================================= -->
 
-    <a href="#salam" class="mihrab-nav-item">
-        <i class="fa-solid fa-heart"></i>
-    </a>
+<div id="nav-menu" class="nav-mihrab hidden">
 
-    <a href="#mempelai" class="mihrab-nav-item">
-        <i class="fa-solid fa-user-group"></i>
-    </a>
+    <!-- Lengkungan Mihrab -->
+    <div class="mihrab-arch">
+        <div class="mihrab-star">✦</div>
+    </div>
 
-    <a href="#perjalanan" class="mihrab-nav-item">
-        <i class="fa-solid fa-book-open"></i>
-    </a>
+    <!-- MENU YANG BISA DIGESER -->
+    <div class="mihrab-scroll-area">
 
-    <a href="#acara" class="mihrab-nav-item mihrab-akad">
-        <i class="fa-solid fa-mosque"></i>
-    </a>
+        <div class="mihrab-scroll-content">
 
-    <a href="#lokasi" class="mihrab-nav-item">
-        <i class="fa-solid fa-location-dot"></i>
-    </a>
+            <a href="#salam" class="mihrab-nav-item">
+                <i class="fa-solid fa-heart"></i>
+            </a>
 
-    <a href="#adab" class="mihrab-nav-item">
-        <i class="fa-solid fa-book-open"></i>
-    </a>
+            <a href="#mempelai" class="mihrab-nav-item">
+                <i class="fa-solid fa-user-group"></i>
+            </a>
 
-    <a href="#kado" class="mihrab-nav-item">
-        <i class="fa-solid fa-gift"></i>
-    </a>
+            <a href="#perjalanan" class="mihrab-nav-item">
+                <i class="fa-solid fa-book-open"></i>
+            </a>
 
-    <a href="#rsvp" class="mihrab-nav-item">
-        <i class="fa-solid fa-envelope"></i>
-    </a>
+            <a href="#acara" class="mihrab-nav-item">
+                <i class="fa-solid fa-mosque"></i>
+            </a>
 
+            <a href="#lokasi" class="mihrab-nav-item">
+                <i class="fa-solid fa-location-dot"></i>
+            </a>
+
+            <a href="#adab" class="mihrab-nav-item">
+                <i class="fa-solid fa-book-open"></i>
+            </a>
+
+            <a href="#kado" class="mihrab-nav-item">
+                <i class="fa-solid fa-gift"></i>
+            </a>
+
+            <a href="#rsvp" class="mihrab-nav-item">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- AUTO SCROLL DI TENGAH -->
     <button
         onclick="toggleAutoScroll()"
         id="scroll-btn"
-        class="mihrab-nav-item mihrab-scroll"
-    >
-        <i id="scroll-icon" class="fa-solid fa-pause"></i>
+        class="mihrab-scroll"
+        aria-label="Auto Scroll">
+
+        <i id="scroll-icon"
+           class="fa-solid fa-pause"></i>
+
     </button>
 
 </div>
+  
     <div id="konten-utama">
         <section id="salam"
          class="salam-section islamic-section py-24 px-6 text-center">
