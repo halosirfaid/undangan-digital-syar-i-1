@@ -26,17 +26,16 @@
     position: fixed !important;
 
     left: 50% !important;
-    bottom: -150px !important;
+    bottom: -115px !important;
 
     transform: translateX(-50%) !important;
 
-    width: 340px !important;
-    height: 340px !important;
+    width: 270px !important;
+    height: 270px !important;
 
     padding: 0 !important;
-
+    
     display: block !important;
-
     background:
         radial-gradient(
             circle,
@@ -180,9 +179,9 @@
 
     /* posisi radial */
     transform:
-        rotate(var(--angle))
-        translateY(-125px)
-        rotate(calc(var(--angle) * -1));
+    rotate(var(--angle))
+    translateY(-98px)
+    rotate(calc(var(--angle) * -1));
 }
 
 
@@ -365,16 +364,15 @@
 /* =========================================
    HP KECIL
 ========================================= */
-
 @media (max-width:380px) {
 
     #nav-menu.nav-bottom {
 
-        width: 300px !important;
+        width: 245px !important;
 
-        height: 300px !important;
+        height: 245px !important;
 
-        bottom: -135px !important;
+        bottom: -105px !important;
 
     }
 
@@ -387,7 +385,7 @@
 
         transform:
             rotate(var(--angle))
-            translateY(-110px)
+            translateY(-88px)
             rotate(calc(var(--angle) * -1));
 
     }
@@ -5447,6 +5445,138 @@ function feedbackSalin(elemen, teksAsli) {
         }
     }
 
+
+    // ====================================
+// RADIAL MENU — SWIPE / DRAG ROTATION
+// ====================================
+
+function aktifkanRotasiMenu() {
+
+    const wheel = document.getElementById("nav-wheel");
+
+    if (!wheel) return;
+
+    let sedangMemutar = false;
+    let sudutAwal = 0;
+    let rotasiAwal = 0;
+    let rotasiSekarang = 0;
+
+    function ambilSudut(x, y) {
+
+        const rect = wheel.getBoundingClientRect();
+
+        const tengahX = rect.left + rect.width / 2;
+        const tengahY = rect.top + rect.height / 2;
+
+        return Math.atan2(
+            y - tengahY,
+            x - tengahX
+        ) * 180 / Math.PI;
+    }
+
+
+    // ==========================
+    // TOUCH HP
+    // ==========================
+
+    wheel.addEventListener("touchstart", function(e) {
+
+        const touch = e.touches[0];
+
+        sedangMemutar = true;
+
+        sudutAwal =
+            ambilSudut(
+                touch.clientX,
+                touch.clientY
+            );
+
+        rotasiAwal = rotasiSekarang;
+
+    }, { passive: true });
+
+
+    wheel.addEventListener("touchmove", function(e) {
+
+        if (!sedangMemutar) return;
+
+        const touch = e.touches[0];
+
+        const sudutSekarang =
+            ambilSudut(
+                touch.clientX,
+                touch.clientY
+            );
+
+        let selisih =
+            sudutSekarang - sudutAwal;
+
+        rotasiSekarang =
+            rotasiAwal + selisih;
+
+        wheel.style.transform =
+            "rotate(" + rotasiSekarang + "deg)";
+
+    }, { passive: true });
+
+
+    wheel.addEventListener("touchend", function() {
+
+        sedangMemutar = false;
+
+    }, { passive: true });
+
+
+    // ==========================
+    // MOUSE
+    // ==========================
+
+    wheel.addEventListener("mousedown", function(e) {
+
+        sedangMemutar = true;
+
+        sudutAwal =
+            ambilSudut(
+                e.clientX,
+                e.clientY
+            );
+
+        rotasiAwal = rotasiSekarang;
+
+    });
+
+
+    window.addEventListener("mousemove", function(e) {
+
+        if (!sedangMemutar) return;
+
+        const sudutSekarang =
+            ambilSudut(
+                e.clientX,
+                e.clientY
+            );
+
+        let selisih =
+            sudutSekarang - sudutAwal;
+
+        rotasiSekarang =
+            rotasiAwal + selisih;
+
+        wheel.style.transform =
+            "rotate(" + rotasiSekarang + "deg)";
+
+    });
+
+
+    window.addEventListener("mouseup", function() {
+
+        sedangMemutar = false;
+
+    });
+
+}
+
+aktifkanRotasiMenu();
     // 5. Countdown (Rara & Adi 15 April 2026)
     const target = new Date(dataMempelai.tglCountdown).getTime();
     setInterval(() => {
