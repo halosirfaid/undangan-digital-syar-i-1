@@ -18,6 +18,266 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      /* =========================================
+   NAVIGASI MIHRAB SYAR'I
+   ========================================= */
+
+.nav-mihrab {
+    position: fixed;
+
+    left: 50%;
+    bottom: 10px;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 18px);
+    max-width: 540px;
+
+    height: 52px;
+
+    padding: 4px 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: rgba(247, 244, 234, 0.94);
+
+    border: 1px solid rgba(183, 155, 101, 0.55);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 25px rgba(65, 61, 45, 0.14);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    z-index: 9999;
+
+    overflow: visible;
+}
+
+
+/* GARIS ORNAMEN ATAS */
+
+.nav-mihrab::before {
+    content: "";
+
+    position: absolute;
+
+    left: 7%;
+    right: 7%;
+
+    top: -1px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(183,155,101,0.7),
+        transparent
+    );
+}
+
+
+/* ORNAMEN MIHRAB TENGAH */
+
+.nav-mihrab::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: -17px;
+
+    width: 64px;
+    height: 34px;
+
+    transform: translateX(-50%);
+
+    border: 1px solid rgba(183,155,101,0.6);
+
+    border-bottom: none;
+
+    border-radius: 34px 34px 0 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   ITEM
+   ========================================= */
+
+.mihrab-nav-item {
+    position: relative;
+
+    width: 38px;
+    height: 42px;
+
+    flex: 1;
+
+    max-width: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    text-decoration: none;
+
+    color: #6b7055;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* garis kecil di bawah icon */
+
+.mihrab-nav-item::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 3px;
+
+    left: 50%;
+
+    width: 3px;
+    height: 3px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #b79b65;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+
+/* HOVER */
+
+.mihrab-nav-item:hover {
+    color: #4f563f;
+
+    transform: translateY(-2px);
+}
+
+.mihrab-nav-item:hover::after {
+    opacity: 1;
+}
+
+
+/* =========================================
+   AKAD — PUSAT MIHRAB
+   ========================================= */
+
+.mihrab-akad {
+    width: 42px;
+    height: 48px;
+
+    margin-top: -7px;
+
+    color: #596044;
+
+    z-index: 2;
+}
+
+
+/* lingkaran lembut akad */
+
+.mihrab-akad i {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eee9da;
+
+    border: 1px solid rgba(183,155,101,0.7);
+
+    font-size: 14px;
+
+    box-shadow:
+        0 3px 10px rgba(80,75,55,0.08);
+}
+
+
+/* =========================================
+   AUTO SCROLL
+   ========================================= */
+
+.mihrab-scroll {
+    color: #88816e;
+}
+
+.mihrab-scroll i {
+    font-size: 12px;
+}
+
+
+/* =========================================
+   HP KECIL
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .nav-mihrab {
+        width: calc(100% - 8px);
+
+        height: 48px;
+
+        padding: 3px 3px;
+
+        bottom: 6px;
+
+        border-radius: 16px;
+    }
+
+    .mihrab-nav-item {
+        height: 39px;
+
+        font-size: 12px;
+    }
+
+    .mihrab-akad {
+        height: 45px;
+    }
+
+    .mihrab-akad i {
+        width: 29px;
+        height: 29px;
+
+        font-size: 12px;
+    }
+
+    .nav-mihrab::after {
+        width: 56px;
+        height: 29px;
+
+        top: -14px;
+    }
+}
 /* =========================================
    VARIASI LEMBUT
 ========================================= */
@@ -3413,20 +3673,49 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
   
     <div id="music-btn" class="music-control hidden spinning" onclick="toggleMusik()"><i id="music-icon" class="fa-solid fa-music"></i></div>
 
-    <div id="nav-menu" class="nav-bottom hidden">
-        <a href="#salam" class="text-stone-600"><i class="fa-solid fa-heart text-lg"></i></a>
-        <a href="#mempelai" class="text-stone-600"><i class="fa-solid fa-user-friends text-lg"></i></a>
-        <a href="#perjalanan" class="text-stone-600"><i class="fa-solid fa-book-open text-lg"></i></a>
-        <a href="#acara" class="text-stone-600"><i class="fa-solid fa-calendar-alt text-lg"></i></a>
-        <a href="#lokasi" class="text-stone-600"><i class="fa-solid fa-map-location-dot"></i></a>
-        <a href="#adab" class="text-stone-600"><i class="fa-solid fa-book-open text-lg"></i></a>
-        <a href="#kado" class="text-stone-600"><i class="fa-solid fa-gift text-lg"></i></a>
-        <a href="#rsvp" class="text-stone-600"><i class="fa-solid fa-envelope text-lg"></i></a>
-        <button onclick="toggleAutoScroll()" id="scroll-btn" class="text-stone-600">
-    <i id="scroll-icon" class="fa-solid fa-pause text-xs"></i>
-</button>
-    </div>
+    <div id="nav-menu" class="nav-bottom nav-mihrab hidden">
 
+    <a href="#salam" class="mihrab-nav-item">
+        <i class="fa-solid fa-heart"></i>
+    </a>
+
+    <a href="#mempelai" class="mihrab-nav-item">
+        <i class="fa-solid fa-user-group"></i>
+    </a>
+
+    <a href="#perjalanan" class="mihrab-nav-item">
+        <i class="fa-solid fa-book-open"></i>
+    </a>
+
+    <a href="#acara" class="mihrab-nav-item mihrab-akad">
+        <i class="fa-solid fa-mosque"></i>
+    </a>
+
+    <a href="#lokasi" class="mihrab-nav-item">
+        <i class="fa-solid fa-location-dot"></i>
+    </a>
+
+    <a href="#adab" class="mihrab-nav-item">
+        <i class="fa-solid fa-book-open"></i>
+    </a>
+
+    <a href="#kado" class="mihrab-nav-item">
+        <i class="fa-solid fa-gift"></i>
+    </a>
+
+    <a href="#rsvp" class="mihrab-nav-item">
+        <i class="fa-solid fa-envelope"></i>
+    </a>
+
+    <button
+        onclick="toggleAutoScroll()"
+        id="scroll-btn"
+        class="mihrab-nav-item mihrab-scroll"
+    >
+        <i id="scroll-icon" class="fa-solid fa-pause"></i>
+    </button>
+
+</div>
     <div id="konten-utama">
         <section id="salam"
          class="salam-section islamic-section py-24 px-6 text-center">
