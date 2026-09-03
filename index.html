@@ -3903,15 +3903,17 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
                 Tandai tanggalnya
             </p>
 
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Hafizh+%26+Hafizah&details=Mohon+doa+dan+restunya.&location=Kapuas+Kuala"
-               target="_blank"
-               class="kalender-button">
+           <a
+    id="kalender-button"
+    href="#"
+    target="_blank"
+    class="kalender-button">
 
-                <i class="fa-solid fa-calendar-check"></i>
+    <i class="fa-solid fa-calendar-check"></i>
 
-                SIMPAN KE KALENDER
+    SIMPAN KE KALENDER
 
-            </a>
+</a>
 
         </div>
 
@@ -5199,6 +5201,43 @@ document.getElementById("wa-konfirmasi").setAttribute(
     "?text=" +
     encodeURIComponent(pesanWhatsApp)
 );
+// ==============================
+// GOOGLE CALENDAR
+// ==============================
+
+const kalenderButton =
+    document.getElementById("kalender-button");
+
+if (kalenderButton) {
+
+    const namaPengantin =
+        dataMempelai.wanita.panggilan +
+        " & " +
+        dataMempelai.pria.panggilan;
+
+    const tanggalResepsi =
+        dataMempelai.resepsi.tanggal;
+
+    const jamResepsi =
+        dataMempelai.resepsi.jam;
+
+    const tempatResepsi =
+        dataMempelai.resepsi.tempat;
+
+    const urlCalendar =
+        "https://www.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" +
+        encodeURIComponent("Pernikahan " + namaPengantin) +
+        "&details=" +
+        encodeURIComponent(
+            "Mohon doa dan restunya untuk " +
+            namaPengantin
+        ) +
+        "&location=" +
+        encodeURIComponent(tempatResepsi);
+
+    kalenderButton.href = urlCalendar;
+}
   
 }
 
