@@ -18,354 +18,252 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Reem+Kufi&family=Noto+Naskh+Arabic&family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
- /* =========================================
-   NAVIGASI MIHRAB — HALF MOON
+      /* =========================================
+   RADIAL NAVIGATION — SYAR'I DONUT
 ========================================= */
 
-#nav-menu.nav-mihrab {
-
+#nav-menu.nav-bottom {
     position: fixed !important;
 
     left: 50% !important;
-    bottom: 0 !important;
+    bottom: -150px !important;
 
     transform: translateX(-50%) !important;
 
-    width: 100% !important;
-    max-width: 520px !important;
+    width: 340px !important;
+    height: 340px !important;
 
-    height: 78px !important;
+    padding: 0 !important;
 
-    z-index: 9999 !important;
-
-    display: flex !important;
-
-    align-items: flex-end !important;
-    justify-content: center !important;
-
-    pointer-events: none;
-
-}
-
-
-/* =========================================
-   LENGKUNG MIHRAB
-========================================= */
-
-#nav-menu .mihrab-arch {
-
-    position: absolute;
-
-    left: 50%;
-    bottom: -34px;
-
-    width: 170px;
-    height: 92px;
-
-    transform: translateX(-50%);
-
-    border: 1px solid rgba(183,155,101,.55);
-
-    border-bottom: none;
-
-    border-radius: 100px 100px 0 0;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(255,255,255,.55),
-            rgba(247,244,234,.90) 65%,
-            rgba(247,244,234,.96)
-        );
-
-    box-shadow:
-        0 -5px 18px rgba(80,75,55,.06);
-
-    pointer-events: none;
-
-}
-
-
-/* Garis kedua */
-
-#nav-menu .mihrab-arch::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 10px;
-    right: 10px;
-
-    top: 10px;
-
-    height: 70px;
-
-    border: 1px solid rgba(183,155,101,.18);
-
-    border-bottom: none;
-
-    border-radius: 90px 90px 0 0;
-
-}
-
-
-/* =========================================
-   BINTANG DI PUNCAK
-========================================= */
-
-#nav-menu .mihrab-star {
-
-    position: absolute;
-
-    left: 50%;
-    top: -9px;
-
-    transform: translateX(-50%);
-
-    width: 19px;
-    height: 19px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 8px;
-
-    color: #b79b65;
-
-    background: #f7f4ea;
-
-    border-radius: 50%;
-
-    z-index: 3;
-}
-
-
-/* =========================================
-   GARIS HORIZONTAL
-========================================= */
-
-#nav-menu::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 12px;
-    right: 12px;
-
-    bottom: 27px;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(183,155,101,.35) 10%,
-            rgba(183,155,101,.65) 35%,
-            rgba(183,155,101,.65) 65%,
-            rgba(183,155,101,.35) 90%,
-            transparent
-        );
-
-    pointer-events: none;
-
-}
-
-
-/* =========================================
-   AREA MENU YANG BISA DIGESER
-========================================= */
-
-#nav-menu .mihrab-scroll-area {
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    bottom: 4px;
-
-    height: 48px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    display: flex;
-
-    align-items: center;
-
-    pointer-events: auto;
-
-    scrollbar-width: none;
-
-    -webkit-overflow-scrolling: touch;
-
-    overscroll-behavior-x: contain;
-
-}
-
-
-/* Hilangkan scrollbar */
-
-#nav-menu .mihrab-scroll-area::-webkit-scrollbar {
-    display: none;
-}
-
-
-/* =========================================
-   ISI MENU
-========================================= */
-
-#nav-menu .mihrab-scroll-content {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 4px;
-
-    min-width: max-content;
-
-    padding-left: 13px;
-    padding-right: 13px;
-
-    margin: auto;
-
-}
-
-
-/* =========================================
-   IKON MENU
-========================================= */
-
-#nav-menu .mihrab-nav-item {
-
-    flex: 0 0 43px;
-
-    width: 43px;
-    height: 43px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    color: #687054;
-
-    background: transparent;
-
-    border: none;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    transition:
-        transform .25s ease,
-        color .25s ease;
-
-}
-
-
-/* =========================================
-   TITIK DI BAWAH IKON
-========================================= */
-
-#nav-menu .mihrab-nav-item::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    bottom: 1px;
-
-    width: 3px;
-    height: 3px;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background: #b79b65;
-
-    opacity: .45;
-
-}
-
-
-/* =========================================
-   EFEK SENTUH
-========================================= */
-
-#nav-menu .mihrab-nav-item:active {
-
-    transform: translateY(-3px) scale(.94);
-
-    color: #4f573f;
-
-}
-
-
-/* =========================================
-   AUTO SCROLL — PUSAT
-========================================= */
-
-#nav-menu #scroll-btn {
-
-    position: absolute;
-
-    left: 50%;
-    bottom: 27px;
-
-    transform: translateX(-50%);
-
-    width: 43px;
-    height: 43px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #59634d;
+    display: block !important;
 
     background:
         radial-gradient(
             circle,
-            #f7f4ea 58%,
-            rgba(247,244,234,.92) 59%,
-            rgba(247,244,234,.92) 70%,
-            transparent 71%
-        );
+            transparent 0 25%,
+            rgba(247,243,232,.96) 25.5%,
+            rgba(247,243,232,.96) 26%,
+            transparent 26.5%
+        ),
+        linear-gradient(
+            145deg,
+            #faf8f1,
+            #ebe6d8
+        ) !important;
 
-    border: 1px solid rgba(183,155,101,.65);
+    border: 1px solid rgba(183,155,101,.55) !important;
+
+    border-radius: 50% !important;
 
     box-shadow:
-        0 4px 15px rgba(70,70,55,.12);
+        0 -5px 25px rgba(70,70,50,.10),
+        inset 0 0 0 9px rgba(255,255,255,.35),
+        inset 0 0 0 10px rgba(183,155,101,.16) !important;
 
-    font-size: 12px;
+    z-index: 9999 !important;
 
-    z-index: 10;
+    overflow: visible !important;
 
-    pointer-events: auto;
-
-    transition:
-        transform .25s ease,
-        background .25s ease;
-
+    touch-action: none;
 }
 
 
-/* Cincin luar */
+/* =========================================
+   ORNAMEN CINCIN LUAR
+========================================= */
+
+#nav-menu.nav-bottom::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 13px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(183,155,101,.35);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CINCIN DALAM
+========================================= */
+
+#nav-menu.nav-bottom::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 92px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(183,155,101,.40);
+
+    box-shadow:
+        0 0 0 5px rgba(247,243,232,.35);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   WADAH IKON YANG BERPUTAR
+========================================= */
+
+#nav-menu .nav-wheel {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(0deg);
+
+    transform-origin: center;
+
+    touch-action: none;
+}
+
+
+/* =========================================
+   SEMUA IKON
+========================================= */
+
+#nav-menu .mihrab-nav-item {
+
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    width: 44px !important;
+    height: 44px !important;
+
+    margin: -22px !important;
+
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    border: 1px solid rgba(183,155,101,.35) !important;
+
+    background:
+        rgba(250,248,241,.96) !important;
+
+    color: #59634d !important;
+
+    box-shadow:
+        0 3px 10px rgba(60,65,48,.09) !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease !important;
+
+    z-index: 4;
+
+    /* posisi radial */
+    transform:
+        rotate(var(--angle))
+        translateY(-125px)
+        rotate(calc(var(--angle) * -1));
+}
+
+
+/* ikon */
+
+#nav-menu .mihrab-nav-item i {
+
+    font-size: 14px !important;
+
+    color: #59634d !important;
+
+    transition:
+        transform .2s ease,
+        color .2s ease;
+}
+
+
+/* =========================================
+   EFEK IKON AKTIF
+========================================= */
+
+#nav-menu .mihrab-nav-item.active {
+
+    background: #59634d !important;
+
+    border-color: #59634d !important;
+
+    box-shadow:
+        0 5px 15px rgba(60,65,48,.18) !important;
+}
+
+#nav-menu .mihrab-nav-item.active i {
+
+    color: #fff !important;
+}
+
+
+/* =========================================
+   TOMBOL AUTO SCROLL
+   TETAP DI TENGAH
+========================================= */
+
+#nav-menu #scroll-btn {
+
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    width: 86px !important;
+    height: 86px !important;
+
+    margin: -43px !important;
+
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    background:
+        #f7f3e8 !important;
+
+    border: 1px solid rgba(183,155,101,.65) !important;
+
+    color: #59634d !important;
+
+    box-shadow:
+        0 5px 18px rgba(60,65,48,.13),
+        inset 0 0 0 7px rgba(255,255,255,.45) !important;
+
+    z-index: 20 !important;
+
+    transform: none !important;
+}
+
+
+/* lingkaran kecil di dalam tombol */
 
 #nav-menu #scroll-btn::before {
 
@@ -373,29 +271,17 @@
 
     position: absolute;
 
-    inset: 4px;
-
-    border: 1px solid rgba(183,155,101,.22);
+    inset: 8px;
 
     border-radius: 50%;
 
+    border: 1px solid rgba(183,155,101,.25);
+
+    pointer-events: none;
 }
 
 
-/* Tekan */
-
-#nav-menu #scroll-btn:active {
-
-    transform:
-        translateX(-50%)
-        scale(.92);
-
-}
-
-
-/* =========================================
-   IKON AUTO SCROLL
-========================================= */
+/* ikon pause/play */
 
 #nav-menu #scroll-btn i {
 
@@ -403,8 +289,76 @@
 
     z-index: 2;
 
-    font-size: 11px;
+    font-size: 17px !important;
 
+    color: #59634d !important;
+}
+
+
+/* ketika ON */
+
+#nav-menu #scroll-btn.auto-on {
+
+    background: #59634d !important;
+
+    border-color: #59634d !important;
+
+}
+
+#nav-menu #scroll-btn.auto-on i {
+
+    color: #fff !important;
+}
+
+
+/* =========================================
+   ORNAMEN MIHRAB BAGIAN ATAS
+========================================= */
+
+#nav-menu .mihrab-top-ornament {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 8px;
+
+    transform: translateX(-50%);
+
+    width: 44px;
+    height: 25px;
+
+    border:
+        1px solid
+        rgba(183,155,101,.45);
+
+    border-bottom: none;
+
+    border-radius: 30px 30px 0 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+#nav-menu .mihrab-top-ornament::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+    top: -8px;
+
+    transform: translateX(-50%);
+
+    color: #b79b65;
+
+    font-size: 9px;
+
+    background: #f7f3e8;
+
+    padding: 0 5px;
 }
 
 
@@ -414,51 +368,42 @@
 
 @media (max-width:380px) {
 
-    #nav-menu.nav-mihrab {
+    #nav-menu.nav-bottom {
 
-        height: 72px !important;
+        width: 300px !important;
 
-    }
+        height: 300px !important;
 
-
-    #nav-menu .mihrab-arch {
-
-        width: 145px;
-
-        height: 80px;
-
-        bottom: -30px;
+        bottom: -135px !important;
 
     }
-
 
     #nav-menu .mihrab-nav-item {
 
-        flex-basis: 40px;
+        width: 40px !important;
+        height: 40px !important;
 
-        width: 40px;
-        height: 40px;
+        margin: -20px !important;
 
-        font-size: 11px;
+        transform:
+            rotate(var(--angle))
+            translateY(-110px)
+            rotate(calc(var(--angle) * -1));
 
     }
-
 
     #nav-menu #scroll-btn {
 
-        width: 39px;
-        height: 39px;
+        width: 78px !important;
+        height: 78px !important;
 
-        bottom: 25px;
+        margin: -39px !important;
 
     }
 
+    #nav-menu #scroll-btn i {
 
-    #nav-menu .mihrab-scroll-area {
-
-        bottom: 3px;
-
-        height: 45px;
+        font-size: 15px !important;
 
     }
 
@@ -3858,64 +3803,129 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
   
     <div id="music-btn" class="music-control hidden spinning" onclick="toggleMusik()"><i id="music-icon" class="fa-solid fa-music"></i></div>
 
-    <!-- =========================================
-     NAVIGASI MIHRAB
+  <!-- =========================================
+     RADIAL MENU — SYAR'I DONUT
 ========================================= -->
 
-<div id="nav-menu" class="nav-mihrab hidden">
+<div id="nav-menu"
+     class="nav-bottom hidden">
 
-    <!-- Lengkungan Mihrab -->
-    <div class="mihrab-arch">
-        <div class="mihrab-star">✦</div>
+    <!-- ORNAMEN MIHRAB -->
+    <div class="mihrab-top-ornament"></div>
+
+
+    <!-- RODA YANG BISA DIPUTAR -->
+
+    <div class="nav-wheel"
+         id="nav-wheel">
+
+
+        <!-- SALAM -->
+
+        <a href="#salam"
+           class="mihrab-nav-item"
+           style="--angle:-75deg"
+           aria-label="Salam">
+
+            <i class="fa-solid fa-heart"></i>
+
+        </a>
+
+
+        <!-- MEMPELAI -->
+
+        <a href="#mempelai"
+           class="mihrab-nav-item"
+           style="--angle:-50deg"
+           aria-label="Mempelai">
+
+            <i class="fa-solid fa-user-group"></i>
+
+        </a>
+
+
+        <!-- PERJALANAN -->
+
+        <a href="#perjalanan"
+           class="mihrab-nav-item"
+           style="--angle:-25deg"
+           aria-label="Perjalanan">
+
+            <i class="fa-solid fa-book-open"></i>
+
+        </a>
+
+
+        <!-- ACARA -->
+
+        <a href="#acara"
+           class="mihrab-nav-item"
+           style="--angle:0deg"
+           aria-label="Acara">
+
+            <i class="fa-solid fa-mosque"></i>
+
+        </a>
+
+
+        <!-- LOKASI -->
+
+        <a href="#lokasi"
+           class="mihrab-nav-item"
+           style="--angle:25deg"
+           aria-label="Lokasi">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+        </a>
+
+
+        <!-- ADAB -->
+
+        <a href="#adab"
+           class="mihrab-nav-item"
+           style="--angle:50deg"
+           aria-label="Adab">
+
+            <i class="fa-solid fa-book-open"></i>
+
+        </a>
+
+
+        <!-- KADO -->
+
+        <a href="#kado"
+           class="mihrab-nav-item"
+           style="--angle:75deg"
+           aria-label="Kado">
+
+            <i class="fa-solid fa-gift"></i>
+
+        </a>
+
+
+        <!-- RSVP -->
+
+        <a href="#rsvp"
+           class="mihrab-nav-item"
+           style="--angle:100deg"
+           aria-label="Ucapan">
+
+            <i class="fa-solid fa-envelope"></i>
+
+        </a>
+
     </div>
 
-    <!-- MENU YANG BISA DIGESER -->
-    <div class="mihrab-scroll-area">
 
-        <div class="mihrab-scroll-content">
+    <!-- =================================
+         LUBANG DONAT
+         AUTO SCROLL
+    ================================= -->
 
-            <a href="#salam" class="mihrab-nav-item">
-                <i class="fa-solid fa-heart"></i>
-            </a>
-
-            <a href="#mempelai" class="mihrab-nav-item">
-                <i class="fa-solid fa-user-group"></i>
-            </a>
-
-            <a href="#perjalanan" class="mihrab-nav-item">
-                <i class="fa-solid fa-book-open"></i>
-            </a>
-
-            <a href="#acara" class="mihrab-nav-item">
-                <i class="fa-solid fa-mosque"></i>
-            </a>
-
-            <a href="#lokasi" class="mihrab-nav-item">
-                <i class="fa-solid fa-location-dot"></i>
-            </a>
-
-            <a href="#adab" class="mihrab-nav-item">
-                <i class="fa-solid fa-book-open"></i>
-            </a>
-
-            <a href="#kado" class="mihrab-nav-item">
-                <i class="fa-solid fa-gift"></i>
-            </a>
-
-            <a href="#rsvp" class="mihrab-nav-item">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- AUTO SCROLL DI TENGAH -->
     <button
-        onclick="toggleAutoScroll()"
         id="scroll-btn"
-        class="mihrab-scroll"
+        type="button"
         aria-label="Auto Scroll">
 
         <i id="scroll-icon"
