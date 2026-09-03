@@ -1,7 +1,8 @@
 // FILE DATA MEMPELAI (Klien tinggal diganti di sini)
 const dataMempelai = {
     idUndangan: "Hafizh-Hafizah", // Sesuai ID tujuan Google Sheets kamu
-    tglCountdown: "July 25, 2026 09:00:00", // Format: Bulan Tanggal, Tahun Jam:Menit:Detik
+    tglCountdown: "25 Juli 2026",
+    jamCountdown: "09:00",
     namaChatSingle: "Hafizh & Hafizah",
     namaChatGrup: "Keluarga & Sahabat Hafizh & Hafizah",   
 
