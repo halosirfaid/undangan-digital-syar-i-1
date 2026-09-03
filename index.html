@@ -5201,7 +5201,7 @@ document.getElementById("wa-konfirmasi").setAttribute(
     "?text=" +
     encodeURIComponent(pesanWhatsApp)
 );
-// ==============================
+  // ==============================
 // GOOGLE CALENDAR
 // ==============================
 
@@ -5210,11 +5210,13 @@ const kalenderButton =
 
 if (kalenderButton) {
 
-    const namaPengantin =
+    // Nama pasangan
+    const namaAcara =
         dataMempelai.wanita.panggilan +
         " & " +
         dataMempelai.pria.panggilan;
 
+    // Data resepsi
     const tanggalResepsi =
         dataMempelai.resepsi.tanggal;
 
@@ -5224,21 +5226,136 @@ if (kalenderButton) {
     const tempatResepsi =
         dataMempelai.resepsi.tempat;
 
+
+    // ==============================
+    // UBAH TANGGAL INDONESIA
+    // ==============================
+
+    const namaBulan = {
+        "Januari": "01",
+        "Februari": "02",
+        "Maret": "03",
+        "April": "04",
+        "Mei": "05",
+        "Juni": "06",
+        "Juli": "07",
+        "Agustus": "08",
+        "September": "09",
+        "Oktober": "10",
+        "November": "11",
+        "Desember": "12"
+    };
+
+    const bagianTanggal =
+        tanggalResepsi.split(" ");
+
+    const tanggal =
+        bagianTanggal[0].padStart(2, "0");
+
+    const bulan =
+        namaBulan[bagianTanggal[1]];
+
+    const tahun =
+        bagianTanggal[2];
+
+
+    // ==============================
+    // AMBIL JAM MULAI
+    // ==============================
+
+    const jamMulai =
+        jamResepsi
+        .split("-")[0]
+        .trim()
+        .replace(".", ":");
+
+
+    const bagianJam =
+        jamMulai.split(":");
+
+    const jam =
+        bagianJam[0].padStart(2, "0");
+
+    const menit =
+        bagianJam[1] || "00";
+
+
+    // ==============================
+    // FORMAT GOOGLE CALENDAR
+    // ==============================
+
+    const tanggalCalendar =
+        tahun +
+        bulan +
+        tanggal;
+
+    const waktuMulai =
+        tanggalCalendar +
+        "T" +
+        jam +
+        menit +
+        "00";
+
+
+    // Karena acara tertulis "Selesai",
+    // kita gunakan 1 jam sebagai durasi
+    // kalender saja.
+
+    let jamSelesai =
+        parseInt(jam) + 1;
+
+    let tanggalSelesai =
+        tanggalCalendar;
+
+    if (jamSelesai >= 24) {
+        jamSelesai = 0;
+    }
+
+    const waktuSelesai =
+        tanggalSelesai +
+        "T" +
+        String(jamSelesai).padStart(2, "0") +
+        menit +
+        "00";
+
+
+    // ==============================
+    // BUAT LINK GOOGLE CALENDAR
+    // ==============================
+
     const urlCalendar =
         "https://www.google.com/calendar/render?action=TEMPLATE" +
+
         "&text=" +
-        encodeURIComponent("Pernikahan " + namaPengantin) +
+        encodeURIComponent(
+            "Pernikahan " + namaAcara
+        ) +
+
+        "&dates=" +
+        waktuMulai +
+        "/" +
+        waktuSelesai +
+
         "&details=" +
         encodeURIComponent(
-            "Mohon doa dan restunya untuk " +
-            namaPengantin
+            "Walimah " +
+            namaAcara +
+            "\n\n" +
+            "Waktu: " +
+            jamResepsi +
+            "\n\n" +
+            "Mohon doa dan restunya."
         ) +
-        "&location=" +
-        encodeURIComponent(tempatResepsi);
 
-    kalenderButton.href = urlCalendar;
+        "&location=" +
+        encodeURIComponent(
+            tempatResepsi
+        );
+
+
+    kalenderButton.href =
+        urlCalendar;
 }
-  
 }
 
  function mulaiPreloader(){
