@@ -3416,7 +3416,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
     <div id="nav-menu" class="nav-bottom hidden">
         <a href="#salam" class="text-stone-600"><i class="fa-solid fa-heart text-lg"></i></a>
         <a href="#mempelai" class="text-stone-600"><i class="fa-solid fa-user-friends text-lg"></i></a>
-        <a href="#story" class="text-stone-600"><i class="fa-solid fa-book-open text-lg"></i></a>
+        <a href="#perjalanan" class="text-stone-600"><i class="fa-solid fa-book-open text-lg"></i></a>
         <a href="#acara" class="text-stone-600"><i class="fa-solid fa-calendar-alt text-lg"></i></a>
         <a href="#lokasi" class="text-stone-600"><i class="fa-solid fa-map-location-dot"></i></a>
         <a href="#adab" class="text-stone-600"><i class="fa-solid fa-book-open text-lg"></i></a>
@@ -4308,9 +4308,8 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             </p>
 
             <button
-                onclick="salinTeks('123456789012','Mandiri',this)"
+               <button onclick="salinTeks(dataMempelai.kado.mandiriNo, 'Mandiri', this)">
                 class="amanah-salin">
-
                 <i class="fa-regular fa-copy"></i>
                 Salin Nomor
 
@@ -4340,7 +4339,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             </p>
 
             <button
-                onclick="salinTeks('0987654321','BCA',this)"
+               onclick="salinTeks(dataMempelai.kado.bcaNo, 'BCA', this)"
                 class="amanah-salin">
 
                 <i class="fa-regular fa-copy"></i>
@@ -4372,7 +4371,7 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             </p>
 
             <button
-                onclick="salinTeks('082149971287','DANA',this)"
+                onclick="salinTeks(dataMempelai.kado.danaNo, 'DANA', this)"
                 class="amanah-salin">
 
                 <i class="fa-regular fa-copy"></i>
@@ -4409,12 +4408,8 @@ class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone
             </p>
 
             <button
-                onclick="salinTeks(
-                    'Jl. Trans Kalimantan No. 123, Kuala Kapuas, Kapuas Murung',
-                    'Alamat',
-                    this
-                )"
-                class="amanah-salin">
+            onclick="salinTeks(dataMempelai.kado.alamatKirim, 'Alamat', this)"  
+            class="amanah-salin">
 
                 <i class="fa-regular fa-copy"></i>
                 Salin Alamat
@@ -4726,32 +4721,99 @@ window.onerror = function(pesan, file, baris){
     );
 
 };
-  
-    function salinTeks(nomor, label, elemen) {
+
+  // ======================================================
+// FUNGSI SALIN DATA KADO
+// Semua nomor diambil langsung dari Data.js
+// ======================================================
+
+function salinTeks(nomor, label, elemen) {
+
     const teksAsli = elemen.innerText;
-    
+
+    // Pastikan ada data yang akan disalin
+    if (!nomor) {
+        alert("Data " + label + " belum tersedia.");
+        return;
+    }
+
+    // Cara utama: Clipboard API
     if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(nomor).then(() => {
-            feedbackSalin(elemen, teksAsli);
-        }).catch(err => { 
-            fallbackSalin(nomor); 
-            feedbackSalin(elemen, teksAsli);
-        });
-    } else { 
-        fallbackSalin(nomor); 
-        feedbackSalin(elemen, teksAsli);
+
+        navigator.clipboard.writeText(String(nomor))
+            .then(() => {
+                feedbackSalin(elemen, teksAsli);
+            })
+            .catch(() => {
+                fallbackSalin(nomor, elemen, teksAsli);
+            });
+
+    } else {
+
+        // Cara cadangan
+        fallbackSalin(nomor, elemen, teksAsli);
     }
 }
 
-// Fungsi untuk memberi efek tulisan berubah
+
+// ======================================================
+// CARA CADANGAN UNTUK MENYALIN
+// ======================================================
+
+function fallbackSalin(nomor, elemen, teksAsli) {
+
+    const textarea = document.createElement("textarea");
+
+    textarea.value = String(nomor);
+
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    textarea.style.top = "0";
+
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try {
+
+        document.execCommand("copy");
+
+        feedbackSalin(elemen, teksAsli);
+
+    } catch (error) {
+
+        alert("Gagal menyalin. Silakan salin secara manual.");
+
+    }
+
+    document.body.removeChild(textarea);
+}
+
+
+// ======================================================
+// TAMPILAN SETELAH BERHASIL DISALIN
+// ======================================================
+
 function feedbackSalin(elemen, teksAsli) {
+
     elemen.innerText = "BERHASIL DISALIN!";
-    elemen.classList.add('bg-green-600', 'text-white');
-    
+
+    elemen.classList.add(
+        "bg-green-600",
+        "text-white"
+    );
+
     setTimeout(() => {
+
         elemen.innerText = teksAsli;
-        elemen.classList.remove('bg-green-600', 'text-white');
-    }, 2000); // Kembali ke tulisan asli setelah 2 detik
+
+        elemen.classList.remove(
+            "bg-green-600",
+            "text-white"
+        );
+
+    }, 2000);
 }
 
     // 1. SETTING UTAMA (Ganti idUndangan setiap ada pesanan baru)
