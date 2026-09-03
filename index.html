@@ -4939,25 +4939,128 @@ function feedbackSalin(elemen, teksAsli) {
         }
     }
 
-    // 5. Countdown (Rara & Adi 15 April 2026)
-    const target = new Date(dataMempelai.tglCountdown).getTime();
-    setInterval(() => {
-        const sisa = target - new Date().getTime();
-        document.getElementById("days").innerText = Math.floor(sisa / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerText = Math.floor((sisa % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerText = Math.floor((sisa % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerText = Math.floor((sisa % (1000 * 60)) / 1000);
-    }, 1000);
+// ==============================
+// COUNTDOWN
+// ==============================
 
-    function scrollReveal() {
-        const reveals = document.querySelectorAll(".reveal");
-        reveals.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100 && rect.bottom > 0) el.classList.add("active");
-            else el.classList.remove("active");
-        });
+const namaBulanCountdown = {
+    "Januari": 0,
+    "Februari": 1,
+    "Maret": 2,
+    "April": 3,
+    "Mei": 4,
+    "Juni": 5,
+    "Juli": 6,
+    "Agustus": 7,
+    "September": 8,
+    "Oktober": 9,
+    "November": 10,
+    "Desember": 11
+};
+
+function mulaiCountdown() {
+
+    const bagianTanggal =
+        dataMempelai.tglCountdown.trim().split(" ");
+
+    const tanggal =
+        parseInt(bagianTanggal[0]);
+
+    const bulan =
+        namaBulanCountdown[bagianTanggal[1]];
+
+    const tahun =
+        parseInt(bagianTanggal[2]);
+
+    const bagianJam =
+        dataMempelai.jamCountdown.split(":");
+
+    const jam =
+        parseInt(bagianJam[0]) || 0;
+
+    const menit =
+        parseInt(bagianJam[1]) || 0;
+
+    const target =
+        new Date(
+            tahun,
+            bulan,
+            tanggal,
+            jam,
+            menit,
+            0
+        ).getTime();
+
+
+    function updateCountdown() {
+
+        const sekarang =
+            new Date().getTime();
+
+        let sisa =
+            target - sekarang;
+
+
+        // Jika tanggal sudah lewat
+        if (sisa <= 0) {
+
+            document.getElementById("days").innerText = "0";
+            document.getElementById("hours").innerText = "0";
+            document.getElementById("minutes").innerText = "0";
+            document.getElementById("seconds").innerText = "0";
+
+            return;
+        }
+
+
+        const hari =
+            Math.floor(
+                sisa /
+                (1000 * 60 * 60 * 24)
+            );
+
+        const jamSisa =
+            Math.floor(
+                (sisa /
+                (1000 * 60 * 60)) % 24
+            );
+
+        const menitSisa =
+            Math.floor(
+                (sisa /
+                (1000 * 60)) % 60
+            );
+
+        const detikSisa =
+            Math.floor(
+                (sisa /
+                1000) % 60
+            );
+
+
+        document.getElementById("days").innerText =
+            hari;
+
+        document.getElementById("hours").innerText =
+            jamSisa;
+
+        document.getElementById("minutes").innerText =
+            menitSisa;
+
+        document.getElementById("seconds").innerText =
+            detikSisa;
     }
 
+
+    updateCountdown();
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
+}
+
+mulaiCountdown();    
 //====================================
 // GALERI
 //====================================
