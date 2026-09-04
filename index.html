@@ -3827,38 +3827,43 @@
 </head>
 <body class="bg-stone-50">
 
-<!-- =========================
-     PRELOADER
-========================= -->
-<div id="preloader"
-class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone-950 text-white">
+<!-- PRELOADER ELEGAN -->
+<div id="preloader">
 
-    <h1 id="preloader-logo"
-        class="font-aesthetic text-5xl mb-4">
-        A ♥ B
-    </h1>
+    <div class="preloader-ornament top">
+        ✦
+    </div>
 
-    <p id="preloader-title"
-       class="text-xs tracking-[0.3em] uppercase opacity-80">
-        Memuat Undangan...
-    </p>
+    <div class="preloader-content">
 
-    <div class="w-64 h-2 bg-white/20 rounded-full overflow-hidden mt-6">
+        <div class="preloader-bismillah">
+            ﷽
+        </div>
 
-        <div id="loading-bar"
-             class="h-full bg-amber-500 transition-all duration-300"
-             style="width:0%">
+        <div class="preloader-line"></div>
+
+        <div class="preloader-title">
+            WALIMATUL 'URS
+        </div>
+
+        <div class="preloader-line"></div>
+
+        <div class="preloader-spinner">
+            <span></span>
+        </div>
+
+        <div class="preloader-loading">
+            Menyiapkan undangan
         </div>
 
     </div>
 
-    <p id="loading-text"
-       class="mt-3 text-sm font-bold">
-        0%
-    </p>
+    <div class="preloader-ornament bottom">
+        ✦
+    </div>
 
 </div>
-
+  
 <!-- =========================
      SAMPUL SYAR'I
 ========================= -->
@@ -6040,40 +6045,25 @@ if (kalenderButton) {
 }
 }
 
- function mulaiPreloader(){
 
-    let persen = 0;
+function mulaiPreloader() {
 
-    const text = document.getElementById("loading-text");
-    const bar = document.getElementById("loading-bar");
+    setTimeout(() => {
 
-    const timer = setInterval(()=>{
+        const preloader = document.getElementById("preloader");
 
-        persen++;
+        if (!preloader) return;
 
-        text.textContent = persen + "%";
+        preloader.style.opacity = "0";
+        preloader.style.visibility = "hidden";
 
-        bar.style.width = persen + "%";
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 1000);
 
-        if(persen>=100){
+    }, 1800);
 
-            clearInterval(timer);
-
-            document.getElementById("preloader").style.opacity="0";
-
-            setTimeout(()=>{
-
-                document.getElementById("preloader").style.display="none";
-
-            },500);
-
-        }
-
-    },20);
-
-} 
-
-
+}
 
 
 
