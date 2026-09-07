@@ -4050,13 +4050,86 @@
             display: flex; gap: 15px; background: rgba(255, 255, 255, 0.9);
             padding: 12px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 99;
         }
-        .music-control {
-            position: fixed; bottom: 90px; right: 20px; width: 45px; height: 45px;
-            background: #b4975a; color: white; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; z-index: 100;
-        }
-        .spinning { animation: spin 4s linear infinite; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* MUSIC CONTROL — MEDALLION */
+.music-control {
+    position: fixed;
+    right: 20px;
+    bottom: 88px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f7f3e8;
+    color: #59634d;
+    border: 1px solid rgba(183,155,101,.65);
+    box-shadow:
+        0 6px 18px rgba(60,65,48,.16),
+        inset 0 0 0 4px rgba(255,255,255,.65);
+    z-index: 100;
+    cursor: pointer;
+}
+
+.music-control::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(183,155,101,.28);
+}
+
+.music-control::after {
+    content: "✦";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b79b65;
+    font-size: 8px;
+    background: #f7f3e8;
+    padding: 0 3px;
+}
+
+.music-control i {
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    color: #59634d;
+}
+
+.music-control.spinning::before {
+    border-top-color: #b79b65;
+    animation: musicRing 3s linear infinite;
+}
+
+@keyframes musicRing {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.music-control:active {
+    transform: scale(.92);
+}
+
+@media (max-width:380px) {
+    .music-control {
+        width: 44px;
+        height: 44px;
+        right: 16px;
+        bottom: 80px;
+    }
+
+    .music-control i {
+        font-size: 13px;
+    }
+}
+      
         #konten-utama { display: none; }
         .chat-bubble { position: relative; background: #f3f4f6; padding: 15px; border-radius: 15px; margin-bottom: 10px; max-width: 80%; }
         .chat-bubble::after { content: ''; position: absolute; left: -10px; top: 10px; border-width: 10px; border-style: solid; border-color: transparent #f3f4f6 transparent transparent; }
